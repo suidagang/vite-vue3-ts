@@ -3,10 +3,11 @@
   <input type="text" v-model="message2" />
   <!-- 多层obj -->
   <input type="text" v-model="message3.a.b.c" />
+  <input type="text" v-model="obj.name" />
 </template>
 
 <script setup lang="ts">
-import { Ref, ref, watch } from 'vue';
+import { reactive, Ref, ref, watch } from 'vue';
 
 let message = ref<string>('');
 let message2: Ref<string> = ref('');
@@ -32,6 +33,18 @@ watch(
   }
 );
 //!reactive 写不写deep：ture 都能监听深层次的对象
+
+//!reactive 单独属性监听
+let obj = reactive({
+  name: '眭刚',
+  age: '32'
+});
+watch(
+  () => obj.name,
+  (newVal, oldVal) => {
+    console.log(newVal, oldVal);
+  }
+);
 </script>
 
 <style scoped></style>
