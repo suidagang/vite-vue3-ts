@@ -1,0 +1,22 @@
+{
+  // 编译选项
+  "compilerOptions": {
+    // 编译输出目标 ES 版本
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    // 采用的模块系统
+    "module": "esnext",
+    // 如何处理模块
+    "moduleResolution": "node",
+    // 以严格模式解析
+    "strict": true,
+    "jsx": "preserve",
+    // 是否包含可以用于 debug 的 sourceMap
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
