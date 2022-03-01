@@ -4,7 +4,8 @@
   <!-- <PropsAndEmits />
   <SloteAndAttrs />
   <Expose /> -->
-  <Watch />
+  <!-- <Watch /> -->
+  <WatchEffect />
 </template>
 
 <script setup lang="ts">
@@ -16,6 +17,7 @@ import PropsAndEmits from './components/PropsAndEmits.vue';
 import SloteAndAttrs from './components/SloteAndAttrs.vue';
 import Expose from './components/Expose.vue';
 import Watch from './components/Watch.vue';
+import WatchEffect from './components/WatchEffect.vue';
 </script>
 <style>
 #app {
