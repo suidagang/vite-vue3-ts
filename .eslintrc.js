@@ -61,6 +61,21 @@ module.exports = {
             {
                 endOfLine: 'auto'
             }
-        ]
+        ],
+        "vue/max-attributes-per-line": [
+            "error",
+            {
+                singleline: {
+                    max: 3
+                },
+                multiline: {
+                    max: 3
+                }
+            }
+        ],
+        "vue/v-on-event-hyphenation": ["error", "always" | "never", {
+            "autofix": false,
+            "ignore": []
+        }]
     }
 };

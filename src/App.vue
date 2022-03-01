@@ -1,6 +1,7 @@
 <template>
   <Ref msg="ref全家桶" />
   <Reactive msg="reactive全家桶" />
+  <PropsAndEmits />
 </template>
 
 <script setup lang="ts">
@@ -8,6 +9,7 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import Ref from './components/Ref.vue';
 import Reactive from './components/Reactive.vue';
+import PropsAndEmits from './components/PropsAndEmits.vue';
 </script>
 <style>
 #app {
