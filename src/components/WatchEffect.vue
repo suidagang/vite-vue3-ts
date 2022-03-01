@@ -23,9 +23,9 @@ let stop = watchEffect(
     });
   },
   {
-    flush: 'post', //post（组件更新后）pre（组件更新前）sync（强制效果始终同步触发）
+    flush: 'post', //!post（组件更新后）pre（组件更新前）sync（强制效果始终同步触发）
     onTrigger(e) {
-      //方便调试
+      //!方便调试
       debugger;
     }
   }
