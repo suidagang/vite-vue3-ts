@@ -1,9 +1,10 @@
 <template>
   <!-- <Ref msg="ref全家桶" /> -->
-  <Reactive msg="reactive全家桶" />
+  <!-- <Reactive msg="reactive全家桶" /> -->
   <!-- <PropsAndEmits />
   <SloteAndAttrs />
   <Expose /> -->
+  <Watch />
 </template>
 
 <script setup lang="ts">
@@ -14,6 +15,7 @@ import Reactive from './components/Reactive.vue';
 import PropsAndEmits from './components/PropsAndEmits.vue';
 import SloteAndAttrs from './components/SloteAndAttrs.vue';
 import Expose from './components/Expose.vue';
+import Watch from './components/Watch.vue';
 </script>
 <style>
 #app {
