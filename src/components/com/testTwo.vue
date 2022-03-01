@@ -9,7 +9,7 @@ import { type } from 'os';
 import { useSlots, onMounted, useAttrs } from 'vue';
 defineProps({
   a: {
-    type: Number,
+    type: [Number, String],
     require: true
   }
 });
