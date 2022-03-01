@@ -1,7 +1,9 @@
 <template>
-  <Ref msg="ref全家桶" />
+  <!-- <Ref msg="ref全家桶" />
   <Reactive msg="reactive全家桶" />
   <PropsAndEmits />
+  <SloteAndAttrs /> -->
+  <Expose />
 </template>
 
 <script setup lang="ts">
@@ -10,6 +12,8 @@
 import Ref from './components/Ref.vue';
 import Reactive from './components/Reactive.vue';
 import PropsAndEmits from './components/PropsAndEmits.vue';
+import SloteAndAttrs from './components/SloteAndAttrs.vue';
+import Expose from './components/Expose.vue';
 </script>
 <style>
 #app {
