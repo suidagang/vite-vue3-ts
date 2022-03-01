@@ -4,8 +4,6 @@
 </template>
 
 <script setup lang="ts">
-import { on } from 'events';
-import { type } from 'os';
 import { useSlots, onMounted, useAttrs } from 'vue';
 defineProps({
   a: {
