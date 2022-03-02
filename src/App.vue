@@ -5,7 +5,8 @@
   <SloteAndAttrs />
   <Expose /> -->
   <!-- <Watch /> -->
-  <WatchEffect />
+  <!-- <WatchEffect /> -->
+  <Globle />
 </template>
 
 <script setup lang="ts">
