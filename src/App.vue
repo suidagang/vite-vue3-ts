@@ -7,7 +7,8 @@
   <!-- <Watch /> -->
   <!-- <WatchEffect /> -->
   <!-- <Globle /> -->
-  <Layout />
+  <Async />
+  <!-- <Layout /> -->
 </template>
 
 <script setup lang="ts">
@@ -21,6 +22,7 @@ import Expose from './components/Expose.vue';
 import Watch from './components/Watch.vue';
 import WatchEffect from './components/WatchEffect.vue';
 import Layout from './layout/index.vue';
+import Async from './components/async.vue';
 </script>
 <style>
 html,
