@@ -6,7 +6,8 @@
   <Expose /> -->
   <!-- <Watch /> -->
   <!-- <WatchEffect /> -->
-  <Globle />
+  <!-- <Globle /> -->
+  <Layout />
 </template>
 
 <script setup lang="ts">
@@ -19,14 +20,20 @@ import SloteAndAttrs from './components/SloteAndAttrs.vue';
 import Expose from './components/Expose.vue';
 import Watch from './components/Watch.vue';
 import WatchEffect from './components/WatchEffect.vue';
+import Layout from './layout/index.vue';
 </script>
 <style>
+html,
+body,
+#app {
+  height: 100%;
+  overflow: hidden;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
