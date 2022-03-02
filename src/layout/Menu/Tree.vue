@@ -7,6 +7,7 @@
       :key="index"
     >
       {{ item.name }}
+      <!-- ?语法解析：解决报错 ?? （双问号）还可以赋值 -->
       <TreeItem
         @clickItem="clickItem"
         v-if="item?.children?.length"
