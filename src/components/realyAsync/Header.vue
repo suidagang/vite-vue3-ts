@@ -1,6 +1,6 @@
 <template>
   <div>我是头</div>
-  <div v-for="(item, index) in list">{{ item.name }}</div>
+  <div v-for="(item, index) in list" :key="index">{{ item.name }}</div>
 </template>
 
 <script setup lang="ts">

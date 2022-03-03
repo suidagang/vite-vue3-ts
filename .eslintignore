@@ -3,3 +3,4 @@ dist
 *.d.ts
 package.json
 .eslintrc.js
+ts-demo/*

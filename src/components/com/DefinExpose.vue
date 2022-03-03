@@ -8,6 +8,7 @@ import { ref } from 'vue';
 
 const msg = ref('Child msg');
 const num = ref(123);
+/* eslint-disable */
 const handle = (): void => {
   alert('暴露子组件');
 };

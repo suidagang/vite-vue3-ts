@@ -1,7 +1,7 @@
 <template>
   <div class="menu">
     左侧菜单
-    <ComTree @clickItem="clickItem" msg="测试msg" :menuList="menuList" />
+    <ComTree msg="测试msg" :menu-list="menuList" @clickItem="clickItem" />
   </div>
 </template>
 

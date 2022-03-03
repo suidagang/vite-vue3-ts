@@ -2,10 +2,10 @@
 <template>
   <div class="tab">
     <div
-      @click="choiceList(item)"
-      v-for="(item, index) in data"
+      v-for="item in data"
       :key="item.name"
       class="list"
+      @click="choiceList(item)"
     >
       {{ item.name }}
     </div>

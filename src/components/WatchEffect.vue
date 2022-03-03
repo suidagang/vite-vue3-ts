@@ -1,8 +1,8 @@
 <template>
-  <input type="text" v-model="message" />
-  <input type="text" v-model="message2" />
+  <input v-model="message" type="text" />
+  <input v-model="message2" type="text" />
   <button @click="stopEffet">停止watchEffect</button>
-  <div id="ipt"></div>
+  <div id="ipt" />
 </template>
 
 <script setup lang="ts">
@@ -25,6 +25,7 @@ let stop = watchEffect(
   {
     flush: 'post', //!post（组件更新后）pre（组件更新前）sync（强制效果始终同步触发）
     onTrigger(e) {
+      console.log(e);
       //!方便调试
       debugger;
     }

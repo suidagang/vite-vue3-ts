@@ -5,15 +5,15 @@
     <!-- 简写v-slot: => #first -->
     <!-- <template v-slot:first> 我最先插入 </template> -->
     <template #first> 我最先插入 </template>
-    <template v-slot>
+    <template #default>
       <div>我是匿名插槽的父组件</div>
     </template>
-    <template v-slot:next> 我最后插入 </template>
+    <template #next> 我最后插入 </template>
   </Header>
   <!-- 作用域插槽 -->
   <Content>
     <!-- 简写 v-slot= ====> #default -->
-    <template v-slot="{ data, index }">
+    <template #default="{ data, index }">
       <div>{{ data.name }}--{{ index }}--{{ data.age }}</div>
     </template>
   </Content>

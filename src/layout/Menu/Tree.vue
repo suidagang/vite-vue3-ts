@@ -2,16 +2,16 @@
 <template>
   <div class="menu-box" style="margin-left: 30px">
     <div
-      @click.stop="clickItem(item)"
       v-for="(item, index) in menuList"
       :key="index"
+      @click.stop="clickItem(item)"
     >
       {{ item.name }}
       <!-- ?语法解析：解决报错 ?? （双问号）还可以赋值 -->
       <TreeItem
-        @clickItem="clickItem"
         v-if="item?.children?.length"
-        :menuList="item.children"
+        :menu-list="item.children"
+        @clickItem="clickItem"
       />
     </div>
   </div>

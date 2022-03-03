@@ -1,9 +1,9 @@
 <template>
-  <input type="text" v-model="message" />
-  <input type="text" v-model="message2" />
+  <input v-model="message" type="text" />
+  <input v-model="message2" type="text" />
   <!-- 多层obj -->
-  <input type="text" v-model="message3.a.b.c" />
-  <input type="text" v-model="obj.name" />
+  <input v-model="message3.a.b.c" type="text" />
+  <input v-model="obj.name" type="text" />
 </template>
 
 <script setup lang="ts">
