@@ -12,7 +12,9 @@
   <!-- <Slots /> -->
   <!-- <RealyAsync /> -->
   <!-- <Teleports /> -->
-  <KeepAlives />
+  <!-- <KeepAlives /> -->
+  <!-- <Transitions /> -->
+  <ProvideInject />
 </template>
 
 <script setup lang="ts">
@@ -31,6 +33,8 @@ import Slots from './components/Slots.vue';
 import RealyAsync from './components/realyAsync.vue';
 import Teleports from './components/Teleports.vue';
 import KeepAlives from './components/KeepAlive.vue';
+import Transitions from './components/Transition.vue';
+import ProvideInject from './components/ProvideInject.vue';
 </script>
 <style>
 html,
