@@ -10,7 +10,8 @@
   <!-- <Async /> -->
   <!-- <Layout /> -->
   <!-- <Slots /> -->
-  <RealyAsync />
+  <!-- <RealyAsync /> -->
+  <Teleports />
 </template>
 
 <script setup lang="ts">
@@ -27,6 +28,7 @@ import Layout from './layout/index.vue';
 import Async from './components/async.vue';
 import Slots from './components/Slots.vue';
 import RealyAsync from './components/realyAsync.vue';
+import Teleports from './components/Teleports.vue';
 </script>
 <style>
 html,
