@@ -9,7 +9,8 @@
   <!-- <Globle /> -->
   <!-- <Async /> -->
   <!-- <Layout /> -->
-  <Slots />
+  <!-- <Slots /> -->
+  <RealyAsync />
 </template>
 
 <script setup lang="ts">
@@ -25,6 +26,7 @@ import WatchEffect from './components/WatchEffect.vue';
 import Layout from './layout/index.vue';
 import Async from './components/async.vue';
 import Slots from './components/Slots.vue';
+import RealyAsync from './components/realyAsync.vue';
 </script>
 <style>
 html,
