@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .ts,.vue,.js,.tsx"
+    "lint": "eslint . --ext .ts,.vue,.js,.tsx",
+    "jsondb": "json-server --watch ./src/jsonServer/data.json"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
@@ -17,9 +18,12 @@
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
     "@vitejs/plugin-vue": "^2.2.0",
+    "add": "^2.0.6",
     "eslint": "^8.10.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.5.0",
+    "json-server": "^0.17.0",
+    "json-server-auth": "^2.1.0",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
     "prettier": "^2.5.1",

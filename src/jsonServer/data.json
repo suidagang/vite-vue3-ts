@@ -1,0 +1,25 @@
+{
+    "testdata": {
+        "status": 200,
+        "message": "请求成功！",
+        "data": [
+            {
+                "id": 1,
+                "title": "json-server",
+                "author": "typicode"
+            },
+            {
+                "id": 2,
+                "title": "json-server",
+                "author": "typicode"
+            }
+        ]
+    },
+    "posts": [
+        {
+            "id": 1,
+            "title": "json-server",
+            "author": "typicode"
+        }
+    ]
+}

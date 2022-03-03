@@ -9,6 +9,8 @@ import { axios } from '../util/server';
 // const test = async () => await
 //setup语法就可以直接用下面写法
 const list = await axios('./data.json');
+const lista = await axios('/api/testdata');
+console.log(lista, 'lista');
 console.log(list);
 </script>
 

@@ -10,12 +10,12 @@
   <!-- <Async /> -->
   <!-- <Layout /> -->
   <!-- <Slots /> -->
-  <!-- <RealyAsync /> -->
+  <RealyAsync />
   <!-- <Teleports /> -->
   <!-- <KeepAlives /> -->
   <!-- <Transitions /> -->
   <!-- <ProvideInject /> -->
-  <vModel />
+  <!-- <vModel /> -->
 </template>
 
 <script setup lang="ts">
