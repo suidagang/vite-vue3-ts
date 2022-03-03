@@ -7,8 +7,9 @@
   <!-- <Watch /> -->
   <!-- <WatchEffect /> -->
   <!-- <Globle /> -->
-  <Async />
+  <!-- <Async /> -->
   <!-- <Layout /> -->
+  <Slots />
 </template>
 
 <script setup lang="ts">
@@ -23,6 +24,7 @@ import Watch from './components/Watch.vue';
 import WatchEffect from './components/WatchEffect.vue';
 import Layout from './layout/index.vue';
 import Async from './components/async.vue';
+import Slots from './components/Slots.vue';
 </script>
 <style>
 html,
