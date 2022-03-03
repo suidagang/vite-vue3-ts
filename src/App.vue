@@ -10,12 +10,13 @@
   <!-- <Async /> -->
   <!-- <Layout /> -->
   <!-- <Slots /> -->
-  <RealyAsync />
+  <!-- <RealyAsync /> -->
   <!-- <Teleports /> -->
   <!-- <KeepAlives /> -->
   <!-- <Transitions /> -->
   <!-- <ProvideInject /> -->
   <!-- <vModel /> -->
+  <Directive />
 </template>
 
 <script setup lang="ts">
@@ -35,8 +36,9 @@ import RealyAsync from './components/realyAsync.vue';
 import Teleports from './components/Teleports.vue';
 import KeepAlives from './components/KeepAlive.vue';
 import Transitions from './components/Transition.vue';
-// import ProvideInject from './components/ProvideInject.vue';
+import ProvideInject from './components/ProvideInject.vue';
 import vModel from './components/vModel.vue';
+import Directive from './components/Directive.vue';
 </script>
 <style>
 html,
