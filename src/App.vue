@@ -11,7 +11,8 @@
   <!-- <Layout /> -->
   <!-- <Slots /> -->
   <!-- <RealyAsync /> -->
-  <Teleports />
+  <!-- <Teleports /> -->
+  <KeepAlives />
 </template>
 
 <script setup lang="ts">
@@ -29,6 +30,7 @@ import Async from './components/async.vue';
 import Slots from './components/Slots.vue';
 import RealyAsync from './components/realyAsync.vue';
 import Teleports from './components/Teleports.vue';
+import KeepAlives from './components/KeepAlive.vue';
 </script>
 <style>
 html,
