@@ -7,7 +7,8 @@
     "build": "npm run lint && vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .ts,.vue,.js,.tsx",
-    "jsondb": "json-server --watch ./src/jsonServer/data.json"
+    "jsondb": "json-server --watch ./src/jsonServer/data.json",
+    "commit": "cz"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
@@ -20,6 +21,8 @@
     "@typescript-eslint/parser": "^5.12.1",
     "@vitejs/plugin-vue": "^2.2.0",
     "add": "^2.0.6",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.10.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.5.0",
@@ -32,5 +35,10 @@
     "typescript": "^4.5.4",
     "vite": "^2.8.0",
     "vue-tsc": "^0.29.8"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
