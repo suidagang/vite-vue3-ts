@@ -17,7 +17,8 @@
   <!-- <ProvideInject /> -->
   <!-- <vModel /> -->
   <!-- <Directive /> -->
-  <router-view />
+  <Pinia />
+  <!-- <router-view /> -->
 </template>
 
 <script setup lang="ts">
@@ -41,6 +42,7 @@ import Transitions from './components/Transition.vue';
 import ProvideInject from './components/ProvideInject.vue';
 import vModel from './components/vModel.vue';
 import Directive from '@/components/Directive.vue';
+import Pinia from '@/components/Pinia.vue';
 </script>
 <style>
 html,
