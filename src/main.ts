@@ -9,6 +9,9 @@ const pinia = createPinia();
 import './assets/css/reset.less';
 //全局注册组件
 import Globle from './components/Globle.vue';
+// 全局引入element-plus
+import ElementPlus from 'element-plus';
+import 'element-plus/dist/index.css';
 
 // 全局指令
 // directive(自定义指令)
@@ -17,4 +20,9 @@ const app = createApp(App);
 Object.keys(directives).forEach((key) => {
   app.directive(key, (directives as { [key: string]: Directive })[key]);
 });
-app.component('Globle', Globle).use(router).use(pinia).mount('#app');
+app
+  .component('Globle', Globle)
+  .use(router)
+  .use(pinia)
+  .use(ElementPlus)
+  .mount('#app');
