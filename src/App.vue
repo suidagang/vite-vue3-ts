@@ -17,13 +17,14 @@
   <!-- <ProvideInject /> -->
   <!-- <vModel /> -->
   <!-- <Directive /> -->
-  <Pinia />
-  <!-- <router-view /> -->
+  <!-- <Pinia /> -->
+  <router-view />
 </template>
 
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+//! eslint不检查语法
 /* eslint-disable */
 import Ref from './components/Ref.vue';
 import Reactive from './components/Reactive.vue';
@@ -50,6 +51,7 @@ body,
 #app {
   height: 100%;
   overflow: hidden;
+  box-sizing: border-box;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

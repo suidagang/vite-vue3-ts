@@ -1,14 +1,11 @@
 <template>
   <div class="content">
     内容区域
-    <CountBotton />
     <el-button type="primary">Primary</el-button>
   </div>
 </template>
 
-<script setup lang="ts">
-import CountBotton from '../../components/pinia/CountBotton.vue';
-</script>
+<script setup lang="ts"></script>
 
 <style lang="less" scoped>
 .content {

@@ -1,16 +1,8 @@
 <template>
-  <div class="header">
-    头部区域{{ num }}--count:{{ count }}--phone:{{ phoneHid }}
-  </div>
+  <div class="header">头部区域</div>
 </template>
 
-<script setup lang="ts">
-import { mainStore } from '../../store/index';
-import { storeToRefs } from 'pinia';
-const store = mainStore();
-const { num, count, phoneHid } = storeToRefs(store);
-// console.log(count.value);
-</script>
+<script setup lang="ts"></script>
 
 <style lang="less" scoped>
 .header {
