@@ -16,7 +16,8 @@
   <!-- <Transitions /> -->
   <!-- <ProvideInject /> -->
   <!-- <vModel /> -->
-  <Directive />
+  <!-- <Directive /> -->
+  <router-view />
 </template>
 
 <script setup lang="ts">
