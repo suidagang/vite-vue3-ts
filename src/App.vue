@@ -39,7 +39,7 @@ import KeepAlives from './components/KeepAlive.vue';
 import Transitions from './components/Transition.vue';
 import ProvideInject from './components/ProvideInject.vue';
 import vModel from './components/vModel.vue';
-import Directive from './components/Directive.vue';
+import Directive from '@/components/Directive.vue';
 </script>
 <style>
 html,
