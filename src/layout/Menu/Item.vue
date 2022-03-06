@@ -9,7 +9,7 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    icon: string;
+    icon?: string;
     title: string;
   }>(),
   { title: '默认' }

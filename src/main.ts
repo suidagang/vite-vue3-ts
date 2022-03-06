@@ -15,6 +15,9 @@ import 'element-plus/dist/index.css';
 import * as ElIcons from '@element-plus/icons';
 import { transElIconName } from '@/util/index';
 
+// 获取当前路由及页面
+import './permission';
+
 // 全局指令
 // directive(自定义指令)
 import * as directives from './comDirective/comNumber';

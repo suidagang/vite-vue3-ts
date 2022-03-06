@@ -1,8 +1,15 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import Layout from '../layout/index.vue';
 import Wrapper from '../layout/Menu/Wrapper.vue';
-
-export const routes: Array<RouteRecordRaw> = [
+type RouteType = RouteRecordRaw & {
+  meta: {
+    icon?: string;
+    title: string;
+    i18n?: boolean;
+    hidden?: boolean;
+  };
+};
+export const routes: Array<RouteType> = [
   {
     path: '/',
     name: 'Home',
@@ -26,6 +33,28 @@ export const routes: Array<RouteRecordRaw> = [
         name: 'ref',
         meta: { title: 'ref全家桶', icon: 'i-apple', hidden: false },
         component: () => import('@/components/Ref.vue')
+      },
+      {
+        path: '/link',
+        name: 'link',
+        meta: { title: '外部链接', icon: 'i-apple', hidden: false },
+        component: Wrapper,
+        redirect: '/link/transition',
+        children: [
+          {
+            path: '/link/transition',
+            name: 'Transition',
+            meta: { title: 'Transition动画' },
+            component: () => import('@/components/Transition.vue')
+          },
+          {
+            path: '/baidu',
+            name: 'https://www.baidu.com/',
+            redirect: '',
+            meta: { title: 'test' }
+            // component: () => import('@/components/ProvideInject.vue')
+          }
+        ]
       },
       {
         path: '/reactive',

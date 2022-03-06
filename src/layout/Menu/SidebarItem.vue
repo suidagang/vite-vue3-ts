@@ -2,13 +2,13 @@
   <template v-if="!props.item.children || props.item.children.length <= 0">
     <!-- <app-link :to="test(item)"> -->
     <el-menu-item :index="props.item.path">
-      <item :icon="props.item.meta.icon" :title="props.item.meta.title" />
+      <item :icon="props?.item?.meta?.icon" :title="props?.item?.meta?.title" />
     </el-menu-item>
     <!-- </app-link> -->
   </template>
   <el-sub-menu v-else class="submenu-title" :index="props.item.path">
     <template #title>
-      <item :title="props?.item?.meta?.title" />
+      <item :icon="props?.item?.meta?.icon" :title="props?.item?.meta?.title" />
     </template>
     <sidebar-item
       v-for="child in props.item.children"
