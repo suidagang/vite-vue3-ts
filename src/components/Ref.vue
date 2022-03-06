@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <!-- <h1>{{ msg }}</h1> -->
   <div>{{ message }}</div>
   <button @click="testRef">测试</button>
   <div class="test">111</div>
@@ -7,7 +7,7 @@
 </template>
 <script setup lang="ts">
 import { ref, Ref, shallowRef, customRef } from 'vue';
-defineProps<{ msg: string }>();
+// defineProps<{ msg: string }>();
 // isRef判断是否为ref对象,shallowRef不会让value属性的值为ref对象, triggerRef强制dom更新
 //customRef 自定义ref  参照myRef
 

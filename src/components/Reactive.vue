@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <!-- <h1>{{ msg }}</h1> -->
   <div>{{ obj }}</div>
   <div>{{ msgq }}</div>
   <button @click="change1">1</button>
@@ -7,7 +7,7 @@
 </template>
 <script setup lang="ts">
 import { reactive, ref, shallowReactive } from 'vue';
-defineProps<{ msg: string }>();
+// defineProps<{ msg: string }>();
 
 let a = ref<number>(222);
 a.value = 333;

@@ -1,6 +1,8 @@
 <template>
-  <div>子组件</div>
-  <slot name="header"></slot>
+  <div>
+    <div>子组件</div>
+    <slot name="header"></slot>
+  </div>
 </template>
 
 <script setup lang="ts">

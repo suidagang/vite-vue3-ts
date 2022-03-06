@@ -8,4 +8,8 @@
 import TestTwo from './com/testTwo.vue';
 </script>
 
-<style scoped></style>
+<style scoped>
+.parentClass {
+  font-size: 14px;
+}
+</style>
