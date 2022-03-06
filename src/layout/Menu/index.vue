@@ -47,11 +47,14 @@ const activeMenu = computed(() => {
 
 <style lang="less" scoped>
 .menu {
-  width: 200px;
+  width: 230px;
   background-color: #304156;
   height: 100%;
-  overflow: hidden;
+  overflow-y: auto;
   // border-right: 1px solid #ccc;
+}
+.menu::-webkit-scrollbar {
+  width: 0 !important;
 }
 .sys-name {
   height: 60px;

@@ -36,20 +36,20 @@ export const routes: Array<RouteRecordRaw> = [
       {
         path: '/vue3',
         name: 'vue3',
-        redirect: '/vue3/test1',
+        redirect: '/vue3/slots',
         meta: { title: 'vue3全家桶', icon: 'i-van' },
         component: Wrapper,
         children: [
           {
-            path: '/vue3/test1',
-            name: 'test1',
-            meta: { title: '测试1', icon: 'i-watch' },
+            path: '/vue3/slots',
+            name: 'SloteAndAttrs',
+            meta: { title: '插槽slots和属性attrs', icon: 'i-watch' },
             component: () => import('@/components/SloteAndAttrs.vue')
           },
           {
-            path: '/vue3/test3',
-            name: 'test3',
-            meta: { title: '测试3', icon: 'i-watch' },
+            path: '/vue3/expose',
+            name: 'expose',
+            meta: { title: 'expose暴露组件', icon: 'i-watch' },
             component: () => import('@/components/Expose.vue')
           },
           {
@@ -59,21 +59,21 @@ export const routes: Array<RouteRecordRaw> = [
             component: Wrapper,
             children: [
               {
-                path: '/vue3/test4/test1',
-                name: 'test4-1',
-                meta: { title: '测试4-1', icon: 'i-watch' },
+                path: '/vue3/test4/watch',
+                name: 'Watch',
+                meta: { title: 'Watch监听', icon: 'i-watch' },
                 component: () => import('@/components/Watch.vue')
               },
               {
-                path: '/vue3/test4/test3',
-                name: 'test4-3',
-                meta: { title: '测试4-1', icon: 'i-watch' },
+                path: '/vue3/test4/watchEffect',
+                name: 'WatchEffect',
+                meta: { title: 'watchEffect', icon: 'i-watch' },
                 component: () => import('@/components/WatchEffect.vue')
               },
               {
-                path: '/vue3/test4/test4',
-                name: 'test4-4',
-                meta: { title: '测试4-4', icon: 'i-watch' },
+                path: '/vue3/test4/async',
+                name: 'async',
+                meta: { title: '动态组件', icon: 'i-watch' },
                 component: () => import('@/components/async.vue')
               }
             ]
