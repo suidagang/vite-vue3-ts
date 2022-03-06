@@ -37,43 +37,43 @@ export const routes: Array<RouteRecordRaw> = [
         path: '/vue3',
         name: 'vue3',
         redirect: '/vue3/slots',
-        meta: { title: 'vue3全家桶', icon: 'i-van' },
+        meta: { title: 'vue3全家桶' },
         component: Wrapper,
         children: [
           {
             path: '/vue3/slots',
             name: 'SloteAndAttrs',
-            meta: { title: '插槽slots和属性attrs', icon: 'i-watch' },
+            meta: { title: '插槽slots和属性attrs' },
             component: () => import('@/components/SloteAndAttrs.vue')
           },
           {
             path: '/vue3/expose',
             name: 'expose',
-            meta: { title: 'expose暴露组件', icon: 'i-watch' },
+            meta: { title: 'expose暴露组件' },
             component: () => import('@/components/Expose.vue')
           },
           {
             path: '/vue3/test4',
             name: 'test4',
-            meta: { title: '测试4', icon: 'i-watch' },
+            meta: { title: '测试4' },
             component: Wrapper,
             children: [
               {
                 path: '/vue3/test4/watch',
                 name: 'Watch',
-                meta: { title: 'Watch监听', icon: 'i-watch' },
+                meta: { title: 'Watch监听' },
                 component: () => import('@/components/Watch.vue')
               },
               {
                 path: '/vue3/test4/watchEffect',
                 name: 'WatchEffect',
-                meta: { title: 'watchEffect', icon: 'i-watch' },
+                meta: { title: 'watchEffect' },
                 component: () => import('@/components/WatchEffect.vue')
               },
               {
                 path: '/vue3/test4/async',
                 name: 'async',
-                meta: { title: '动态组件', icon: 'i-watch' },
+                meta: { title: '动态组件' },
                 component: () => import('@/components/async.vue')
               }
             ]

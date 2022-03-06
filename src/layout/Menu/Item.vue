@@ -12,7 +12,7 @@ withDefaults(
     icon: string;
     title: string;
   }>(),
-  { icon: 'i-camera', title: '默认' }
+  { title: '默认' }
 );
 // defineProps({
 //   icon: {
