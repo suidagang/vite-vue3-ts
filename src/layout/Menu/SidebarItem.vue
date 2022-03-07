@@ -23,11 +23,11 @@ export default {
 </script>
 <script setup lang="ts">
 import Item from './Item.vue';
-import { RouteRecordRaw } from 'vue-router';
+import { RouteConfigs } from '../types';
 
 const props = withDefaults(
   defineProps<{
-    item: RouteRecordRaw;
+    item: RouteConfigs;
     basePath: string;
   }>(),
   {}

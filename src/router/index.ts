@@ -1,15 +1,8 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import Layout from '../layout/index.vue';
 import Wrapper from '../layout/Menu/Wrapper.vue';
-type RouteType = RouteRecordRaw & {
-  meta: {
-    icon?: string;
-    title: string;
-    i18n?: boolean;
-    hidden?: boolean;
-  };
-};
-export const routes: Array<RouteType> = [
+import { RouteConfigs } from '../layout/types';
+export const routes: Array<RouteConfigs> = [
   {
     path: '/',
     name: 'Home',
