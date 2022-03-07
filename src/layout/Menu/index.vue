@@ -4,10 +4,9 @@
     <div class="sidebar-menu">
       <el-menu
         background-color="#304156"
-        :default-active="activeMenu"
         text-color="#bfcbd9"
-        active-text-color="#409EFF"
-        :unique-opened="false"
+        :default-active="route.path"
+        :unique-opened="true"
         :router="true"
         mode="vertical"
       >
@@ -25,26 +24,20 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import SidebarItem from '@/layout/Menu/SidebarItem.vue';
-import { useRoute, RouteRecordRaw } from 'vue-router';
+import { useRoute } from 'vue-router';
 import { routes } from '../../router/index';
+import { RouteConfigs } from '../types';
 const resultRoutes = computed(() => {
-  let resultArr: RouteRecordRaw[] = [];
+  let resultArr: RouteConfigs[] = [];
   routes.forEach((item) => {
     if (item.path === '/') {
-      //@ts-ignore
-      resultArr = item?.children;
+      // 如果没有？？ 默认为数组
+      resultArr = item?.children ?? [];
     }
   });
   return resultArr;
 });
 const route = useRoute();
-const { meta, path } = route;
-const activeMenu = computed(() => {
-  if (meta.activeMenu) {
-    return meta.activeMenu;
-  }
-  return path;
-});
 </script>
 
 <style lang="less" scoped></style>
