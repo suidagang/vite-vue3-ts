@@ -10,20 +10,44 @@
   width: 230px;
   background-color: #304156;
   height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   margin-right: 20px;
-}
-.menu::-webkit-scrollbar {
-  width: 0 !important;
+  display: flex;
+  flex-direction: column;
 }
 .sys-name {
   height: 60px;
-  background: #409eff;
+  background: #002140;
+  color: #409eff;
   line-height: 60px;
   text-align: center;
-  color: #fff;
-  font-size: 28px;
+  font-size: 22px;
+  box-sizing: border-box;
+}
+.sidebar-menu {
+  width: 230px;
+  overflow: hidden;
+  flex: 1;
+  padding-bottom: 30px;
+  box-sizing: border-box;
+}
+.sidebar-menu:hover {
+  overflow-y: auto;
+}
+.menu .sidebar-menu::-webkit-scrollbar {
+  width: 6px !important;
+}
+.menu .sidebar-menu::-webkit-scrollbar-track-piece {
+  background: #d3dce6;
+}
+.menu .sidebar-menu::-webkit-scrollbar-thumb {
+  background: #99a9bf;
+  border-radius: 20px;
+}
+.el-menu {
+  border: none!important;
+  height: 100%;
+  width: 100%;
 }
 .el-menu--inline {
   background: #0f0303 !important;
@@ -31,10 +55,49 @@
 .el-menu--inline .el-sub-menu__title {
   background: #0f0303 !important;
 }
+.el-sub-menu__title,
+.el-menu-item {
+  padding: 0 20px 0 40px;
+  color: rgba(254, 254, 254, 0.65);
+  height: 50px;
+}
 .el-sub-menu__title:hover,
 .el-menu-item:hover {
-  color: purple !important;
+  color: #fff !important;
 }
-.el-menu-item {
-  width: 230px;
+.el-sub-menu__title div,
+.el-menu-item div,
+.el-sub-menu__title span,
+.el-menu-item span {
+  height: 50px;
+  line-height: 50px;
+}
+.is-active > .el-sub-menu__title,
+.is-active.submenu-title-noDropdown {
+  color: #fff !important;
+  border-bottom-color: #409eff;
+}
+.is-active > .el-sub-menu__title i,
+.is-active.submenu-title-noDropdown i {
+  color: #fff !important;
+}
+.menu .sidebar-menu .is-active {
+  transition: color 0.3s;
+  color: #fff !important;
+  border-bottom-color: #409eff;
+  background: #409eff !important;
+}
+.el-menu .el-menu--inline .el-sub-menu__title,
+.el-sub-menu .el-menu-item {
+  font-size: 12px;
+  min-width: 230px !important;
+  background-color: #0f0303 !important;
+}
+/* 无子集的激活菜单背景 */
+.is-active.submenu-title-noDropdown.outer-most {
+  background: #4091f7;
+}
+/* 有子集的激活菜单背景 */
+.is-active.nest-menu {
+  background: #4091f7 !important;
 }

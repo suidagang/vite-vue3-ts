@@ -1,22 +1,24 @@
 <template>
   <div class="menu">
     <div class="sys-name">项目名称</div>
-    <el-menu
-      background-color="#304156"
-      :default-active="activeMenu"
-      text-color="#bfcbd9"
-      active-text-color="#409EFF"
-      :unique-opened="false"
-      :router="true"
-      mode="vertical"
-    >
-      <SidebarItem
-        v-for="routeItem in resultRoutes"
-        :key="routeItem.path"
-        :item="routeItem"
-        :base-path="routeItem.path"
-      />
-    </el-menu>
+    <div class="sidebar-menu">
+      <el-menu
+        background-color="#304156"
+        :default-active="activeMenu"
+        text-color="#bfcbd9"
+        active-text-color="#409EFF"
+        :unique-opened="false"
+        :router="true"
+        mode="vertical"
+      >
+        <SidebarItem
+          v-for="routeItem in resultRoutes"
+          :key="routeItem.path"
+          :item="routeItem"
+          :base-path="routeItem.path"
+        />
+      </el-menu>
+    </div>
   </div>
 </template>
 

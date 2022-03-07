@@ -5,7 +5,7 @@ import path from 'path';
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    host: '192.168.195.116', //解决"vite use `--host` to expose"
+    host: '127.0.0.1', //解决"vite use `--host` to expose"
     port: 3001,
     open: true,
     proxy: {
