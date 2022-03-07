@@ -51,6 +51,7 @@ const activeMenu = computed(() => {
   background-color: #304156;
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden
   // border-right: 1px solid #ccc;
 }
 .menu::-webkit-scrollbar {

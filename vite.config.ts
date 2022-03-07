@@ -27,5 +27,12 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src')
     }
   },
-  plugins: [vue()]
+  plugins: [vue()],
+  build: {
+    // 是否开启sourcemap
+    sourcemap: false,
+    brotliSize: false,
+    // 消除打包大小超过500kb警告
+    chunkSizeWarningLimit: 2000
+  }
 });

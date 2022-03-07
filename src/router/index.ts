@@ -66,7 +66,7 @@ export const routes: Array<RouteType> = [
         path: '/vue3',
         name: 'vue3',
         redirect: '/vue3/slots',
-        meta: { title: 'vue3全家桶' },
+        meta: { title: 'vue3全家桶', icon: 'i-van' },
         component: Wrapper,
         children: [
           {

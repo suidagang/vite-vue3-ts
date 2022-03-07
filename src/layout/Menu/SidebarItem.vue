@@ -1,10 +1,8 @@
 <template>
   <template v-if="!props.item.children || props.item.children.length <= 0">
-    <!-- <app-link :to="test(item)"> -->
     <el-menu-item :index="props.item.path">
       <item :icon="props?.item?.meta?.icon" :title="props?.item?.meta?.title" />
     </el-menu-item>
-    <!-- </app-link> -->
   </template>
   <el-sub-menu v-else class="submenu-title" :index="props.item.path">
     <template #title>
@@ -34,20 +32,11 @@ const props = withDefaults(
   }>(),
   {}
 );
-// defineProps({
-//   item: {
-//     type: Object,
-//     require: true
-//   },
-//   basePath: {
-//     type: String,
-//     default: ''
-//   }
-// });
-
-// const test = (item) => {
-//   return item.path;
-// };
 </script>
 
-<style scoped></style>
+<style lang="less" scoped>
+@import '@/theme/menu-vars.less';
+:deep(.el-menu--inline, .el-sub-menu) {
+  background: @subMenuBg !important;
+}
+</style>

@@ -5,8 +5,8 @@ import { router } from './router';
 // 引入全局pinia
 import { createPinia } from 'pinia';
 const pinia = createPinia();
-//  重置浏览器样式
-import './assets/css/reset.less';
+//  重置浏览器样式和公共样式
+import './style/index.less';
 //全局注册组件
 import Globle from './components/Globle.vue';
 // 全局引入element-plus

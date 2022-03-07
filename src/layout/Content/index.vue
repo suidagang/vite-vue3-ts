@@ -13,9 +13,10 @@
 
 <style lang="less" scoped>
 .content {
-  margin: 20px;
-  border: 1px solid #ccc;
+  padding: 20px;
   overflow: hidden;
   flex: 1;
+  box-sizing: border-box;
+  background: #f0f2f5;
 }
 </style>
