@@ -1,0 +1,40 @@
+@import "../theme/menu-vars.less";
+// 最外层壳子
+.menu {
+  width: @menuWidth;
+  background-color: #304156;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-right: 20px;
+}
+//滚动条
+.menu::-webkit-scrollbar {
+  width: 0 !important;
+}
+//最上面logo标题
+.sys-name {
+  height: 60px;
+  background: #409eff;
+  line-height: 60px;
+  text-align: center;
+  color: #fff;
+  font-size: 28px;
+}
+// 菜单下来背景色修改
+.el-menu--inline{
+  background: @subMenuBg !important;
+  .el-sub-menu__title{
+    background: @subMenuBg !important;
+  }
+}
+
+// hover颜色
+.el-sub-menu__title,.el-menu-item{
+  &:hover{
+    color: @subMenuActiveText !important;
+  }
+}
+.el-menu-item{
+  width: @menuWidth;
+}

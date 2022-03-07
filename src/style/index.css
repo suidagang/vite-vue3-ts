@@ -2,6 +2,31 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+/* 菜单选中后字体样式 */
+/* 菜单背景 */
+/* 鼠标覆盖到菜单时的背景 */
+/* 子菜单背景 */
+/* 有无子集的激活菜单背景 */
+/* logo背景颜色 */
+/* 鼠标覆盖到菜单时的字体颜色 */
+.menu {
+  width: 230px;
+  background-color: #304156;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.menu::-webkit-scrollbar {
+  width: 0 !important;
+}
+.sys-name {
+  height: 60px;
+  background: #409eff;
+  line-height: 60px;
+  text-align: center;
+  color: #fff;
+  font-size: 28px;
+}
 html,
 body,
 div,

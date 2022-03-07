@@ -36,7 +36,4 @@ const props = withDefaults(
 
 <style lang="less" scoped>
 @import '@/theme/menu-vars.less';
-:deep(.el-menu--inline, .el-sub-menu) {
-  background: @subMenuBg !important;
-}
 </style>
