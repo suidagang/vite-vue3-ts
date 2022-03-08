@@ -3,9 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "npm run lint && vue-tsc --noEmit && vite build",
+    "dev": "cross-env --max_old_space_size=4096 vite",
+    "build": "npm run lint && cross-env vue-tsc --noEmit && vite build",
     "preview": "vite preview",
+    "preview:build": "npm run build && vite preview",
+    "clean:cache": "rm -rf node_modules && rm -rf .eslintcache && npm run install",
+    "lint:prettier": "prettier --write \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
     "lint": "eslint . --ext .ts,.vue,.js,.tsx",
     "jsondb": "json-server --watch ./src/jsonServer/data.json",
     "commit": "cz"
@@ -30,6 +33,7 @@
     "@vitejs/plugin-vue": "^2.2.0",
     "add": "^2.0.6",
     "commitizen": "^4.2.4",
+    "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.10.0",
     "eslint-plugin-prettier": "^4.0.0",
