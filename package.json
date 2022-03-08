@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "cross-env --max_old_space_size=4096 vite",
-    "build": "npm run lint && cross-env vue-tsc --noEmit && vite build",
+    "build": "npm run lint && cross-env vite build",
     "preview": "vite preview",
     "preview:build": "npm run build && vite preview",
     "clean:cache": "rm -rf node_modules && rm -rf .eslintcache && npm run install",

@@ -5,6 +5,7 @@ import path from 'path';
 export default defineConfig(({ mode }: UserConfig): UserConfig => {
   const env = loadEnv(mode, __dirname);
   return {
+    base: process.env.NODE_ENV === 'production' ? './' : '/',
     server: {
       host: '127.0.0.1', //解决"vite use `--host` to expose"
       port: Number(env.VITE_PORT),
@@ -15,6 +16,23 @@ export default defineConfig(({ mode }: UserConfig): UserConfig => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, '')
         }
+      }
+    },
+    css: {
+      // https://github.com/vitejs/vite/issues/5833
+      postcss: {
+        plugins: [
+          {
+            postcssPlugin: 'internal:charset-removal',
+            AtRule: {
+              charset: (atRule) => {
+                if (atRule.name === 'charset') {
+                  atRule.remove();
+                }
+              }
+            }
+          }
+        ]
       }
     },
     resolve: {
