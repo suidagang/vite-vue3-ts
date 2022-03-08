@@ -1,6 +1,4 @@
-# Vue 3 + Typescript + Vite
-
-[eslint官网：](https://eslint.bootcss.com/docs/rules/);
+# Vue3 + Typescript + Vite + pinia + eslint + prettier + element-plus
 
 ## 安装使用
 
@@ -23,3 +21,5 @@ npm run dev
 ```bash
 npm run build
 ```
+
+[eslint官网](https://eslint.bootcss.com/docs/rules/)
