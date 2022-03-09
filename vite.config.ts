@@ -8,7 +8,7 @@ export default defineConfig(({ mode }: UserConfig): UserConfig => {
     base: process.env.NODE_ENV === 'production' ? './' : '/',
     server: {
       host: '127.0.0.1', //解决"vite use `--host` to expose"
-      port: Number(env.VITE_PORT),
+      port: env.VITE_PORT,
       open: true,
       proxy: {
         '^/api': {

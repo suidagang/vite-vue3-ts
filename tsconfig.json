@@ -18,7 +18,7 @@
     // "allowSyntheticDefaultImports": true,
     "lib": ["esnext", "dom"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
   },
     // "baseUrl": ".",
     // "types": ["node", "vite/client", "element-plus/global"],

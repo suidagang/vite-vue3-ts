@@ -9,6 +9,7 @@ class Request {
 
   constructor(config: RequestConfig) {
     this.instance = axios.create(config);
+    this.interceptorsObj = config.interceptors;
     this.instance.interceptors.request.use(
       (res: AxiosRequestConfig) => {
         console.log('全局请求拦截器');
@@ -36,8 +37,8 @@ class Request {
       (err: any) => err
     );
   }
-  request<T>(config: RequestConfig): Promise<T> {
-    return new Promise((resolve, reject) => {
+  request<T>(config: RequestConfig<T>): Promise<T> {
+    return new Promise<T>((resolve, reject) => {
       // 如果我们为单个请求设置拦截器，这里使用单个请求的拦截器
       if (config.interceptors?.requestInterceptors) {
         config = config.interceptors.requestInterceptors(config);
@@ -47,7 +48,8 @@ class Request {
         .then((res) => {
           // 如果我们为单个响应设置拦截器，这里使用单个响应的拦截器
           if (config.interceptors?.responseInterceptors) {
-            res = config.interceptors.responseInterceptors<T>(res);
+            console.log('单个响应拦截');
+            res = config.interceptors.responseInterceptors(res);
           }
           resolve(res);
         })

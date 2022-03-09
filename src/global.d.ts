@@ -6,6 +6,7 @@ declare global {
   //todo .env文件 类型定义
   interface ViteEnv {
     readonly VITE_REQUEST_BASE_URL: string;
-    readonly VITE_PORT: Number;
+    readonly VITE_PORT: number;
+    readonly VUE_APP_TIME_OUT: number;
   }
 }

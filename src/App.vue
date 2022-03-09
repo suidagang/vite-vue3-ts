@@ -45,9 +45,27 @@ import vModel from '@/components/vModel.vue';
 import Directive from '@/components/Directive.vue';
 import Pinia from '@/components/Pinia.vue';
 import { comRequest } from '@/utils/http/index';
+export interface IDataType<T = any> {
+  status: string;
+  msg: string;
+  data: T;
+}
+// comRequest
+//   .request({
+//     url: '/api/testdata'
+//   })
+//   .then((res) => {
+//     console.log(res);
+//   });
+// 单个请求调用拦截
 comRequest
-  .request({
-    url: '/api/testdata'
+  .request<IDataType>({
+    url: '/api/posts',
+    //单个请求调用级别单独设置拦截器
+    interceptors: {
+      //直接返回IDataType类型结果中的data属性项
+      responseInterceptors: (res) => res[0].title
+    }
   })
   .then((res) => {
     console.log(res);
