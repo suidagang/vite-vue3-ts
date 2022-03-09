@@ -13,7 +13,7 @@ import Globle from './components/Globle.vue';
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
 import * as ElIcons from '@element-plus/icons';
-import { transElIconName } from './util/index';
+import { transElIconName } from './utils/index';
 
 // 获取当前路由及页面
 import './permission';
