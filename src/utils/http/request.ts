@@ -58,6 +58,19 @@ class Request {
         });
     });
   }
+
+  get<T = any>(config: RequestConfig<T>): Promise<T> {
+    return this.request<T>({
+      ...config,
+      method: 'GET'
+    });
+  }
+  post<T = any>(config: RequestConfig<T>): Promise<T> {
+    return this.request<T>({
+      ...config,
+      method: 'POST'
+    });
+  }
 }
 
 export default Request;
