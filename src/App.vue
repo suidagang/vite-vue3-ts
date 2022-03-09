@@ -44,6 +44,14 @@ import ProvideInject from '@/components/ProvideInject.vue';
 import vModel from '@/components/vModel.vue';
 import Directive from '@/components/Directive.vue';
 import Pinia from '@/components/Pinia.vue';
+import { comRequest } from '@/utils/http/index';
+comRequest
+  .request({
+    url: '/api/testdata'
+  })
+  .then((res) => {
+    console.log(res);
+  });
 </script>
 <style>
 html,

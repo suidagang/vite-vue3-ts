@@ -13,6 +13,9 @@ npm install
 - 运行
   
 ```bash
+// 启动json-serve
+npm run jsondb
+// 启动项目
 npm run dev
 ```
 

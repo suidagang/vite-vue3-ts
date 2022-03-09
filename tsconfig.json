@@ -15,8 +15,14 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,//允许从没有设置默认导出的模块中默认导入。
+    // "allowSyntheticDefaultImports": true,
     "lib": ["esnext", "dom"],
+    "paths": {
+      "@/*": ["src/*"]
+  },
+    // "baseUrl": ".",
+    // "types": ["node", "vite/client", "element-plus/global"],
+    // "typeRoots": ["./node_modules/@types/", "./types","./src"]
     // "skipLibCheck": true
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
