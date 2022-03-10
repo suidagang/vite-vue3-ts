@@ -44,12 +44,7 @@ import ProvideInject from '@/components/ProvideInject.vue';
 import vModel from '@/components/vModel.vue';
 import Directive from '@/components/Directive.vue';
 import Pinia from '@/components/Pinia.vue';
-import { comRequest } from '@/utils/http/index';
-export interface IDataType<T = any> {
-  status: string;
-  msg: string;
-  data: T;
-}
+
 // comRequest
 //   .request({
 //     url: '/api/testdata'
@@ -58,23 +53,6 @@ export interface IDataType<T = any> {
 //     console.log(res);
 //   });
 // 单个请求调用拦截
-comRequest
-  .request<IDataType>({
-    url: '/api/posts',
-    //单个请求调用级别单独设置拦截器
-    interceptors: {
-      requestInterceptors: (res) => {
-        return res;
-      },
-      //直接返回IDataType类型结果中的data属性项
-      responseInterceptors: (res) => {
-        return res;
-      }
-    }
-  })
-  .then((res) => {
-    console.log(res);
-  });
 </script>
 <style>
 html,

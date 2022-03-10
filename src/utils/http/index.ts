@@ -22,4 +22,11 @@ const comRequest = new Request({
     }
   }
 });
+//取消请求
+export const cancelRequest = (url: string | string[]) => {
+  return comRequest.cancelRequest(url);
+};
+export const cancelAllRequest = () => {
+  return comRequest.cancelAllRequest();
+};
 export { comRequest };

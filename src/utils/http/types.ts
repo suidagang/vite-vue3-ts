@@ -12,3 +12,8 @@ export interface RequestInterceptors<T = AxiosResponse> {
 export interface RequestConfig<T = AxiosResponse> extends AxiosRequestConfig {
   interceptors?: RequestInterceptors<T>;
 }
+
+//定义取消
+export interface CancelRequestSource {
+  [index: string]: () => void;
+}
