@@ -22,9 +22,28 @@ export const routes: Array<RouteConfigs> = [
         component: () => import('@/components/PropsAndEmits.vue')
       },
       {
+        path: '/echarts',
+        name: 'Echarts',
+        meta: {
+          title: 'echarts',
+          icon: 'i-ice-cream-round',
+          hidden: false
+        },
+        component: Wrapper,
+        redirect: '/echarts/pie',
+        children: [
+          {
+            path: '/echarts/pie',
+            name: 'Pie',
+            meta: { title: '饼图' },
+            component: () => import('@/components/echarts/pie.vue')
+          }
+        ]
+      },
+      {
         path: '/ref',
         name: 'ref',
-        meta: { title: 'ref全家桶', icon: 'i-apple', hidden: false },
+        meta: { title: 'ref全家桶', icon: 'i-orange', hidden: false },
         component: () => import('@/components/Ref.vue')
       },
       {
@@ -59,7 +78,7 @@ export const routes: Array<RouteConfigs> = [
         path: '/vue3',
         name: 'vue3',
         redirect: '/vue3/slots',
-        meta: { title: 'vue3全家桶', icon: 'i-van' },
+        meta: { title: 'vue3全家桶', icon: 'i-goblet-square-full' },
         component: Wrapper,
         children: [
           {

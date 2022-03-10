@@ -1,8 +1,6 @@
 <template>
   <div class="content">
-    内容区域
     <CountBotton />
-    <el-button type="primary">Primary</el-button>
   </div>
 </template>
 
