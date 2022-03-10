@@ -1,5 +1,9 @@
 import Request from './request';
-const comRequest = new Request({
+import type { RequestConfig } from './types';
+interface ComRequestConfig<T> extends RequestConfig {
+  data?: T;
+}
+const request = new Request({
   // baseURL: import.meta.env.VITE_REQUEST_BASE_URL,
   baseURL: '',
   timeout: 1000 * 60 * 5,
@@ -10,7 +14,7 @@ const comRequest = new Request({
       //const token = localCache.getCache('token')
       console.log('实例请求拦截器');
       const token = 'this ia a token';
-      if (token) {
+      if (token && config.headers) {
         config.headers.Authorization = `Bearer ${token}`;
       }
       return config;
@@ -22,11 +26,29 @@ const comRequest = new Request({
     }
   }
 });
+interface ComResponse<T> {
+  code: number;
+  message: string;
+  data: T;
+}
+/**
+ * @name 公共请求入口封装
+ * @interface D 请求参数的interface
+ * @interface T 响应结构的intercept
+ * @param {YWZRequestConfig} config 不管是GET还是POST请求都使用data
+ * @returns {Promise}
+ */
+export const comRequest = <D, T = any>(config: ComRequestConfig<D>) => {
+  const { method = 'GET' } = config;
+  if (method === 'get' || method === 'GET') {
+    config.params = config.data;
+  }
+  return request.request<ComResponse<T>>(config);
+};
 //取消请求
 export const cancelRequest = (url: string | string[]) => {
-  return comRequest.cancelRequest(url);
+  return request.cancelRequest(url);
 };
 export const cancelAllRequest = () => {
-  return comRequest.cancelAllRequest();
+  return request.cancelAllRequest();
 };
-export { comRequest };

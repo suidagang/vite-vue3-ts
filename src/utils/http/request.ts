@@ -111,8 +111,8 @@ class Request {
       source[key]();
     });
   }
-  request<T>(config: RequestConfig<T>): Promise<T> {
-    return new Promise<T>((resolve, reject) => {
+  request<T>(config: RequestConfig): Promise<T> {
+    return new Promise((resolve, reject) => {
       // 如果我们为单个请求设置拦截器，这里使用单个请求的拦截器
       if (config.interceptors?.requestInterceptors) {
         console.log('单个请求拦截');
@@ -134,7 +134,7 @@ class Request {
           // 如果我们为单个响应设置拦截器，这里使用单个响应的拦截器
           if (config.interceptors?.responseInterceptors) {
             console.log('单个响应拦截');
-            res = config.interceptors.responseInterceptors(res);
+            res = config.interceptors.responseInterceptors<T>(res);
           }
           resolve(res);
         })
@@ -144,19 +144,6 @@ class Request {
         .finally(() => {
           url && this.delUrl(url);
         });
-    });
-  }
-
-  get<T = any>(config: RequestConfig<T>): Promise<T> {
-    return this.request<T>({
-      ...config,
-      method: 'GET'
-    });
-  }
-  post<T = any>(config: RequestConfig<T>): Promise<T> {
-    return this.request<T>({
-      ...config,
-      method: 'POST'
     });
   }
 }
