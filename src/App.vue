@@ -63,8 +63,13 @@ comRequest
     url: '/api/posts',
     //单个请求调用级别单独设置拦截器
     interceptors: {
+      requestInterceptors: (res) => {
+        return res;
+      },
       //直接返回IDataType类型结果中的data属性项
-      responseInterceptors: (res) => res[0].title
+      responseInterceptors: (res) => {
+        return res;
+      }
     }
   })
   .then((res) => {
