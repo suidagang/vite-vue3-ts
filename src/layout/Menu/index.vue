@@ -1,6 +1,6 @@
 <template>
   <div class="menu">
-    <div class="sys-name">项目名称</div>
+    <div class="sys-name">大屏组件项目</div>
     <div class="sidebar-menu">
       <el-menu
         background-color="#304156"

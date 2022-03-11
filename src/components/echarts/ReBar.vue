@@ -3,7 +3,9 @@
 </template>
 
 <script setup lang="ts">
+// echarts ts 定义
 import { EChartOption, ECharts } from 'echarts';
+// 引入公共的echarts组件（按需实现)
 import echarts from '@/plugin/echarts/index';
 import { onBeforeMount, onMounted, nextTick, ref, watch } from 'vue';
 import { useEventListener, tryOnUnmounted, useTimeoutFn } from '@vueuse/core';
@@ -94,6 +96,7 @@ onMounted(() => {
     });
   });
 });
+// 监听入参有变化就重新刷新
 watch(
   () => props.option,
   (newProps, oldProps) => {
