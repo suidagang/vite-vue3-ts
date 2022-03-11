@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { EChartOption, ECharts } from 'echarts';
-import echarts from '../../plugin/echarts/index';
+import echarts from '@/plugin/echarts/index';
 import { onBeforeMount, onMounted, nextTick, ref, watch } from 'vue';
 import { useEventListener, tryOnUnmounted, useTimeoutFn } from '@vueuse/core';
 import { isEqual } from 'lodash-unified';
