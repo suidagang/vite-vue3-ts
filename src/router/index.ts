@@ -37,6 +37,12 @@ export const routes: Array<RouteConfigs> = [
             name: 'Pie',
             meta: { title: '饼图' },
             component: () => import('@/components/echarts/pie.vue')
+          },
+          {
+            path: '/echarts/bar',
+            name: 'Bar',
+            meta: { title: '柱状图' },
+            component: () => import('@/components/testBar.vue')
           }
         ]
       },
