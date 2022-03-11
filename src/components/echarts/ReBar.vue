@@ -1,16 +1,13 @@
 <template>
-  <div
-    ref="barRef"
-    :class="'bar' + props.index"
-    style="width: 100%; height: 100%"
-  ></div>
+  <div ref="barRef" style="width: 100%; height: 100%"></div>
 </template>
 
 <script setup lang="ts">
 import { EChartOption, ECharts } from 'echarts';
 import echarts from '../../plugin/echarts/index';
-import { onBeforeMount, onMounted, nextTick, ref, reactive } from 'vue';
+import { onBeforeMount, onMounted, nextTick, ref, watch } from 'vue';
 import { useEventListener, tryOnUnmounted, useTimeoutFn } from '@vueuse/core';
+import { isEqual } from 'lodash-unified';
 //echarts实例
 let echartInstance: ECharts | null;
 interface optionProps {
@@ -19,11 +16,9 @@ interface optionProps {
 }
 const props = withDefaults(
   defineProps<{
-    index?: number;
     option?: optionProps;
   }>(),
   {
-    index: 0,
     option: () => {
       return {
         xdata: ['aa', 'bb', 'cc', 'dd'],
@@ -33,10 +28,7 @@ const props = withDefaults(
   }
 );
 let barRef = ref<HTMLElement | null>(null);
-interface T {
-  option: EChartOption;
-}
-const options = reactive<T>({
+const options = {
   option: {
     tooltip: {
       trigger: 'axis',
@@ -74,16 +66,18 @@ const options = reactive<T>({
       }
     ]
   }
-});
+};
+
 function initEchartsInstance() {
-  console.log('---===');
+  if (echartInstance != null && echartInstance != undefined) {
+    echartInstance.dispose(); //解决echarts dom已经加载的报错
+  }
   const echartsDom = barRef.value;
-  // const echartsDom = document.querySelector('.bar' + props.index);
   if (!echartsDom) return;
   //@ts-ignore
   echartInstance = echarts.init(echartsDom);
   echartInstance?.clear(); //清除画布，重新渲染
-  echartInstance?.setOption(options.option);
+  echartInstance?.setOption(options.option as EChartOption);
 }
 onBeforeMount(() => {
   nextTick(() => {
@@ -100,6 +94,20 @@ onMounted(() => {
     });
   });
 });
+watch(
+  () => props.option,
+  (newProps, oldProps) => {
+    let flag: boolean = isEqual(newProps, oldProps);
+    if (!flag) {
+      nextTick(() => {
+        options.option.xAxis[0].data = newProps.xdata;
+        options.option.series[0].data = newProps.seriesData;
+        initEchartsInstance();
+      });
+    }
+  }
+);
+
 tryOnUnmounted(() => {
   if (!echartInstance) return;
   echartInstance.dispose();
