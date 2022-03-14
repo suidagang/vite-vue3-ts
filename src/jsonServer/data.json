@@ -21,5 +21,41 @@
             "title": "json-server",
             "author": "typicode"
         }
+    ],
+    "ReBarData": [
+        {
+            "id": 1,
+            "e_type": "ReBar",
+            "xdata": [
+                "哈哈",
+                "嘿嘿",
+                "嘻嘻",
+                "呵呵"
+            ],
+            "seriesData": [
+                22,
+                33,
+                55,
+                88
+            ],
+            "yName": "(眭)"
+        },
+        {
+            "id": 2,
+            "e_type": "ReBar",
+            "xdata": [
+                "哈哈",
+                "嘿嘿",
+                "嘻嘻",
+                "呵呵"
+            ],
+            "seriesData": [
+                123,
+                33,
+                11,
+                34
+            ],
+            "yName": "(眭)"
+        }
     ]
 }

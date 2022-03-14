@@ -14,43 +14,33 @@
 </template>
 
 <script setup lang="ts">
-import { componentsList } from './echarts/componentsList';
-import { optionBarProps } from '@/components/echarts/types/comBar';
-import { ref, onUnmounted, reactive, defineAsyncComponent } from 'vue';
+import { getTemplateByType } from './echarts/componentsList';
+import { ref, onUnmounted, reactive, markRaw } from 'vue';
+import { comRequest } from '@/utils/http/index';
 let timer = ref<any>(null);
-interface propsReBar {
-  option: optionBarProps;
-}
-const getTemplateByType = (e_type: string) => {
-  return defineAsyncComponent(
-    (() => {
-      if (e_type && e_type in componentsList) {
-        //@ts-ignore
-        return componentsList[e_type];
-      } else {
-        return '';
-      }
-    })()
-  );
-};
-let options = reactive<propsReBar>({
+let options = reactive({
   option: {
-    e_type: 'ReBar',
-    xdata: ['哈哈', '嘿嘿', '嘻嘻', '呵呵'],
-    seriesData: [22, 33, 55, 88],
-    yName: '(眭)'
+    e_type: ''
   }
 });
-let template = getTemplateByType(options.option.e_type as string);
+let template = ref(null);
+const getAjax = (id: number, flag?: boolean) => {
+  comRequest({
+    url: '/api/ReBarData/' + id
+  }).then((res) => {
+    //@ts-ignore
+    options.option = res;
+    if (!flag && options.option) {
+      template.value = markRaw(getTemplateByType(options.option.e_type));
+    }
+  });
+};
+getAjax(1);
+
 //根据后台传入e_type获取组件
 
 timer.value = setInterval(() => {
-  options.option = {
-    e_type: 'reBar',
-    xdata: ['哈哈', '嘿嘿', '嘻嘻', '呵呵'],
-    seriesData: [123, 33, 11, 34],
-    yName: '(刚)'
-  };
+  getAjax(2, true);
 }, 3000);
 onUnmounted(() => {
   if (timer.value) {
