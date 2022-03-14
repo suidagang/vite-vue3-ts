@@ -32,39 +32,84 @@ const props = withDefaults(
 let barRef = ref<HTMLElement | null>(null);
 const options = {
   option: {
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'shadow'
-      }
-    },
+    color: ['#00FFF6'],
+    // tooltip: { }//提示框组件
     grid: {
-      bottom: '20%',
-      height: '68%',
-      containLabel: true
+      bottom: '10%',
+      left: '10%',
+      containLabel: true //设置containLabel: true常用于 防止标签溢出，计算距离时候会计算容器边到标签的距离，否则计算容器边缘到刻度线的距离。
     },
     xAxis: [
       {
-        type: 'category',
+        show: true, // 是否显示 x 轴
+        type: 'category', // 坐标轴类型
+        position: 'bottom', // x 轴的位置（'top'，'bottom'）
+        axisLine: {
+          show: true, // 是否显示坐标轴轴线
+          lineStyle: {
+            color: '#fff', // 坐标轴线线的颜色
+            width: '1' // 坐标轴线线宽
+          }
+        },
         axisTick: {
-          alignWithLabel: true
+          show: false, // 是否显示坐标轴刻度
+          inside: true, // 坐标轴刻度是否朝内，默认朝外
+          length: 5, // 坐标轴刻度的长度
+          lineStyle: {
+            color: '#FFF', // 刻度线的颜色
+            width: 10, // 坐标轴刻度线宽
+            type: 'solid' // 坐标轴线线的类型（'solid'，实线类型；'dashed'，虚线类型；'dotted',点状类型）
+          }
         },
         axisLabel: {
-          interval: 0
+          show: true, // 是否显示刻度标签
+          margin: 12, // 刻度标签与轴线之间的距离
+          color: 'rgb(255,255,255)', // 刻度标签文字的颜色
+          fontSize: '16', // 文字字体大小
+          align: 'center', // 文字水平对齐方式，默认自动（'left'，'center'，'right'）
+          verticalAlign: 'middle' // 文字垂直对齐方式，默认自动（'top'，'middle'，'bottom'
         },
         data: props.option && props.option.xdata
       }
     ],
     yAxis: [
       {
-        type: 'value'
+        show: true, // 是否显示 Y轴
+        type: 'value', //('value''category''time''log')
+        name: '(笔)', // 坐标轴名称
+        nameTextStyle: {
+          color: '#fff',
+          padding: [40, 48, 0, 8],
+          fontSize: 16
+        },
+        axisLine: {
+          // 坐标轴刻度相关设置。
+          show: true,
+          lineStyle: {
+            // 刻度线的样式设置。
+            color: '#fff', // 刻度线的颜色，默认取 axisTick.lineStyle.color。
+            width: 1
+          }
+        }, // 坐标轴轴线相关设置。
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          // 坐标轴刻度标签的相关设置。
+          show: true,
+          color: '#fff',
+          fontSize: 16
+        },
+        splitLine: {
+          show: false
+        }
       }
     ],
     series: [
       {
-        name: 'GitHub信息',
         type: 'bar',
-        data: props.option && props.option.seriesData
+        data: props.option && props.option.seriesData,
+        barWidth: '29'
       }
     ]
   }

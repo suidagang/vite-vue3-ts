@@ -1,14 +1,17 @@
 <template>
-  <div class="test-bar">
-    <ReBar />
-  </div>
-  <div class="test-bar">
-    <ReBar :option="options.option" />
+  <div class="echarts-page">
+    <div class="test-line">
+      <ReLine />
+    </div>
+    <div class="test-bar">
+      <ReBar :option="options.option" />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import ReBar from '@/components/echarts/ReBar.vue';
+import ReLine from '@/components/echarts/ReLine.vue';
 import { ref, onUnmounted, reactive } from 'vue';
 let timer = ref<any>(null);
 let options = reactive({
@@ -32,6 +35,16 @@ onUnmounted(() => {
 </script>
 
 <style lang="less" scoped>
+.echarts-page {
+  height: 100%;
+  width: 100%;
+  background: #01145e;
+}
+.test-line {
+  width: 50%;
+  height: 250px;
+  overflow: hidden;
+}
 .test-bar {
   width: 50%;
   height: 250px;

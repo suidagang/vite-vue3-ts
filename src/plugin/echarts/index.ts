@@ -1,10 +1,10 @@
 import * as echarts from 'echarts/core';
 
-//\node_modules\echarts\lib\export
+//具体组件地址：\node_modules\echarts\lib\export\charts.js
 import { PieChart, BarChart, LineChart } from 'echarts/charts';
 import { SVGRenderer } from 'echarts/renderers';
 
-//\node_modules\echarts\lib\export
+//具体组件地址：\node_modules\echarts\lib\export\components.js
 import {
   GridComponent,
   TitleComponent,
