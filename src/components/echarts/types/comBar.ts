@@ -1,5 +1,6 @@
 export interface optionBarProps {
-  e_type?: string;
+  reDraw?: boolean; //是否为重新渲染
+  e_type?: string; //动态组件的组件名称
   xdata: string[]; //x轴数据
   seriesData: number[]; //y轴数据
   yName?: string; //y轴最上面的名称

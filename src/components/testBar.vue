@@ -2,39 +2,51 @@
   <div class="echarts-page">
     <div class="test-bar">
       <div class="title-box">组件名称：ReBar</div>
-      <ReBar :option="options.option" />
+      <component :is="template" :option="options.option"></component>
     </div>
     <div class="test-bar">
       <div class="title-box">组件名称：ReBar_1</div>
-      <ReBar_1 :option="options.option" />
     </div>
     <div class="test-bar">
       <div class="title-box">组件名称：ReBar_1</div>
-      <ReBar_1 :option="options.option" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import ReBar from '@/components/echarts/ReBar.vue';
-import ReBar_1 from '@/components/echarts/ReBar_1.vue';
+import { componentsList } from './echarts/componentsList';
 import { optionBarProps } from '@/components/echarts/types/comBar';
-import { ref, onUnmounted, reactive } from 'vue';
+import { ref, onUnmounted, reactive, defineAsyncComponent } from 'vue';
 let timer = ref<any>(null);
 interface propsReBar {
   option: optionBarProps;
 }
+const getTemplateByType = (e_type: string) => {
+  return defineAsyncComponent(
+    (() => {
+      if (e_type && e_type in componentsList) {
+        //@ts-ignore
+        return componentsList[e_type];
+      } else {
+        return '';
+      }
+    })()
+  );
+};
 let options = reactive<propsReBar>({
   option: {
-    e_type: 'reBar',
+    e_type: 'ReBar',
     xdata: ['哈哈', '嘿嘿', '嘻嘻', '呵呵'],
     seriesData: [22, 33, 55, 88],
     yName: '(眭)'
   }
 });
+let template = getTemplateByType(options.option.e_type as string);
+//根据后台传入e_type获取组件
+
 timer.value = setInterval(() => {
   options.option = {
-    // e_type: 'reBar',
+    e_type: 'reBar',
     xdata: ['哈哈', '嘿嘿', '嘻嘻', '呵呵'],
     seriesData: [123, 33, 11, 34],
     yName: '(刚)'
