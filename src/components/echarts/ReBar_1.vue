@@ -10,51 +10,29 @@ import echarts from '@/plugin/echarts/index';
 import { onBeforeMount, onMounted, nextTick, ref, watch } from 'vue';
 import { useEventListener, tryOnUnmounted, useTimeoutFn } from '@vueuse/core';
 import { isEqual } from 'lodash-unified';
-import { optionBarProps } from '@/components/echarts/types/comBar';
 //echarts实例
 let echartInstance: ECharts | null;
+interface optionProps {
+  xdata: string[];
+  seriesData: number[];
+}
 const props = withDefaults(
   defineProps<{
-    option?: optionBarProps;
+    option?: optionProps;
   }>(),
   {
     option: () => {
-      //合并对象
       return {
-        e_type: 'reBar',
         xdata: ['aa', 'bb', 'cc', 'dd'],
-        seriesData: [3, 204, 1079, 1079],
-        yName: '',
-        barColor: ['#00FFF6'],
-        barWidth: '18',
-        axisLabelColor: '#fff',
-        axisLabelFontSize: '16',
-        yNameColor: '#fff',
-        yNameFontSize: '16',
-        yxisLabelColor: '#fff',
-        yxisLabelFontSize: '16'
+        seriesData: [3, 204, 1079, 1079]
       };
     }
   }
 );
-// 基础数据
-const basicOptions: optionBarProps = {
-  xdata: ['aa', 'bb', 'cc', 'dd'],
-  seriesData: [3, 204, 1079, 1079],
-  yName: '',
-  barColor: ['#00FFF6'],
-  barWidth: '18',
-  axisLabelColor: '#fff',
-  axisLabelFontSize: '16',
-  yNameColor: '#fff',
-  yNameFontSize: '16',
-  yxisLabelColor: '#fff',
-  yxisLabelFontSize: '16'
-};
 let barRef = ref<HTMLElement | null>(null);
 const options = {
   option: {
-    color: props.option && props.option.barColor,
+    color: ['#00FFF6'],
     // tooltip: { }//提示框组件
     grid: {
       bottom: '10%',
@@ -86,8 +64,8 @@ const options = {
         axisLabel: {
           show: true, // 是否显示刻度标签
           margin: 12, // 刻度标签与轴线之间的距离
-          color: props.option && props.option.axisLabelColor, // 刻度标签文字的颜色
-          fontSize: props.option && props.option.axisLabelFontSize, // 文字字体大小
+          color: 'rgb(255,255,255)', // 刻度标签文字的颜色
+          fontSize: '16', // 文字字体大小
           align: 'center', // 文字水平对齐方式，默认自动（'left'，'center'，'right'）
           verticalAlign: 'middle' // 文字垂直对齐方式，默认自动（'top'，'middle'，'bottom'
         },
@@ -98,11 +76,11 @@ const options = {
       {
         show: true, // 是否显示 Y轴
         type: 'value', //('value''category''time''log')
-        name: props.option && props.option.yName, // 坐标轴名称
+        name: '(笔)', // 坐标轴名称
         nameTextStyle: {
-          color: props.option && props.option.yNameColor,
+          color: '#fff',
           padding: [40, 48, 0, 8],
-          fontSize: props.option && props.option.yNameFontSize
+          fontSize: 16
         },
         axisLine: {
           // 坐标轴刻度相关设置。
@@ -119,8 +97,8 @@ const options = {
         axisLabel: {
           // 坐标轴刻度标签的相关设置。
           show: true,
-          color: props.option && props.option.yxisLabelColor,
-          fontSize: props.option && props.option.yxisLabelFontSize
+          color: '#fff',
+          fontSize: 16
         },
         splitLine: {
           show: false
@@ -131,7 +109,7 @@ const options = {
       {
         type: 'bar',
         data: props.option && props.option.seriesData,
-        barWidth: props.option && props.option.barWidth
+        barWidth: '29'
       }
     ]
   }
@@ -150,7 +128,6 @@ function initEchartsInstance() {
 }
 onBeforeMount(() => {
   nextTick(() => {
-    changeOptions(props.option);
     initEchartsInstance();
   });
 });
@@ -164,21 +141,6 @@ onMounted(() => {
     });
   });
 });
-//合并入参，并改变options中的值
-const changeOptions = (newObj: optionBarProps) => {
-  let resultObj = Object.assign(basicOptions, newObj);
-  options.option.xAxis[0].data = resultObj.xdata;
-  options.option.series[0].data = resultObj.seriesData;
-  options.option.color = resultObj.barColor;
-  options.option.xAxis[0].axisLabel.color = resultObj.axisLabelColor;
-  options.option.xAxis[0].axisLabel.fontSize = resultObj.axisLabelFontSize;
-  options.option.yAxis[0].name = resultObj.yName;
-  options.option.yAxis[0].nameTextStyle.color = resultObj.yNameColor;
-  options.option.yAxis[0].nameTextStyle.fontSize = resultObj.yNameFontSize;
-  options.option.yAxis[0].axisLabel.color = resultObj.yxisLabelColor;
-  options.option.yAxis[0].axisLabel.fontSize = resultObj.yxisLabelFontSize;
-  options.option.series[0].barWidth = resultObj.barWidth;
-};
 // 监听入参有变化就重新刷新
 watch(
   () => props.option,
@@ -186,7 +148,8 @@ watch(
     let flag: boolean = isEqual(newProps, oldProps);
     if (!flag) {
       nextTick(() => {
-        changeOptions(newProps);
+        options.option.xAxis[0].data = newProps.xdata;
+        options.option.series[0].data = newProps.seriesData;
         initEchartsInstance();
       });
     }
