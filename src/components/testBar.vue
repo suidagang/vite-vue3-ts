@@ -18,17 +18,16 @@ import { getTemplateByType } from './echarts/componentsList';
 import { ref, onUnmounted, reactive, markRaw } from 'vue';
 import { comRequest } from '@/utils/http/index';
 let timer = ref<any>(null);
-let options = reactive({
+let options = reactive<any>({
   option: {
     e_type: ''
   }
 });
-let template = ref(null);
+let template = ref<any>(null);
 const getAjax = (id: number, flag?: boolean) => {
   comRequest({
     url: '/api/ReBarData/' + id
   }).then((res) => {
-    //@ts-ignore
     options.option = res;
     if (!flag && options.option) {
       template.value = markRaw(getTemplateByType(options.option.e_type));
@@ -40,8 +39,8 @@ getAjax(1);
 //根据后台传入e_type获取组件
 
 timer.value = setInterval(() => {
-  getAjax(2, true);
-}, 3000);
+  // getAjax(2, true);
+}, 10000);
 onUnmounted(() => {
   if (timer.value) {
     clearInterval(timer.value);
