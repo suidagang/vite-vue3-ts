@@ -19,7 +19,7 @@ export const basicOptions: optionBarProps = {
   xdata: ['aa', 'bb', 'cc', 'dd'],
   seriesData: [3, 204, 1079, 1079],
   yName: '',
-  barColor: ['#00FFF6'],
+  barColor: ['#19f1ff'],
   barWidth: '18',
   axisLabelColor: '#fff',
   axisLabelFontSize: '16',
@@ -65,8 +65,8 @@ export const basicOptions_1: optionBarProps_1 = {
   legendData: ['2022年', '2021年'],
   lengendColor: '#fff',
   lengendFontSize: '16',
-  seriesDataOneColor: ['#fccb05', '#f5804d'],
-  seriesDataTwoColor: ['#8bd46e', '#09bcb7']
+  seriesDataOneColor: ['#c778ff', '#1679e9'],
+  seriesDataTwoColor: ['#78f7ff', '#1679e9']
 };
 
 //数据定义 （组件ReBar_2）
