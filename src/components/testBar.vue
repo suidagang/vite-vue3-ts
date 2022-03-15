@@ -39,8 +39,8 @@ getAjax(1);
 //根据后台传入e_type获取组件
 
 timer.value = setInterval(() => {
-  // getAjax(2, true);
-}, 10000);
+  getAjax(2, true);
+}, 10000000);
 onUnmounted(() => {
   if (timer.value) {
     clearInterval(timer.value);
