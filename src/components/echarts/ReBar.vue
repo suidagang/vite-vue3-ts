@@ -10,7 +10,10 @@ import echarts from '@/plugin/echarts/index';
 import { onBeforeMount, onMounted, nextTick, ref, watch } from 'vue';
 import { useEventListener, tryOnUnmounted, useTimeoutFn } from '@vueuse/core';
 import { isEqual } from 'lodash-unified';
-import { optionBarProps } from '@/components/echarts/types/comBar';
+import {
+  optionBarProps,
+  basicOptions
+} from '@/components/echarts/types/comBar';
 //echarts实例
 let echartInstance: ECharts | null;
 const props = withDefaults(
@@ -20,37 +23,10 @@ const props = withDefaults(
   {
     option: () => {
       //合并对象
-      return {
-        e_type: 'reBar',
-        xdata: ['aa', 'bb', 'cc', 'dd'],
-        seriesData: [3, 204, 1079, 1079],
-        yName: '',
-        barColor: ['#00FFF6'],
-        barWidth: '18',
-        axisLabelColor: '#fff',
-        axisLabelFontSize: '16',
-        yNameColor: '#fff',
-        yNameFontSize: '16',
-        yxisLabelColor: '#fff',
-        yxisLabelFontSize: '16'
-      };
+      return basicOptions;
     }
   }
 );
-// 基础数据
-const basicOptions: optionBarProps = {
-  xdata: ['aa', 'bb', 'cc', 'dd'],
-  seriesData: [3, 204, 1079, 1079],
-  yName: '',
-  barColor: ['#00FFF6'],
-  barWidth: '18',
-  axisLabelColor: '#fff',
-  axisLabelFontSize: '16',
-  yNameColor: '#fff',
-  yNameFontSize: '16',
-  yxisLabelColor: '#fff',
-  yxisLabelFontSize: '16'
-};
 let barRef = ref<HTMLElement | null>(null);
 const options = {
   option: {
