@@ -1,9 +1,12 @@
 <template>
   <div class="content">
-    <!-- 内部应该显示子路由页面信息 -->
-    <router-view v-slot="{ Component }">
-      <component :is="Component" />
-    </router-view>
+    <div class="content-scroll">
+      <!-- 内部应该显示子路由页面信息 -->
+      <!-- transition 和 keep-alive 现在必须通过 v-slot API 在 RouterView 内部使用 -->
+      <router-view v-slot="{ Component }">
+        <component :is="Component" />
+      </router-view>
+    </div>
   </div>
 </template>
 
@@ -16,5 +19,23 @@
   flex: 1;
   box-sizing: border-box;
   background: #f0f2f5;
+}
+.content-scroll {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.content-scroll::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.content-scroll::-webkit-scrollbar-track-piece {
+  background: #d3dce6;
+}
+
+.content-scroll::-webkit-scrollbar-thumb {
+  background: #99a9bf;
+  border-radius: 20px;
 }
 </style>

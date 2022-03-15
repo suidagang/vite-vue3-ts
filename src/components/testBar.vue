@@ -12,6 +12,7 @@
       <div class="title-box">组件名称：ReBar_2</div>
       <component :is="template_2" :option="options_2.option"></component>
     </div>
+    <div style="height: 9999px; width: 100%; background: pink"></div>
   </div>
 </template>
 
@@ -86,7 +87,7 @@ onUnmounted(() => {
 
 <style lang="less" scoped>
 .echarts-page {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   background: #01145e;
   padding: 10px;
