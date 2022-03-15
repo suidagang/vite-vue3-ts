@@ -93,7 +93,7 @@ export interface optionBarProps_2 {
   lengendFontSize?: string; //图例字体大小
   barColor?: string[]; //柱状图的颜色，从下往上
 }
-//默认数据 （组件ReBar_1）
+//默认数据 （组件ReBar_2）
 export const basicOptions_2: optionBarProps_2 = {
   e_type: 'ReBar_2',
   xdata: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],

@@ -30,6 +30,7 @@ const props = withDefaults(
 let barRef = ref<HTMLElement | null>(null);
 const options = {
   option: {
+    color: [],
     grid: {
       bottom: '10%',
       left: '5%',
@@ -179,6 +180,7 @@ const changeOptions = (newObj: optionBarProps_2) => {
   options.option.legend.textStyle.color = resultObj.lengendColor;
   options.option.legend.textStyle.fontSize = resultObj.lengendFontSize;
   options.option.series = resultObj.listData as never[];
+  options.option.color = resultObj.barColor as never[];
 };
 // 监听入参有变化就重新刷新
 watch(
