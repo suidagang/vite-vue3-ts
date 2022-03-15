@@ -9,7 +9,7 @@ import { EChartOption, ECharts } from 'echarts';
 import echarts from '@/plugin/echarts/index';
 import { onBeforeMount, onMounted, nextTick, ref, watch } from 'vue';
 import { useEventListener, tryOnUnmounted, useTimeoutFn } from '@vueuse/core';
-import { isEqual } from 'lodash-unified';
+import { isEqual, merge } from 'lodash-unified';
 import {
   optionBarProps_1,
   basicOptions_1
@@ -200,7 +200,7 @@ onMounted(() => {
 });
 //合并入参，并改变options中的值
 const changeOptions = (newObj: optionBarProps_1) => {
-  let resultObj = Object.assign(basicOptions_1, newObj);
+  let resultObj = merge(basicOptions_1, newObj);
   options.option.xAxis[0].data = resultObj.xdata;
   options.option.series[0].data = resultObj.seriesDataOne;
   options.option.series[0].name = resultObj.legendData[0];

@@ -13,8 +13,9 @@ export interface optionBarProps {
   yxisLabelColor?: string; //y轴文字颜色
   yxisLabelFontSize?: string; // y轴文字大小
 }
-// 基础数据
+// 基础数据（组件ReBar）
 export const basicOptions: optionBarProps = {
+  e_type: 'ReBar',
   xdata: ['aa', 'bb', 'cc', 'dd'],
   seriesData: [3, 204, 1079, 1079],
   yName: '',
@@ -49,7 +50,7 @@ export interface optionBarProps_1 {
 }
 //默认数据 （组件ReBar_1）
 export const basicOptions_1: optionBarProps_1 = {
-  e_type: 'reBar',
+  e_type: 'ReBar_1',
   xdata: ['aa', 'bb', 'cc', 'dd'],
   seriesDataOne: [3, 204, 1079, 1079],
   seriesDataTwo: [1, 111, 342, 456],
@@ -66,4 +67,68 @@ export const basicOptions_1: optionBarProps_1 = {
   lengendFontSize: '16',
   seriesDataOneColor: ['#fccb05', '#f5804d'],
   seriesDataTwoColor: ['#8bd46e', '#09bcb7']
+};
+
+//数据定义 （组件ReBar_2）
+export interface ListProps {
+  name: string;
+  type: string;
+  stack: string;
+  barWidth: string;
+  data: number[];
+}
+export interface optionBarProps_2 {
+  e_type?: string; //动态组件的组件名称
+  xdata: string[]; //x轴数据
+  listData: ListProps[];
+  yName?: string; //y轴最上面的名称
+  yNameColor?: string; //y轴最上面的名称的颜色
+  yNameFontSize?: string; //y轴最上面的名称的字体大小
+  barWidth?: string; //柱体的宽度
+  axisLabelColor?: string; //x轴文字颜色
+  axisLabelFontSize?: string; //x轴文字大小
+  yxisLabelColor?: string; //y轴文字颜色
+  yxisLabelFontSize?: string; // y轴文字大小
+  lengendColor?: string; //图例字体颜色
+  lengendFontSize?: string; //图例字体大小
+  barColor?: string[]; //柱状图的颜色，从下往上
+}
+//默认数据 （组件ReBar_1）
+export const basicOptions_2: optionBarProps_2 = {
+  e_type: 'ReBar_2',
+  xdata: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+  listData: [
+    {
+      name: '智能接通量',
+      type: 'bar',
+      barWidth: '24',
+      stack: 'total',
+      data: [1, 2, 3, 4, 5, 6, 3, 2, 5, 4, 3, 2]
+    },
+    {
+      name: '人工接通量',
+      type: 'bar',
+      barWidth: '24',
+      stack: 'total',
+      data: [1, 1, 3, 5, 5, 2, 3, 2, 5, 2, 3, 1]
+    },
+    {
+      name: '未接通量',
+      type: 'bar',
+      barWidth: '24',
+      stack: 'total',
+      data: [4, 2, 3, 4, 3, 6, 3, 2, 7, 4, 3, 1]
+    }
+  ],
+  yName: '',
+  barWidth: '18',
+  axisLabelColor: '#fff',
+  axisLabelFontSize: '16',
+  yNameColor: '#fff',
+  yNameFontSize: '16',
+  yxisLabelColor: '#fff',
+  yxisLabelFontSize: '16',
+  lengendColor: '#fff',
+  lengendFontSize: '16',
+  barColor: ['#b475ee', '#00cf7e', '#2a95fc']
 };
