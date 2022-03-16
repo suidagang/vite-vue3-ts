@@ -3,10 +3,12 @@
     <el-icon class="open-sidebar-icon" @click="changeSiderbarState">
       <Fold />
     </el-icon>
+    <screenfull class="screenfull-box" />
   </div>
 </template>
 
 <script setup lang="ts">
+import screenfull from '@/layout/screenfull/index.vue';
 import { Fold } from '@element-plus/icons';
 import { storeToRefs } from 'pinia';
 import { menuStore } from '@/store/menu';
@@ -30,5 +32,9 @@ const changeSiderbarState = () => {
   font-size: 32px;
   margin-left: 20px;
   cursor: pointer;
+}
+.screenfull-box {
+  position: absolute;
+  right: 120px;
 }
 </style>
