@@ -20,6 +20,14 @@
       <div class="title-box">组件名称：ReBar_4</div>
       <!-- <component :is="template_4" :option="options_4.option"></component> -->
     </div>
+    <div class="test-bar">
+      <div class="title-box">组件名称：ReBar_5</div>
+      <!-- <component :is="template_5" :option="options_5.option"></component> -->
+    </div>
+    <div class="test-bar">
+      <div class="title-box">组件名称：ReBar_6</div>
+      <!-- <component :is="template_6" :option="options_6.option"></component> -->
+    </div>
   </div>
 </template>
 
@@ -116,16 +124,18 @@ onUnmounted(() => {
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .title-box {
   color: #fff;
 }
 .test-bar {
-  width: 50%;
+  width: 49%;
   height: 250px;
   overflow: hidden;
   border: 1px solid red;
   box-sizing: border-box;
   overflow: hidden;
+  margin-bottom: 30px;
 }
 </style>
