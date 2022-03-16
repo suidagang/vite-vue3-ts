@@ -49,5 +49,6 @@ const route = useRoute();
 <style lang="less" scoped>
 .isCollapse {
   width: 64px;
+  transition: width 0.4s;
 }
 </style>
