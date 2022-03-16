@@ -174,6 +174,6 @@ export const basicOptions_3: optionBarProps_3 = {
       value: 9
     }
   ],
-  yxisLabelRightText: '万元啊',
+  // yxisLabelRightText: '万元啊',
   yxisLabelRightTextColor: '#ff0'
 };

@@ -16,7 +16,10 @@
       <div class="title-box">组件名称：ReBar_3</div>
       <component :is="template_3" :option="options_3.option"></component>
     </div>
-    <div style="height: 9999px; width: 100%; background: pink"></div>
+    <div class="test-bar">
+      <div class="title-box">组件名称：ReBar_4</div>
+      <!-- <component :is="template_4" :option="options_4.option"></component> -->
+    </div>
   </div>
 </template>
 
