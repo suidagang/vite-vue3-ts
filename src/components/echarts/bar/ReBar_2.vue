@@ -11,31 +11,56 @@ import { onBeforeMount, onMounted, nextTick, ref, watch } from 'vue';
 import { useEventListener, tryOnUnmounted, useTimeoutFn } from '@vueuse/core';
 import { isEqual, merge } from 'lodash-unified';
 import {
-  optionBarProps,
-  basicOptions
-} from '@/components/echarts/types/comBar';
+  optionBarProps_2,
+  basicOptions_2
+} from '@/components/echarts/bar/types/comBar';
 //echarts实例
 let echartInstance: ECharts | null;
 const props = withDefaults(
   defineProps<{
-    option?: optionBarProps;
+    option?: optionBarProps_2;
   }>(),
   {
     option: () => {
-      //合并对象
-      return basicOptions;
+      return basicOptions_2;
     }
   }
 );
+
 let barRef = ref<HTMLElement | null>(null);
 const options = {
   option: {
-    color: props.option && props.option.barColor,
-    // tooltip: { }//提示框组件
+    color: [],
     grid: {
       bottom: '10%',
-      left: '10%',
+      left: '5%',
+      right: '5%',
+      top: '20%',
       containLabel: true //设置containLabel: true常用于 防止标签溢出，计算距离时候会计算容器边到标签的距离，否则计算容器边缘到刻度线的距离。
+    },
+    //图例设置
+    legend: {
+      show: true, //是否显示
+      type: 'plain', // 图例的类型 'plain':普通图例  'scroll':可滚动翻页的图例
+      zlevel: 1, // 所有图形的 zlevel 值。
+      icon: 'rect', //形状circle-圆形，rect-矩形，roundRect-圆角矩形，triangle-三角形，diamond-菱形，pin-水滴，arrow-箭头，none-不显示图标
+      data: [],
+      right: 10, // 组件离容器的距离
+      top: 12, // 组件离容器的距离
+      width: 'auto', // 图例组件的宽度
+      height: 'auto', // 图例组件的高度
+      orient: 'horizontal', // 图例列表的布局朝向。 'horizontal'  'vertical'
+      textStyle: {
+        fontWeight: 'normal', // 文字字体的粗细。 'normal' 'bold'  'bolder' 'lighter'  100 | 200 | 300 | 400...
+        //fontFamily: 'sans-serif', // 文字的字体系列。
+        fontSize: props.option && props.option.lengendFontSize, // 文字的字体大小。
+        lineHeight: 20, // 行高。
+        backgroundColor: 'transparent', // 文字块背景色。
+        color: props.option && props.option.lengendColor // 文字的颜色。
+      },
+      itemWidth: 16, // 图例标记的图形宽度。
+      itemHeight: 8, //  图例标记的图形高度。
+      itemGap: 20 // 图例每项之间的间隔。
     },
     xAxis: [
       {
@@ -103,13 +128,7 @@ const options = {
         }
       }
     ],
-    series: [
-      {
-        type: 'bar',
-        data: props.option && props.option.seriesData,
-        barWidth: props.option && props.option.barWidth
-      }
-    ]
+    series: []
   }
 };
 
@@ -141,11 +160,15 @@ onMounted(() => {
   });
 });
 //合并入参，并改变options中的值
-const changeOptions = (newObj: optionBarProps) => {
-  let resultObj = merge(basicOptions, newObj);
+const changeOptions = (newObj: optionBarProps_2) => {
+  let resultObj = merge(basicOptions_2, newObj);
+  //处理数据
+  let legendData: string[] = [];
+  resultObj.listData.forEach((item) => {
+    legendData.push(item.name);
+    item.barWidth = resultObj.barWidth as string;
+  });
   options.option.xAxis[0].data = resultObj.xdata;
-  options.option.series[0].data = resultObj.seriesData;
-  options.option.color = resultObj.barColor;
   options.option.xAxis[0].axisLabel.color = resultObj.axisLabelColor;
   options.option.xAxis[0].axisLabel.fontSize = resultObj.axisLabelFontSize;
   options.option.yAxis[0].name = resultObj.yName;
@@ -153,7 +176,11 @@ const changeOptions = (newObj: optionBarProps) => {
   options.option.yAxis[0].nameTextStyle.fontSize = resultObj.yNameFontSize;
   options.option.yAxis[0].axisLabel.color = resultObj.yxisLabelColor;
   options.option.yAxis[0].axisLabel.fontSize = resultObj.yxisLabelFontSize;
-  options.option.series[0].barWidth = resultObj.barWidth;
+  options.option.legend.data = legendData as never[];
+  options.option.legend.textStyle.color = resultObj.lengendColor;
+  options.option.legend.textStyle.fontSize = resultObj.lengendFontSize;
+  options.option.series = resultObj.listData as never[];
+  options.option.color = resultObj.barColor as never[];
 };
 // 监听入参有变化就重新刷新
 watch(

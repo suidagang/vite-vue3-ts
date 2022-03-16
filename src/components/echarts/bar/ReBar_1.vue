@@ -13,7 +13,7 @@ import { isEqual, merge } from 'lodash-unified';
 import {
   optionBarProps_1,
   basicOptions_1
-} from '@/components/echarts/types/comBar';
+} from '@/components/echarts/bar/types/comBar';
 //echarts实例
 let echartInstance: ECharts | null;
 const props = withDefaults(

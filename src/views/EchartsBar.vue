@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { getTemplateByType } from '../components/echarts/componentsList';
+import { getTemplateByType } from '@/components/echarts/componentsList';
 import { ref, onUnmounted, reactive, markRaw } from 'vue';
 import { comRequest } from '@/utils/http/index';
 let timer = ref<any>(null);
