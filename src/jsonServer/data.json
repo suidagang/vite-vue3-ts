@@ -262,6 +262,44 @@
                 "2022年",
                 "2024年"
             ]
+        },
+        {
+            "id": 7,
+            "e_type": "ReBar_3",
+            "listData": [
+                {
+                    "name": "哈哈一",
+                    "value": 2
+                },
+                {
+                    "name": "哈哈二",
+                    "value": 5
+                },
+                {
+                    "name": "哈哈三",
+                    "value": 9
+                }
+            ],
+            "yxisLabelRightText": "万元啊"
+        },
+        {
+            "id": 8,
+            "e_type": "ReBar_3",
+            "listData": [
+                {
+                    "name": "嘿嘿一",
+                    "value": 12
+                },
+                {
+                    "name": "嘿嘿二",
+                    "value": 45
+                },
+                {
+                    "name": "嘿嘿三",
+                    "value": 99
+                }
+            ],
+            "yxisLabelRightText": "万元哈"
         }
     ]
 }

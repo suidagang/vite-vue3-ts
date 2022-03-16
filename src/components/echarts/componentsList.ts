@@ -8,7 +8,8 @@ import { defineAsyncComponent } from 'vue';
 const componentsList = {
   ReBar: () => import('@/components/echarts/bar/ReBar.vue'),
   ReBar_1: () => import('@/components/echarts/bar/ReBar_1.vue'),
-  ReBar_2: () => import('@/components/echarts/bar/ReBar_2.vue')
+  ReBar_2: () => import('@/components/echarts/bar/ReBar_2.vue'),
+  ReBar_3: () => import('@/components/echarts/bar/ReBar_3.vue')
 };
 export const getTemplateByType = (e_type: string) => {
   return defineAsyncComponent(
