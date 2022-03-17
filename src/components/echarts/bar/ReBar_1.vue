@@ -200,7 +200,12 @@ onMounted(() => {
 });
 //合并入参，并改变options中的值
 const changeOptions = (newObj: optionBarProps_1) => {
-  let resultObj = merge(basicOptions_1, newObj);
+  // 需要合并对象，所以需要全量属性
+  type resultObjProps = Required<optionBarProps_1>;
+  let resultObj: resultObjProps = merge(
+    basicOptions_1,
+    newObj
+  ) as resultObjProps;
   options.option.xAxis[0].data = resultObj.xdata;
   options.option.series[0].data = resultObj.seriesDataOne;
   options.option.series[0].name = resultObj.legendData[0];
@@ -226,13 +231,11 @@ const changeOptions = (newObj: optionBarProps_1) => {
     [
       {
         offset: 0,
-        color: (resultObj.seriesDataOneColor &&
-          resultObj.seriesDataOneColor[0]) as string
+        color: resultObj.seriesDataOneColor[0]
       },
       {
         offset: 1,
-        color: (resultObj.seriesDataOneColor &&
-          resultObj.seriesDataOneColor[1]) as string
+        color: resultObj.seriesDataOneColor[1]
       }
     ]
   );
@@ -244,13 +247,11 @@ const changeOptions = (newObj: optionBarProps_1) => {
     [
       {
         offset: 0,
-        color: (resultObj.seriesDataTwoColor &&
-          resultObj.seriesDataTwoColor[0]) as string
+        color: resultObj.seriesDataTwoColor[0]
       },
       {
         offset: 1,
-        color: (resultObj.seriesDataTwoColor &&
-          resultObj.seriesDataTwoColor[1]) as string
+        color: resultObj.seriesDataTwoColor[1]
       }
     ]
   );

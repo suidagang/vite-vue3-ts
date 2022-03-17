@@ -3,6 +3,7 @@
     <el-icon class="open-sidebar-icon" @click="changeSiderbarState">
       <Fold />
     </el-icon>
+    <!-- 全屏 -->
     <screenfull class="screenfull-box" />
   </div>
 </template>

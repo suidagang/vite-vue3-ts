@@ -150,7 +150,13 @@ onMounted(() => {
 });
 //合并入参，并改变options中的值
 const changeOptions = (newObj: optionBarProps_3) => {
-  let resultObj = merge(basicOptions_3, newObj);
+  // 需要合并对象，所以需要全量属性
+  type resultObjProps = Required<optionBarProps_3>;
+  let resultObj: resultObjProps = merge(
+    basicOptions_3,
+    newObj
+  ) as resultObjProps;
+  console.log(resultObj.e_type, 'resultObj');
   //通过后台数据计算所需的数据
   let valueList: number[] = [];
   let nameList: any[] = [];
@@ -161,30 +167,26 @@ const changeOptions = (newObj: optionBarProps_3) => {
   let maxData = Math.max(...valueList);
 
   let bgMaxData = new Array(valueList.length).fill(maxData);
-  options.option.series[0].barWidth = resultObj.barWidth as number;
-  options.option.series[1].barWidth = resultObj.barWidth as number;
+  options.option.series[0].barWidth = resultObj.barWidth;
+  options.option.series[1].barWidth = resultObj.barWidth;
   options.option.series[0].itemStyle.borderRadius = [
-    resultObj.barWidth as number,
-    resultObj.barWidth as number,
-    resultObj.barWidth as number,
-    resultObj.barWidth as number
+    resultObj.barWidth,
+    resultObj.barWidth,
+    resultObj.barWidth,
+    resultObj.barWidth
   ];
   options.option.series[1].itemStyle.borderRadius = [
-    resultObj.barWidth as number,
-    resultObj.barWidth as number,
-    resultObj.barWidth as number,
-    resultObj.barWidth as number
+    resultObj.barWidth,
+    resultObj.barWidth,
+    resultObj.barWidth,
+    resultObj.barWidth
   ];
-  options.option.yAxis[0].axisLabel.color =
-    resultObj.yxisLabelColorLeft as string;
-  options.option.yAxis[0].axisLabel.fontSize =
-    resultObj.yxisLabelFontSizeLeft as string;
-  options.option.yAxis[1].axisLabel.color =
-    resultObj.yxisLabelColorRight as string;
-  options.option.yAxis[1].axisLabel.fontSize =
-    resultObj.yxisLabelFontSizeRight as string;
-  options.option.series[0].itemStyle.color = resultObj.barColor as string;
-  options.option.series[1].itemStyle.color = resultObj.barBgColor as string;
+  options.option.yAxis[0].axisLabel.color = resultObj.yxisLabelColorLeft;
+  options.option.yAxis[0].axisLabel.fontSize = resultObj.yxisLabelFontSizeLeft;
+  options.option.yAxis[1].axisLabel.color = resultObj.yxisLabelColorRight;
+  options.option.yAxis[1].axisLabel.fontSize = resultObj.yxisLabelFontSizeRight;
+  options.option.series[0].itemStyle.color = resultObj.barColor;
+  options.option.series[1].itemStyle.color = resultObj.barBgColor;
   options.option.series[1].data = bgMaxData;
   options.option.series[0].data = valueList;
   options.option.yAxis[0].data = nameList;

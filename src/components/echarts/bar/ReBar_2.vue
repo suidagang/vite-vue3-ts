@@ -161,12 +161,17 @@ onMounted(() => {
 });
 //合并入参，并改变options中的值
 const changeOptions = (newObj: optionBarProps_2) => {
-  let resultObj = merge(basicOptions_2, newObj);
+  // 需要合并对象，所以需要全量属性
+  type resultObjProps = Required<optionBarProps_2>;
+  let resultObj: resultObjProps = merge(
+    basicOptions_2,
+    newObj
+  ) as resultObjProps;
   //处理数据
   let legendData: string[] = [];
   resultObj.listData.forEach((item) => {
     legendData.push(item.name);
-    item.barWidth = resultObj.barWidth as string;
+    item.barWidth = resultObj.barWidth;
   });
   options.option.xAxis[0].data = resultObj.xdata;
   options.option.xAxis[0].axisLabel.color = resultObj.axisLabelColor;

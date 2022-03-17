@@ -133,6 +133,7 @@ onBeforeMount(() => {
 onMounted(() => {
   nextTick(() => {
     useEventListener('resize', () => {
+      console.log('resize');
       if (!echartInstance) return;
       useTimeoutFn(() => {
         echartInstance?.resize();
@@ -142,7 +143,9 @@ onMounted(() => {
 });
 //合并入参，并改变options中的值
 const changeOptions = (newObj: optionBarProps) => {
-  let resultObj = merge(basicOptions, newObj);
+  // 需要合并对象，所以需要全量属性
+  type resultObjProps = Required<optionBarProps>;
+  let resultObj = merge(basicOptions, newObj) as resultObjProps;
   options.option.xAxis[0].data = resultObj.xdata;
   options.option.series[0].data = resultObj.seriesData;
   options.option.color = resultObj.barColor;
