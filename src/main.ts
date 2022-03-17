@@ -15,6 +15,8 @@ import 'element-plus/dist/index.css';
 import * as ElIcons from '@element-plus/icons';
 import { transElIconName } from './utils/index';
 
+//引入国际化vue-i18n
+import i18n from './plugin/i18n/index';
 // 获取当前路由及页面
 import './permission';
 
@@ -36,5 +38,6 @@ app
   .component('Globle', Globle)
   .use(router)
   .use(pinia)
+  .use(i18n)
   .use(ElementPlus)
   .mount('#app');

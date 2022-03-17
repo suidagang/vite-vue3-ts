@@ -1,0 +1,10 @@
+common:
+  home: Home
+  app: App
+  name: Name
+button:
+  toggle-language: Toggle Language
+header:
+  title: '@:common.app @:common.name'
+message:
+  hello: '{msg} world'

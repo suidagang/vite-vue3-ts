@@ -1,0 +1,10 @@
+common:
+  home: 主页
+  app: 应用
+  name: 名称
+button:
+  toggle-language: 切换语言
+header:
+  title: '@:common.app@:common.name'
+message:
+  hello: '{msg}世界'

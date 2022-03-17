@@ -48,7 +48,7 @@ export default defineConfig(({ mode }: UserConfig): UserConfig => {
         // compositionOnly: false,
 
         // you need to set i18n resource including paths !
-        include: path.resolve(__dirname, './src/plugin/i18n/**')
+        include: path.resolve(__dirname, 'src/plugin/i18n/**')
       })
     ],
     build: {
