@@ -18,7 +18,7 @@
     </div>
     <div class="test-bar">
       <div class="title-box">组件名称：ReBar_4</div>
-      <!-- <component :is="template_4" :option="options_4.option"></component> -->
+      <component :is="template_4" :option="options_4.option"></component>
     </div>
     <div class="test-bar">
       <div class="title-box">组件名称：ReBar_5</div>
@@ -56,10 +56,16 @@ let options_3 = reactive<any>({
     e_type: ''
   }
 });
+let options_4 = reactive<any>({
+  option: {
+    e_type: ''
+  }
+});
 let template = ref<any>(null);
 let template_1 = ref<any>(null);
 let template_2 = ref<any>(null);
 let template_3 = ref<any>(null);
+let template_4 = ref<any>(null);
 const getAjax = (id: number, flag?: boolean) => {
   comRequest({
     url: '/api/ReBarData/' + id
@@ -91,6 +97,13 @@ const getAjax = (id: number, flag?: boolean) => {
             getTemplateByType(options_3.option.e_type)
           );
         }
+      } else if (id === 9 || id === 10) {
+        options_4.option = res;
+        if (!flag) {
+          template_4.value = markRaw(
+            getTemplateByType(options_4.option.e_type)
+          );
+        }
       }
     }
   });
@@ -99,6 +112,7 @@ getAjax(1);
 getAjax(3);
 getAjax(5);
 getAjax(7);
+getAjax(9);
 
 //根据后台传入e_type获取组件
 setTimeout(() => {
@@ -106,6 +120,7 @@ setTimeout(() => {
   getAjax(4, true);
   getAjax(6, true);
   getAjax(8, true);
+  getAjax(10, true);
 }, 5000);
 onUnmounted(() => {
   if (timer.value) {

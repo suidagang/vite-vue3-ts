@@ -299,6 +299,43 @@
                 }
             ],
             "yxisLabelRightText": "万元哈"
+        },
+        {
+            "id": 9,
+            "e_type": "ReBar_4",
+            "listData": [
+                {
+                    "name": "测试哈哈",
+                    "value": 2
+                },
+                {
+                    "name": "测试哈哈",
+                    "value": 5
+                },
+                {
+                    "name": "测试哈哈",
+                    "value": 9
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "e_type": "ReBar_4",
+            "listData": [
+                {
+                    "name": "测试嘿嘿",
+                    "value": 12
+                },
+                {
+                    "name": "测试嘿嘿",
+                    "value": 45
+                },
+                {
+                    "name": "测试嘿嘿",
+                    "value": 99
+                }
+            ],
+            "yxisLabelRightText": "嘿嘿"
         }
     ]
 }

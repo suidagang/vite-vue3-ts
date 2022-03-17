@@ -133,7 +133,6 @@ onBeforeMount(() => {
 onMounted(() => {
   nextTick(() => {
     useEventListener('resize', () => {
-      console.log('resize');
       if (!echartInstance) return;
       useTimeoutFn(() => {
         echartInstance?.resize();

@@ -11,18 +11,18 @@ import { onBeforeMount, onMounted, nextTick, ref, watch } from 'vue';
 import { useEventListener, tryOnUnmounted, useTimeoutFn } from '@vueuse/core';
 import { isEqual, merge } from 'lodash-unified';
 import {
-  optionBarProps_3,
-  basicOptions_3
+  optionBarProps_4,
+  basicOptions_4
 } from '@/components/echarts/bar/types/comBar';
 //echarts实例
 let echartInstance: ECharts | null;
 const props = withDefaults(
   defineProps<{
-    option?: optionBarProps_3;
+    option?: optionBarProps_4;
   }>(),
   {
     option: () => {
-      return basicOptions_3;
+      return basicOptions_4;
     }
   }
 );
@@ -149,11 +149,11 @@ onMounted(() => {
   });
 });
 //合并入参，并改变options中的值
-const changeOptions = (newObj: optionBarProps_3) => {
+const changeOptions = (newObj: optionBarProps_4) => {
   // 需要合并对象，所以需要全量属性
-  type resultObjProps = Required<optionBarProps_3>;
+  type resultObjProps = Required<optionBarProps_4>;
   let resultObj: resultObjProps = merge(
-    basicOptions_3,
+    basicOptions_4,
     newObj
   ) as resultObjProps;
   //通过后台数据计算所需的数据

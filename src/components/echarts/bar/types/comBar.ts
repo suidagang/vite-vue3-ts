@@ -132,11 +132,11 @@ export const basicOptions_2: optionBarProps_2 = {
   lengendFontSize: '16',
   barColor: ['#b475ee', '#00cf7e', '#2a95fc']
 };
+//数据定义 （组件ReBar_3）
 export interface listData_3 {
   name: string;
   value: number;
 }
-//数据定义 （组件ReBar_3）
 export interface optionBarProps_3 {
   e_type?: string; //动态组件的组件名称
   barWidth?: number; //柱体的宽度
@@ -153,6 +153,51 @@ export interface optionBarProps_3 {
 //默认数据 （组件ReBar_3）
 export const basicOptions_3: optionBarProps_3 = {
   e_type: 'ReBar_3',
+  barWidth: 15,
+  yxisLabelColorLeft: '#fff',
+  yxisLabelFontSizeLeft: '16',
+  yxisLabelColorRight: '#fff',
+  yxisLabelFontSizeRight: '16',
+  barColor: '#00AAFF',
+  barBgColor: 'rgba(1,255,255,0.3)',
+  listData: [
+    {
+      name: '测试一',
+      value: 2
+    },
+    {
+      name: '测试二',
+      value: 5
+    },
+    {
+      name: '测试三 ',
+      value: 9
+    }
+  ],
+  // yxisLabelRightText: '万元啊',
+  yxisLabelRightTextColor: '#ff0'
+};
+//数据定义 （组件ReBar_4）
+export interface listData_4 {
+  name: string;
+  value: number;
+}
+export interface optionBarProps_4 {
+  e_type?: string; //动态组件的组件名称
+  barWidth?: number; //柱体的宽度
+  yxisLabelColorLeft?: string; //y轴文字颜色（左边）
+  yxisLabelFontSizeLeft?: string; // y轴文字大小（左边）
+  yxisLabelColorRight?: string; //y轴文字颜色（右边）
+  yxisLabelFontSizeRight?: string; // y轴文字大小（右边）
+  listData: listData_4[];
+  barColor?: string; //柱体的颜色
+  barBgColor?: string; //柱体底部背景颜色
+  yxisLabelRightText?: string; // y轴文字大小（右边）
+  yxisLabelRightTextColor?: string; //y轴右边加了文字，前面数字颜色
+}
+//默认数据 （组件ReBar_4）
+export const basicOptions_4: optionBarProps_4 = {
+  e_type: 'ReBar_4',
   barWidth: 15,
   yxisLabelColorLeft: '#fff',
   yxisLabelFontSizeLeft: '16',
