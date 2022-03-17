@@ -323,16 +323,24 @@
             "e_type": "ReBar_4",
             "listData": [
                 {
-                    "name": "测试嘿嘿",
+                    "name": "测试嘿嘿1",
                     "value": 12
                 },
                 {
-                    "name": "测试嘿嘿",
-                    "value": 45
+                    "name": "测试嘿嘿2",
+                    "value": 22
                 },
                 {
-                    "name": "测试嘿嘿",
-                    "value": 99
+                    "name": "测试嘿嘿3",
+                    "value": 33
+                },
+                {
+                    "name": "测试嘿嘿4",
+                    "value": 44
+                },
+                {
+                    "name": "测试嘿嘿5",
+                    "value": 66
                 }
             ],
             "yxisLabelRightText": "嘿嘿"

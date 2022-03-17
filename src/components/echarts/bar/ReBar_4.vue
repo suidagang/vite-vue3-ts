@@ -30,17 +30,13 @@ const props = withDefaults(
 let barRef = ref<HTMLElement | null>(null);
 const options = {
   option: {
-    color: [],
+    barWidth: 12,
     grid: {
       bottom: '5%',
       left: '5%',
       right: '5%',
       top: '10%',
       containLabel: true //设置containLabel: true常用于 防止标签溢出，计算距离时候会计算容器边到标签的距离，否则计算容器边缘到刻度线的距离。
-    },
-    //图例设置
-    legend: {
-      show: false //是否显示
     },
     xAxis: {
       show: false,
@@ -101,21 +97,19 @@ const options = {
         zlevel: 1,
         itemStyle: {
           borderRadius: [30, 30, 30, 30],
-          color: '#00AAFF'
+          color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [
+            {
+              offset: 0,
+              color: '#c778ff'
+            },
+            {
+              offset: 1,
+              color: '#1679e9'
+            }
+          ])
         },
         barWidth: 15,
         data: [1, 2, 3]
-      },
-      {
-        name: '背景',
-        type: 'bar',
-        barWidth: 15,
-        barGap: '-100%',
-        data: [3, 3, 3],
-        itemStyle: {
-          color: 'rgba(1,255,255,0.3)',
-          borderRadius: [30, 30, 30, 30]
-        }
       }
     ]
   }
@@ -163,30 +157,33 @@ const changeOptions = (newObj: optionBarProps_4) => {
     nameList.push(item.name);
     valueList.push(item.value);
   });
-  let maxData = Math.max(...valueList);
-
-  let bgMaxData = new Array(valueList.length).fill(maxData);
   options.option.series[0].barWidth = resultObj.barWidth;
-  options.option.series[1].barWidth = resultObj.barWidth;
   options.option.series[0].itemStyle.borderRadius = [
+    0,
     resultObj.barWidth,
     resultObj.barWidth,
-    resultObj.barWidth,
-    resultObj.barWidth
-  ];
-  options.option.series[1].itemStyle.borderRadius = [
-    resultObj.barWidth,
-    resultObj.barWidth,
-    resultObj.barWidth,
-    resultObj.barWidth
+    0
   ];
   options.option.yAxis[0].axisLabel.color = resultObj.yxisLabelColorLeft;
   options.option.yAxis[0].axisLabel.fontSize = resultObj.yxisLabelFontSizeLeft;
   options.option.yAxis[1].axisLabel.color = resultObj.yxisLabelColorRight;
   options.option.yAxis[1].axisLabel.fontSize = resultObj.yxisLabelFontSizeRight;
-  options.option.series[0].itemStyle.color = resultObj.barColor;
-  options.option.series[1].itemStyle.color = resultObj.barBgColor;
-  options.option.series[1].data = bgMaxData;
+  options.option.series[0].itemStyle.color = new echarts.graphic.LinearGradient(
+    1,
+    0,
+    0,
+    0,
+    [
+      {
+        offset: 0,
+        color: resultObj.barColor[0]
+      },
+      {
+        offset: 1,
+        color: resultObj.barColor[1]
+      }
+    ]
+  );
   options.option.series[0].data = valueList;
   options.option.yAxis[0].data = nameList;
   options.option.yAxis[1].data = valueList;

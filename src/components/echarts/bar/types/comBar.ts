@@ -190,8 +190,7 @@ export interface optionBarProps_4 {
   yxisLabelColorRight?: string; //y轴文字颜色（右边）
   yxisLabelFontSizeRight?: string; // y轴文字大小（右边）
   listData: listData_4[];
-  barColor?: string; //柱体的颜色
-  barBgColor?: string; //柱体底部背景颜色
+  barColor?: string[]; //柱体的颜色
   yxisLabelRightText?: string; // y轴文字大小（右边）
   yxisLabelRightTextColor?: string; //y轴右边加了文字，前面数字颜色
 }
@@ -203,8 +202,7 @@ export const basicOptions_4: optionBarProps_4 = {
   yxisLabelFontSizeLeft: '16',
   yxisLabelColorRight: '#fff',
   yxisLabelFontSizeRight: '16',
-  barColor: '#00AAFF',
-  barBgColor: 'rgba(1,255,255,0.3)',
+  barColor: ['#c778ff', '#1679e9'],
   listData: [
     {
       name: '测试一',
@@ -219,6 +217,5 @@ export const basicOptions_4: optionBarProps_4 = {
       value: 9
     }
   ],
-  // yxisLabelRightText: '万元啊',
   yxisLabelRightTextColor: '#ff0'
 };
