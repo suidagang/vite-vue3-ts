@@ -130,7 +130,8 @@ const options = {
     ],
     series: [
       {
-        name: props.option && props.option.legendData[0],
+        name:
+          props.option && props.option.legendData && props.option.legendData[0],
         type: 'bar',
         data: props.option && props.option.seriesDataOne,
         barWidth: props.option && props.option.barWidth,
@@ -149,7 +150,8 @@ const options = {
         }
       },
       {
-        name: props.option && props.option.legendData[1],
+        name:
+          props.option && props.option.legendData && props.option.legendData[1],
         type: 'bar',
         barWidth: props.option && props.option.barWidth,
         itemStyle: {

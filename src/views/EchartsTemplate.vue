@@ -16,6 +16,15 @@
           marginLeft: item.marginLeft
         }"
       >
+        <div
+          class="echarts-box"
+          :style="{ height: computedStyle(item.height as string) }"
+        >
+          <component
+            :is="getTemplate(item.subItem)"
+            :option="item.subItem"
+          ></component>
+        </div>
       </comBox>
     </template>
   </div>
@@ -24,6 +33,25 @@
 <script setup lang="ts">
 import comHead from '@/components/templates/ComHead.vue';
 import comBox from '@/components/templates/FrameBox.vue';
+import { getTemplateByType } from '@/components/echarts/componentsList';
+import { ref, reactive, markRaw } from 'vue';
+let options = reactive<any>({
+  option: {
+    e_type: 'ReBar',
+    xdata: ['哈哈', '嘿嘿', '嘻嘻', '呵呵'],
+    seriesData: [22, 33, 55, 88],
+    yName: '(眭)'
+  }
+});
+let template = ref<any>(null);
+const getTemplate = (subItem: any) => {
+  let template = markRaw(getTemplateByType(subItem.e_type));
+  return template;
+};
+// 去掉顶部文字的位置空间
+const computedStyle = (height: string) => {
+  return parseInt(height) - 51 + 'px';
+};
 const pageConfig = [
   {
     dom_type: 'comHead'
@@ -34,7 +62,13 @@ const pageConfig = [
     height: '229px',
     title: '本月办理量（业务域）',
     left: '20px',
-    top: '105px'
+    top: '105px',
+    subItem: {
+      e_type: 'ReBar',
+      xdata: ['哈哈', '嘿嘿', '嘻嘻', '呵呵'],
+      seriesData: [22, 33, 55, 88],
+      yName: '(眭)'
+    }
   },
   {
     dom_type: 'comBox',
@@ -42,7 +76,10 @@ const pageConfig = [
     height: '203px',
     title: '纳税人变动情况',
     left: '20px',
-    top: '365px'
+    top: '365px',
+    subItem: {
+      e_type: 'ReBar_4'
+    }
   },
   {
     dom_type: 'comBox',
@@ -50,7 +87,10 @@ const pageConfig = [
     height: '220px',
     title: '本月办理业务量（TOP5）',
     left: '20px',
-    bottom: '20px'
+    bottom: '20px',
+    subItem: {
+      e_type: 'ReBar_3'
+    }
   },
   {
     dom_type: 'comBox',
@@ -58,7 +98,10 @@ const pageConfig = [
     height: '229px',
     title: '发票代开业务量趋势',
     right: '20px',
-    top: '105px'
+    top: '105px',
+    subItem: {
+      e_type: 'ReBar_2'
+    }
   },
   {
     dom_type: 'comBox',
@@ -66,7 +109,13 @@ const pageConfig = [
     height: '203px',
     title: '全年业务办理量趋势',
     right: '20px',
-    top: '365px'
+    top: '365px',
+    subItem: {
+      e_type: 'ReBar_1',
+      xdata: ['哈哈', '嘿嘿', '嘻嘻', '呵呵'],
+      seriesData: [22, 33, 55, 88],
+      yName: '(眭)'
+    }
   },
   {
     dom_type: 'comBox',
@@ -74,7 +123,13 @@ const pageConfig = [
     height: '220px',
     title: '满意度情况',
     right: '20px',
-    bottom: '20px'
+    bottom: '20px',
+    subItem: {
+      e_type: 'ReBar',
+      xdata: ['哈哈', '嘿嘿', '嘻嘻', '呵呵'],
+      seriesData: [22, 33, 55, 88],
+      yName: '(眭)'
+    }
   },
   {
     dom_type: 'comBox',
@@ -83,9 +138,16 @@ const pageConfig = [
     title: '纳税人接待情况',
     left: '50%',
     marginLeft: '-325px',
-    bottom: '20px'
+    bottom: '20px',
+    subItem: {
+      e_type: 'ReBar',
+      xdata: ['哈哈', '嘿嘿', '嘻嘻', '呵呵'],
+      seriesData: [22, 33, 55, 88],
+      yName: '(眭)'
+    }
   }
 ];
+template.value = markRaw(getTemplateByType(options.option.e_type));
 </script>
 
 <style lang="less" scoped>
@@ -99,5 +161,10 @@ const pageConfig = [
 }
 .com-box {
   position: absolute;
+  cursor: pointer;
+}
+.echarts-box {
+  width: 100%;
+  overflow: hidden;
 }
 </style>
