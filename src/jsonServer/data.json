@@ -344,6 +344,60 @@
                 }
             ],
             "yxisLabelRightText": "嘿嘿"
+        },
+        {
+            "id": 11,
+            "e_type": "ReBar_1",
+            "xdata": [
+                "哈哈",
+                "嘿嘿",
+                "嘻嘻",
+                "呵呵"
+            ],
+            "seriesDataOne": [
+                31,
+                33,
+                46,
+                67
+            ],
+            "seriesDataTwo": [
+                11,
+                32,
+                63,
+                74
+            ],
+            "yName": "(眭)",
+            "legendData": [
+                "2022年",
+                "2021年"
+            ]
+        },
+        {
+            "id": 12,
+            "e_type": "ReBar_1",
+            "xdata": [
+                "哈哈",
+                "嘿嘿",
+                "嘻嘻",
+                "呵呵"
+            ],
+            "seriesDataOne": [
+                22,
+                33,
+                55,
+                88
+            ],
+            "seriesDataTwo": [
+                48,
+                55,
+                33,
+                11
+            ],
+            "yName": "(眭)",
+            "legendData": [
+                "2022年",
+                "2024年"
+            ]
         }
     ]
 }

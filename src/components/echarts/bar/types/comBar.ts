@@ -1,4 +1,4 @@
-//数据定义 （组件ReBar）
+//!数据定义 （组件ReBar）
 export interface optionBarProps {
   e_type?: string; //动态组件的组件名称
   xdata: string[]; //x轴数据
@@ -28,7 +28,7 @@ export const basicOptions: optionBarProps = {
   yxisLabelColor: '#fff',
   yxisLabelFontSize: '16'
 };
-//数据定义 （组件ReBar_1）
+//!数据定义 （组件ReBar_1）
 export interface optionBarProps_1 {
   e_type?: string; //动态组件的组件名称
   xdata: string[]; //x轴数据
@@ -69,7 +69,7 @@ export const basicOptions_1: optionBarProps_1 = {
   seriesDataTwoColor: ['#78f7ff', '#1679e9']
 };
 
-//数据定义 （组件ReBar_2）
+//!数据定义 （组件ReBar_2）
 export interface ListProps {
   name: string;
   type: string;
@@ -132,7 +132,7 @@ export const basicOptions_2: optionBarProps_2 = {
   lengendFontSize: '16',
   barColor: ['#b475ee', '#00cf7e', '#2a95fc']
 };
-//数据定义 （组件ReBar_3）
+//!数据定义 （组件ReBar_3）
 export interface listData_3 {
   name: string;
   value: number;
@@ -177,7 +177,7 @@ export const basicOptions_3: optionBarProps_3 = {
   // yxisLabelRightText: '万元啊',
   yxisLabelRightTextColor: '#ff0'
 };
-//数据定义 （组件ReBar_4）
+//!数据定义 （组件ReBar_4）
 export interface listData_4 {
   name: string;
   value: number;
@@ -218,4 +218,45 @@ export const basicOptions_4: optionBarProps_4 = {
     }
   ],
   yxisLabelRightTextColor: '#ff0'
+};
+
+//!数据定义 （组件ReBar_5）
+export interface optionBarProps_5 {
+  e_type?: string; //动态组件的组件名称
+  xdata: string[]; //x轴数据
+  seriesDataOne: number[]; //y轴数据第一个柱状图
+  seriesDataTwo: number[]; //y轴数据第二个柱状图
+  yName?: string; //y轴最上面的名称
+  yNameColor?: string; //y轴最上面的名称的颜色
+  yNameFontSize?: string; //y轴最上面的名称的字体大小
+  barWidth?: string; //柱体的宽度
+  axisLabelColor?: string; //x轴文字颜色
+  axisLabelFontSize?: string; //x轴文字大小
+  yxisLabelColor?: string; //y轴文字颜色
+  yxisLabelFontSize?: string; // y轴文字大小
+  legendData: string[]; //图例数据
+  lengendColor?: string; //图例字体颜色
+  lengendFontSize?: string; //图例字体大小
+  seriesDataOneColor?: string[]; //柱状图一的颜色（渐变需要两种）
+  seriesDataTwoColor?: string[]; //柱状图二的颜色（渐变需要两种）
+}
+//默认数据 （组件ReBar_5）
+export const basicOptions_5: optionBarProps_5 = {
+  e_type: 'ReBar_1',
+  xdata: ['aa', 'bb', 'cc', 'dd'],
+  seriesDataOne: [3, 204, 1079, 1079],
+  seriesDataTwo: [1, 111, 342, 456],
+  yName: '',
+  barWidth: '18',
+  axisLabelColor: '#fff',
+  axisLabelFontSize: '16',
+  yNameColor: '#fff',
+  yNameFontSize: '16',
+  yxisLabelColor: '#fff',
+  yxisLabelFontSize: '16',
+  legendData: ['2022年', '2021年'],
+  lengendColor: '#fff',
+  lengendFontSize: '16',
+  seriesDataOneColor: ['#c778ff', '#1679e9'],
+  seriesDataTwoColor: ['#78f7ff', '#1679e9']
 };

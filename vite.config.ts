@@ -1,10 +1,12 @@
 import { defineConfig, loadEnv, UserConfig } from 'vite';
+import { visualizer } from 'rollup-plugin-visualizer';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import vueI18n from '@intlify/vite-plugin-vue-i18n';
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: UserConfig): UserConfig => {
   const env = loadEnv(mode, __dirname);
+  const lifecycle = process.env.npm_lifecycle_event;
   return {
     base: process.env.NODE_ENV === 'production' ? './' : '/',
     server: {
@@ -49,7 +51,11 @@ export default defineConfig(({ mode }: UserConfig): UserConfig => {
 
         // you need to set i18n resource including paths !
         include: path.resolve(__dirname, 'src/plugin/i18n/**')
-      })
+      }),
+      // 打包分析
+      lifecycle === 'report'
+        ? visualizer({ open: true, brotliSize: true, filename: 'report.html' })
+        : null
     ],
     build: {
       // 是否开启sourcemap
