@@ -43,6 +43,12 @@ export const routes: Array<RouteConfigs> = [
             name: 'Bar',
             meta: { title: '柱状图' },
             component: () => import('@/views/EchartsBar.vue')
+          },
+          {
+            path: '/echarts/template',
+            name: 'Template',
+            meta: { title: '大屏模板' },
+            component: () => import('@/views/EchartsTemplate.vue')
           }
         ]
       },
