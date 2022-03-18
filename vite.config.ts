@@ -1,5 +1,6 @@
 import { defineConfig, loadEnv, UserConfig } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
+import viteCompression from 'vite-plugin-compression';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import vueI18n from '@intlify/vite-plugin-vue-i18n';
@@ -52,6 +53,8 @@ export default defineConfig(({ mode }: UserConfig): UserConfig => {
         // you need to set i18n resource including paths !
         include: path.resolve(__dirname, 'src/plugin/i18n/**')
       }),
+      // 打包压缩，主要是本地gzip，如果服务器配置压缩也可以
+      viteCompression(),
       // 打包分析
       lifecycle === 'report'
         ? visualizer({ open: true, brotliSize: true, filename: 'report.html' })
@@ -60,9 +63,18 @@ export default defineConfig(({ mode }: UserConfig): UserConfig => {
     build: {
       // 是否开启sourcemap
       sourcemap: false,
+      //启用/禁用 CSS 代码拆分
+      cssCodeSplit: true,
       brotliSize: false,
       // 消除打包大小超过500kb警告
-      chunkSizeWarningLimit: 2000
+      chunkSizeWarningLimit: 2000,
+      terserOptions: {
+        // 生产环境下移除console
+        compress: {
+          drop_console: true,
+          drop_debugger: true
+        }
+      }
     }
   };
 });
