@@ -34,16 +34,7 @@
 import comHead from '@/components/templates/ComHead.vue';
 import comBox from '@/components/templates/FrameBox.vue';
 import { getTemplateByType } from '@/components/echarts/componentsList';
-import { ref, reactive, markRaw } from 'vue';
-let options = reactive<any>({
-  option: {
-    e_type: 'ReBar',
-    xdata: ['哈哈', '嘿嘿', '嘻嘻', '呵呵'],
-    seriesData: [22, 33, 55, 88],
-    yName: '(眭)'
-  }
-});
-let template = ref<any>(null);
+import { markRaw } from 'vue';
 const getTemplate = (subItem: any) => {
   let template = markRaw(getTemplateByType(subItem.e_type));
   return template;
@@ -147,7 +138,6 @@ const pageConfig = [
     }
   }
 ];
-template.value = markRaw(getTemplateByType(options.option.e_type));
 </script>
 
 <style lang="less" scoped>
