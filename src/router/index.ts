@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 import Layout from '../layout/index.vue';
 import Wrapper from '../layout/Menu/Wrapper.vue';
 import { RouteConfigs } from '../layout/types';
+import Test from '../docs/TEST.md';
 export const routes: Array<RouteConfigs> = [
   {
     path: '/',
@@ -49,6 +50,12 @@ export const routes: Array<RouteConfigs> = [
             name: 'Template',
             meta: { title: '大屏模板' },
             component: () => import('@/views/EchartsTemplate.vue')
+          },
+          {
+            path: '/echarts/docs',
+            name: 'Docs',
+            meta: { title: '组件参数' },
+            component: Test
           }
         ]
       },

@@ -45,7 +45,8 @@ import vModel from '@/components/vModel.vue';
 import Directive from '@/components/Directive.vue';
 import Pinia from '@/components/Pinia.vue';
 </script>
-<style>
+<style lang="less">
+@import './style/markdown/index.less';
 html,
 body,
 #app {

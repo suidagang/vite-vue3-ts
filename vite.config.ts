@@ -1,9 +1,12 @@
 import { defineConfig, loadEnv, UserConfig } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 import viteCompression from 'vite-plugin-compression';
+import vitePluginVuedoc from 'vite-plugin-vuedoc';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import vueI18n from '@intlify/vite-plugin-vue-i18n';
+import { vitePluginVuedocConfig, vueConfig } from './build/plugins/index';
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: UserConfig): UserConfig => {
   const env = loadEnv(mode, __dirname);
@@ -23,6 +26,12 @@ export default defineConfig(({ mode }: UserConfig): UserConfig => {
       }
     },
     css: {
+      // 配置预编译器
+      preprocessorOptions: {
+        less: {
+          additionalData: `@import "@/style/markdown/variables.less";`
+        }
+      },
       // https://github.com/vitejs/vite/issues/5833
       postcss: {
         plugins: [
@@ -45,7 +54,9 @@ export default defineConfig(({ mode }: UserConfig): UserConfig => {
       }
     },
     plugins: [
-      vue(),
+      // 使用markdown
+      vitePluginVuedoc(vitePluginVuedocConfig),
+      vue(vueConfig),
       vueI18n({
         // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
         // compositionOnly: false,
