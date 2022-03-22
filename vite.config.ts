@@ -50,7 +50,8 @@ export default defineConfig(({ mode }: UserConfig): UserConfig => {
     },
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'src')
+        '@': path.resolve(__dirname, 'src'),
+        '~': path.resolve(__dirname, './packages')
       }
     },
     plugins: [

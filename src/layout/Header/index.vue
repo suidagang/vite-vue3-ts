@@ -7,9 +7,9 @@
     <Breadcrumb class="breadcrumb-container" />
     <!-- i18n测试 -->
     <h1 style="margin-left: 50px">{{ $t('common.home') }}</h1>
-    <el-button type="primary" @click="toggleLocales">
+    <my-button @click="toggleLocales">
       {{ $t('button.toggle-language') }}
-    </el-button>
+    </my-button>
     <!-- 全屏 -->
     <screenfull class="screenfull-box" />
   </div>

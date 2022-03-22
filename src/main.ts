@@ -22,6 +22,9 @@ import './permission';
 
 // 引入animate.css动画库
 import 'animate.css';
+import MyKit from '~/index'; // 开发
+
+// 引入package组件库
 
 // 全局指令
 // directive(自定义指令)
@@ -39,6 +42,7 @@ for (const name in ElIcons) {
 }
 app
   .component('Globle', Globle)
+  .use(MyKit)
   .use(router)
   .use(pinia)
   .use(i18n)
