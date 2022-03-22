@@ -1,7 +1,10 @@
 {
-  "name": "vite-app",
-  "private": true,
-  "version": "0.0.0",
+  "name": "suikit",
+  "private": false,
+  "description": "测试vue3组件",
+  "main": "lib/my-kit.umd.js",
+  "keyword": "test button",
+  "version": "0.0.1",
   "scripts": {
     "dev": "cross-env --max_old_space_size=4096 vite",
     "build": "npm run lint && cross-env vite build",
@@ -13,7 +16,8 @@
     "lint": "eslint . --ext .ts,.vue,.js,.tsx",
     "mock": "json-server --watch ./src/jsonServer/data.json",
     "commit": "cz",
-    "dist": "serve -s dist"
+    "dist": "serve -s dist",
+    "build:lib": "vite build --config ./build/packages/lib.config.ts"
   },
   "dependencies": {
     "@element-plus/icons": "0.0.11",
@@ -62,6 +66,7 @@
     "typescript": "^4.5.4",
     "vite": "^2.8.0",
     "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-dts": "^1.0.0",
     "vue-tsc": "^0.29.8"
   },
   "config": {

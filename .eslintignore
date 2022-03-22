@@ -1,5 +1,6 @@
 public
 dist
+lib
 *.d.ts
 package.json
 .eslintrc.js

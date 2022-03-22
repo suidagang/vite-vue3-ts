@@ -1,0 +1,28 @@
+# 忽略目录
+.husky/
+.vscode/
+build/
+dist/
+node-modules/
+packages/
+public/
+src/
+ts-demo/
+
+
+# 忽略指定文件
+.env
+.env.development
+.env.production
+.eslintrc.js
+.eslintignore
+.prettierrc
+commitlint.config.js
+*.html
+tsconfig.json
+package-lock.json
+prettier.md
+tsconfig.md
+tsconfig.node.json
+yarn.lock
+vite.config.js
