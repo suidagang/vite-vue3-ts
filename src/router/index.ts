@@ -4,6 +4,12 @@ import Wrapper from '../layout/Menu/Wrapper.vue';
 import { RouteConfigs } from '../layout/types';
 export const routes: Array<RouteConfigs> = [
   {
+    path: '/:pathMatch(.*)',
+    name: 'error',
+    component: () => import('@/views/404.vue'),
+    meta: { title: '404' }
+  },
+  {
     path: '/',
     name: 'Home',
     component: Layout,
@@ -51,8 +57,8 @@ export const routes: Array<RouteConfigs> = [
             component: () => import('@/views/EchartsTemplate.vue')
           },
           {
-            path: '/echarts/docs',
-            name: 'Docs',
+            path: '/echarts/docs-bar',
+            name: 'Docs-bar',
             meta: { title: '柱状图参数' },
             component: () => import('../docs/bar.md')
           }
