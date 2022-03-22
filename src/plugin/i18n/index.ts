@@ -1,3 +1,4 @@
+//! https://github.com/intlify/vue-i18n-next/issues/391 警告信息：You are running the esm-bundler build of vue-i18n. It is recommended to configure your bundler to explicitly replac
 import { App } from 'vue';
 import { createI18n } from 'vue-i18n';
 import { useLocalStorage } from '@vueuse/core';
