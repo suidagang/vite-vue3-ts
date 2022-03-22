@@ -20,6 +20,9 @@ import i18n from './plugin/i18n/index';
 // 获取当前路由及页面
 import './permission';
 
+// 引入animate.css动画库
+import 'animate.css';
+
 // 全局指令
 // directive(自定义指令)
 import * as directives from './comDirective/comNumber';

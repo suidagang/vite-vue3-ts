@@ -4,7 +4,13 @@
       <!-- 内部应该显示子路由页面信息 -->
       <!-- transition 和 keep-alive 现在必须通过 v-slot API 在 RouterView 内部使用 -->
       <router-view v-slot="{ Component }">
-        <component :is="Component" />
+        <transition
+          :duration="{ enter: 500, leave: 800 }"
+          enter-active-class="animate__animated animate__zoomIn"
+          leave-active-class="animate__animated animate__zoomOut"
+        >
+          <component :is="Component" />
+        </transition>
       </router-view>
     </div>
   </div>

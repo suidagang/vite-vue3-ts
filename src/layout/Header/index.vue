@@ -3,7 +3,10 @@
     <el-icon class="open-sidebar-icon" @click="changeSiderbarState">
       <Fold />
     </el-icon>
-    <h1>{{ $t('common.home') }}</h1>
+    <!-- 面包屑 -->
+    <Breadcrumb class="breadcrumb-container" />
+    <!-- i18n测试 -->
+    <h1 style="margin-left: 50px">{{ $t('common.home') }}</h1>
     <el-button type="primary" @click="toggleLocales">
       {{ $t('button.toggle-language') }}
     </el-button>
@@ -14,6 +17,7 @@
 
 <script setup lang="ts">
 import screenfull from '@/layout/screenfull/index.vue';
+import Breadcrumb from '@/layout/BreadCrumd/index.vue';
 import { Fold } from '@element-plus/icons';
 import { storeToRefs } from 'pinia';
 import { menuStore } from '@/store/menu';
@@ -61,5 +65,8 @@ const changeSiderbarState = () => {
 .screenfull-box {
   position: absolute;
   right: 120px;
+}
+.breadcrumb-container {
+  margin-left: 15px;
 }
 </style>
