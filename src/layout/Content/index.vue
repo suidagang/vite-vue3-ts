@@ -9,7 +9,9 @@
           enter-active-class="animate__animated animate__zoomIn"
           leave-active-class="animate__animated animate__zoomOut"
         >
-          <component :is="Component" />
+          <div class="tansition-box">
+            <component :is="Component" />
+          </div>
         </transition>
       </router-view>
     </div>
@@ -29,8 +31,12 @@
 .content-scroll {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+  .tansition-box {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
 .content-scroll::-webkit-scrollbar {
   width: 6px !important;
