@@ -36,14 +36,8 @@ export const routes: Array<RouteConfigs> = [
           hidden: false
         },
         component: Wrapper,
-        redirect: '/echarts/pie',
+        redirect: '/echarts/bar',
         children: [
-          {
-            path: '/echarts/pie',
-            name: 'Pie',
-            meta: { title: '饼图' },
-            component: () => import('@/components/echarts/pie.vue')
-          },
           {
             path: '/echarts/bar',
             name: 'Bar',
@@ -60,7 +54,7 @@ export const routes: Array<RouteConfigs> = [
             path: '/echarts/docs-bar',
             name: 'Docs-bar',
             meta: { title: '柱状图参数' },
-            component: () => import('../docs/bar.md')
+            component: () => import('@/docs/bar.md')
           }
         ]
       },
