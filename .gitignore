@@ -12,6 +12,7 @@ dist
 lib
 dist-ssr
 report.html
+.history
 *.local
 
 # Editor directories and files
@@ -26,3 +27,4 @@ report.html
 *.sw?
 package-lock.json
 yarn.lock
+

@@ -24,10 +24,6 @@
       <div class="title-box">组件名称：ReBar_5</div>
       <component :is="template_5" :option="options_5.option"></component>
     </div>
-    <div class="test-bar">
-      <div class="title-box">组件名称：ReBar_6</div>
-      <component :is="template" :option="options.option"></component>
-    </div>
   </div>
 </template>
 
