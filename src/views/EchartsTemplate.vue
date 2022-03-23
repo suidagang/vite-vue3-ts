@@ -129,18 +129,13 @@ let pageConfig = reactive({
       marginLeft: '-325px',
       bottom: '20px',
       subItem: {
-        e_type: 'ReBar',
-        xdata: ['哈哈2', '嘿嘿2', '嘻嘻2', '呵呵2'],
-        seriesData: [999, 674, 432, 288],
-        yName: '(刚)'
+        e_type: 'ReBar_2'
       }
     }
   ]
 });
 
 setTimeout(() => {
-  console.log(11111);
-
   pageConfig.pageArr = [
     {
       dom_type: 'comHead'
@@ -226,10 +221,7 @@ setTimeout(() => {
       marginLeft: '-325px',
       bottom: '20px',
       subItem: {
-        e_type: 'ReBar',
-        xdata: ['哈哈2', '嘿嘿2', '嘻嘻2', '呵呵2'],
-        seriesData: [999, 674, 432, 288],
-        yName: '(刚)'
+        e_type: 'ReBar_2'
       }
     }
   ];

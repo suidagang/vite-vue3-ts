@@ -20,7 +20,34 @@ const props = withDefaults(
     }
   }
 );
-
+//合并入参，并改变options中的值
+const changeOptions = (newObj?: optionBarProps_2) => {
+  // 需要合并对象，所以需要全量属性
+  type resultObjProps = Required<optionBarProps_2>;
+  let resultObj: resultObjProps = merge(
+    basicOptions_2,
+    newObj
+  ) as resultObjProps;
+  //处理数据
+  let legendData: string[] = [];
+  resultObj.listData.forEach((item) => {
+    legendData.push(item.name);
+    item.barWidth = resultObj.barWidth;
+  });
+  options.option.xAxis[0].data = resultObj.xdata;
+  options.option.xAxis[0].axisLabel.color = resultObj.axisLabelColor;
+  options.option.xAxis[0].axisLabel.fontSize = resultObj.axisLabelFontSize;
+  options.option.yAxis[0].name = resultObj.yName;
+  options.option.yAxis[0].nameTextStyle.color = resultObj.yNameColor;
+  options.option.yAxis[0].nameTextStyle.fontSize = resultObj.yNameFontSize;
+  options.option.yAxis[0].axisLabel.color = resultObj.yxisLabelColor;
+  options.option.yAxis[0].axisLabel.fontSize = resultObj.yxisLabelFontSize;
+  options.option.legend.data = legendData as never[];
+  options.option.legend.textStyle.color = resultObj.lengendColor;
+  options.option.legend.textStyle.fontSize = resultObj.lengendFontSize;
+  options.option.series = resultObj.listData as never[];
+  options.option.color = resultObj.barColor as never[];
+};
 let barRef = ref<HTMLElement | null>(null);
 const options = {
   option: {
@@ -126,35 +153,8 @@ const options = {
     series: []
   }
 };
-
-//合并入参，并改变options中的值
-const changeOptions = (newObj: optionBarProps_2) => {
-  // 需要合并对象，所以需要全量属性
-  type resultObjProps = Required<optionBarProps_2>;
-  let resultObj: resultObjProps = merge(
-    basicOptions_2,
-    newObj
-  ) as resultObjProps;
-  //处理数据
-  let legendData: string[] = [];
-  resultObj.listData.forEach((item) => {
-    legendData.push(item.name);
-    item.barWidth = resultObj.barWidth;
-  });
-  options.option.xAxis[0].data = resultObj.xdata;
-  options.option.xAxis[0].axisLabel.color = resultObj.axisLabelColor;
-  options.option.xAxis[0].axisLabel.fontSize = resultObj.axisLabelFontSize;
-  options.option.yAxis[0].name = resultObj.yName;
-  options.option.yAxis[0].nameTextStyle.color = resultObj.yNameColor;
-  options.option.yAxis[0].nameTextStyle.fontSize = resultObj.yNameFontSize;
-  options.option.yAxis[0].axisLabel.color = resultObj.yxisLabelColor;
-  options.option.yAxis[0].axisLabel.fontSize = resultObj.yxisLabelFontSize;
-  options.option.legend.data = legendData as never[];
-  options.option.legend.textStyle.color = resultObj.lengendColor;
-  options.option.legend.textStyle.fontSize = resultObj.lengendFontSize;
-  options.option.series = resultObj.listData as never[];
-  options.option.color = resultObj.barColor as never[];
-};
+// 首次合并默认配置数据
+changeOptions();
 nextTick(() => {
   useInitEcharts(barRef.value!, changeOptions, props, options);
 });
