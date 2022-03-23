@@ -56,7 +56,7 @@ const pageConfig = [
     top: '105px',
     subItem: {
       e_type: 'ReBar',
-      xdata: ['哈哈', '嘿嘿', '嘻嘻', '呵呵'],
+      xdata: ['哈哈1', '嘿嘿1', '嘻嘻1', '呵呵1'],
       seriesData: [22, 33, 55, 88],
       yName: '(眭)'
     }
@@ -132,9 +132,9 @@ const pageConfig = [
     bottom: '20px',
     subItem: {
       e_type: 'ReBar',
-      xdata: ['哈哈', '嘿嘿', '嘻嘻', '呵呵'],
-      seriesData: [22, 33, 55, 88],
-      yName: '(眭)'
+      xdata: ['哈哈2', '嘿嘿2', '嘻嘻2', '呵呵2'],
+      seriesData: [999, 674, 432, 288],
+      yName: '(刚)'
     }
   }
 ];

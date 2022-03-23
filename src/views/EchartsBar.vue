@@ -26,7 +26,7 @@
     </div>
     <div class="test-bar">
       <div class="title-box">组件名称：ReBar_6</div>
-      <!-- <component :is="template_6" :option="options_6.option"></component> -->
+      <component :is="template" :option="options.option"></component>
     </div>
   </div>
 </template>
