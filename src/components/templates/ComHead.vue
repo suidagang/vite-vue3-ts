@@ -9,53 +9,26 @@
 
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
-let rightDate = ref('');
+import { useIntervalFn } from '@vueuse/core';
+import dayjs, { Dayjs } from 'dayjs';
+let weeks = [
+  '星期日',
+  '星期一',
+  '星期二',
+  '星期三',
+  '星期四',
+  '星期五',
+  '星期六'
+];
+let rightDate = ref<Dayjs | string>('');
 onMounted(() => {
-  rightDate.value = getNowDate();
-  setInterval(() => {
-    rightDate.value = getNowDate();
+  rightDate.value =
+    dayjs().format('YYYY-MM-DD HH:mm:ss') + ' ' + weeks[dayjs().day()];
+  useIntervalFn(() => {
+    rightDate.value =
+      dayjs().format('YYYY-MM-DD HH:mm:ss') + ' ' + weeks[dayjs().day()];
   }, 1000);
 });
-/**
- * 时间加零操作
- */
-let addZero = (num: string | number) => {
-  if (Number(num) < 10) {
-    num = '0' + num;
-  }
-  return num;
-};
-/**
- * 获取当前时间
- */
-let getNowDate = () => {
-  let weeks = [
-    '星期日',
-    '星期一',
-    '星期二',
-    '星期三',
-    '星期四',
-    '星期五',
-    '星期六'
-  ];
-  let oDate = new Date(),
-    nowYear = oDate.getFullYear(),
-    nowMonth = oDate.getMonth() + 1,
-    nowDay = oDate.getDay(),
-    oHour = oDate.getHours(),
-    oMin = oDate.getMinutes(),
-    oSen = oDate.getSeconds();
-  let week = weeks[nowDay];
-  //   if (oHour > 12) {
-  //     pm = '下午';
-  //   }
-  let resultDate = `${nowYear}-${addZero(nowMonth)}-${addZero(
-    nowDay
-  )}\xa0\xa0${addZero(oHour)}:${addZero(oMin)}:${addZero(
-    oSen
-  )}\xa0\xa0\xa0\xa0${week}`;
-  return resultDate;
-};
 </script>
 
 <style lang="less" scoped>
