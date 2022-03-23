@@ -2,6 +2,9 @@
 
 ::: CopyCode
 
+```vue demo src="../views/EchartsBar.vue"
+```
+
 ```JavaScript
 //!数据定义 （组件ReBar）
 export interface optionBarProps {
