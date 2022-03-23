@@ -3,19 +3,13 @@
 </template>
 
 <script setup lang="ts">
-// echarts ts 定义
-import { EChartOption, ECharts } from 'echarts';
-// 引入公共的echarts组件（按需实现)
-import echarts from '@/plugin/echarts/index';
-import { onBeforeMount, onMounted, nextTick, ref, watch } from 'vue';
-import { useEventListener, tryOnUnmounted, useTimeoutFn } from '@vueuse/core';
-import { isEqual, merge } from 'lodash-unified';
+import { useInitEcharts } from '../hooks';
+import { nextTick, ref } from 'vue';
+import { merge } from 'lodash-unified';
 import {
   optionBarProps_2,
   basicOptions_2
 } from '@/components/echarts/bar/types/comBar';
-//echarts实例
-let echartInstance: ECharts | null;
 const props = withDefaults(
   defineProps<{
     option?: optionBarProps_2;
@@ -132,33 +126,6 @@ const options = {
   }
 };
 
-function initEchartsInstance() {
-  if (echartInstance != null && echartInstance != undefined) {
-    echartInstance.dispose(); //解决echarts dom已经加载的报错
-  }
-  const echartsDom = barRef.value;
-  if (!echartsDom) return;
-  //@ts-ignore
-  echartInstance = echarts.init(echartsDom);
-  echartInstance?.clear(); //清除画布，重新渲染
-  echartInstance?.setOption(options.option as EChartOption);
-}
-onBeforeMount(() => {
-  nextTick(() => {
-    changeOptions(props.option);
-    initEchartsInstance();
-  });
-});
-onMounted(() => {
-  nextTick(() => {
-    useEventListener('resize', () => {
-      if (!echartInstance) return;
-      useTimeoutFn(() => {
-        echartInstance?.resize();
-      }, 100);
-    });
-  });
-});
 //合并入参，并改变options中的值
 const changeOptions = (newObj: optionBarProps_2) => {
   // 需要合并对象，所以需要全量属性
@@ -187,24 +154,8 @@ const changeOptions = (newObj: optionBarProps_2) => {
   options.option.series = resultObj.listData as never[];
   options.option.color = resultObj.barColor as never[];
 };
-// 监听入参有变化就重新刷新
-watch(
-  () => props.option,
-  (newProps, oldProps) => {
-    let flag: boolean = isEqual(newProps, oldProps);
-    if (!flag) {
-      nextTick(() => {
-        changeOptions(newProps);
-        initEchartsInstance();
-      });
-    }
-  }
-);
-
-tryOnUnmounted(() => {
-  if (!echartInstance) return;
-  echartInstance.dispose();
-  echartInstance = null;
+nextTick(() => {
+  useInitEcharts(barRef.value!, changeOptions, props, options);
 });
 </script>
 
