@@ -41,7 +41,7 @@ defineProps({
   }
 }
 .com-sys-border {
-  z-index: 2500;
+  z-index: 1;
   position: absolute;
   width: 10px;
   height: 10px;
