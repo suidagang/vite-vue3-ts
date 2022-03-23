@@ -226,6 +226,7 @@ export interface optionBarProps_5 {
   xdata: string[]; //x轴数据
   seriesDataOne: number[]; //y轴数据第一个柱状图
   seriesDataTwo: number[]; //y轴数据第二个柱状图
+  lineData: number[]; //折线图的数据
   yName?: string; //y轴最上面的名称
   yNameColor?: string; //y轴最上面的名称的颜色
   yNameFontSize?: string; //y轴最上面的名称的字体大小
@@ -239,13 +240,16 @@ export interface optionBarProps_5 {
   lengendFontSize?: string; //图例字体大小
   seriesDataOneColor?: string[]; //柱状图一的颜色（渐变需要两种）
   seriesDataTwoColor?: string[]; //柱状图二的颜色（渐变需要两种）
+  lineColor?: string; //折线图的颜色
 }
 //默认数据 （组件ReBar_5）
 export const basicOptions_5: optionBarProps_5 = {
-  e_type: 'ReBar_1',
+  e_type: 'ReBar_5',
   xdata: ['aa', 'bb', 'cc', 'dd'],
-  seriesDataOne: [3, 204, 1079, 1079],
-  seriesDataTwo: [1, 111, 342, 456],
+  seriesDataOne: [31, 204, 1079, 1079],
+  seriesDataTwo: [11, 111, 342, 456],
+  lineData: [23, 123, 678, 876],
+  lineColor: 'yellow',
   yName: '',
   barWidth: '18',
   axisLabelColor: '#fff',
@@ -254,7 +258,7 @@ export const basicOptions_5: optionBarProps_5 = {
   yNameFontSize: '16',
   yxisLabelColor: '#fff',
   yxisLabelFontSize: '16',
-  legendData: ['2022年', '2021年'],
+  legendData: ['2022年', '2021年', '哈哈'],
   lengendColor: '#fff',
   lengendFontSize: '16',
   seriesDataOneColor: ['#c778ff', '#1679e9'],

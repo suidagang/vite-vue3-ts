@@ -40,6 +40,7 @@ const options = {
     },
     //图例设置
     legend: {
+      x: 'center',
       show: true, //是否显示
       type: 'plain', // 图例的类型 'plain':普通图例  'scroll':可滚动翻页的图例
       zlevel: 1, // 所有图形的 zlevel 值。
@@ -97,6 +98,7 @@ const options = {
     ],
     yAxis: [
       {
+        splitNumber: 2,
         show: true, // 是否显示 Y轴
         type: 'value', //('value''category''time''log')
         name: props.option && props.option.yName, // 坐标轴名称
@@ -125,6 +127,37 @@ const options = {
         },
         splitLine: {
           show: false
+        }
+      },
+      {
+        type: 'value',
+        name: '(%)',
+        min: 0,
+        max: 100,
+        interval: 25,
+        nameTextStyle: {
+          color: '#fff',
+          padding: [40, 0, 0, 38],
+          fontSize: '16px'
+        },
+        splitLine: {
+          show: false
+        },
+        axisLine: {
+          // 坐标轴刻度相关设置。
+          show: true,
+          lineStyle: {
+            // 刻度线的样式设置。
+            color: '#fff', // 刻度线的颜色，默认取 axisTick.lineStyle.color。
+            width: 1
+          }
+        },
+        axisLabel: {
+          formatter: (value: number) => {
+            return `${value}%`;
+          },
+          color: props.option && props.option.yxisLabelColor,
+          fontSize: '16px'
         }
       }
     ],
@@ -166,6 +199,15 @@ const options = {
           borderRadius: [12, 12, 0, 0]
         },
         data: props.option && props.option.seriesDataTwo
+      },
+      {
+        name: '哈哈',
+        type: 'line',
+        itemStyle: {
+          color: 'yellow',
+          borderWidth: 0
+        },
+        data: [3, 12, 32, 23]
       }
     ]
   }
@@ -223,6 +265,8 @@ const changeOptions = (newObj: optionBarProps_5) => {
   options.option.legend.data = resultObj.legendData;
   options.option.legend.textStyle.color = resultObj.lengendColor;
   options.option.legend.textStyle.fontSize = resultObj.lengendFontSize;
+  options.option.series[2].data = resultObj.lineData;
+  options.option.series[2].itemStyle.color = resultObj.lineColor;
   options.option.series[0].itemStyle.color = new echarts.graphic.LinearGradient(
     0,
     0,
