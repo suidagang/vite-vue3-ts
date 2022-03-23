@@ -59,6 +59,7 @@ const options = {
     xAxis: [
       {
         show: true, // 是否显示 x 轴
+        splitNumber: 1,
         type: 'category', // 坐标轴类型
         position: 'bottom', // x 轴的位置（'top'，'bottom'）
         axisLine: {

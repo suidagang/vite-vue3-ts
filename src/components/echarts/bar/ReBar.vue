@@ -69,6 +69,7 @@ const options = {
         show: true, // 是否显示 Y轴
         type: 'value', //('value''category''time''log')
         name: props.option && props.option.yName, // 坐标轴名称
+        splitNumber: 2,
         nameTextStyle: {
           color: props.option && props.option.yNameColor,
           padding: [40, 48, 0, 8],
