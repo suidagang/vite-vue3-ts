@@ -45,7 +45,7 @@ const options = {
       type: 'plain', // 图例的类型 'plain':普通图例  'scroll':可滚动翻页的图例
       zlevel: 1, // 所有图形的 zlevel 值。
       icon: 'rect', //形状circle-圆形，rect-矩形，roundRect-圆角矩形，triangle-三角形，diamond-菱形，pin-水滴，arrow-箭头，none-不显示图标
-      data: props.option && props.option.legendData,
+      data: ['测试1', '测试2'],
       right: 10, // 组件离容器的距离
       top: 12, // 组件离容器的距离
       width: 'auto', // 图例组件的宽度
@@ -54,10 +54,10 @@ const options = {
       textStyle: {
         fontWeight: 'normal', // 文字字体的粗细。 'normal' 'bold'  'bolder' 'lighter'  100 | 200 | 300 | 400...
         //fontFamily: 'sans-serif', // 文字的字体系列。
-        fontSize: props.option && props.option.lengendFontSize, // 文字的字体大小。
+        fontSize: '16px', // 文字的字体大小。
         lineHeight: 20, // 行高。
         backgroundColor: 'transparent', // 文字块背景色。
-        color: props.option && props.option.lengendColor // 文字的颜色。
+        color: '#fff' // 文字的颜色。
       },
       itemWidth: 16, // 图例标记的图形宽度。
       itemHeight: 8, //  图例标记的图形高度。
@@ -88,12 +88,12 @@ const options = {
         axisLabel: {
           show: true, // 是否显示刻度标签
           margin: 12, // 刻度标签与轴线之间的距离
-          color: props.option && props.option.axisLabelColor, // 刻度标签文字的颜色
-          fontSize: props.option && props.option.axisLabelFontSize, // 文字字体大小
+          color: '#fff', // 刻度标签文字的颜色
+          fontSize: '16px', // 文字字体大小
           align: 'center', // 文字水平对齐方式，默认自动（'left'，'center'，'right'）
           verticalAlign: 'middle' // 文字垂直对齐方式，默认自动（'top'，'middle'，'bottom'
         },
-        data: props.option && props.option.xdata
+        data: ['1', '2', '3', '4']
       }
     ],
     yAxis: [
@@ -101,11 +101,11 @@ const options = {
         splitNumber: 2,
         show: true, // 是否显示 Y轴
         type: 'value', //('value''category''time''log')
-        name: props.option && props.option.yName, // 坐标轴名称
+        name: '户', // 坐标轴名称
         nameTextStyle: {
-          color: props.option && props.option.yNameColor,
+          color: '#fff',
           padding: [40, 48, 0, 8],
-          fontSize: props.option && props.option.yNameFontSize
+          fontSize: '16px'
         },
         axisLine: {
           // 坐标轴刻度相关设置。
@@ -122,8 +122,8 @@ const options = {
         axisLabel: {
           // 坐标轴刻度标签的相关设置。
           show: true,
-          color: props.option && props.option.yxisLabelColor,
-          fontSize: props.option && props.option.yxisLabelFontSize
+          color: '#fff',
+          fontSize: '16px'
         },
         splitLine: {
           show: false
@@ -156,17 +156,17 @@ const options = {
           formatter: (value: number) => {
             return `${value}%`;
           },
-          color: props.option && props.option.yxisLabelColor,
+          color: '#fff',
           fontSize: '16px'
         }
       }
     ],
     series: [
       {
-        name: props.option && props.option.legendData[0],
+        name: '测试1',
         type: 'bar',
-        data: props.option && props.option.seriesDataOne,
-        barWidth: props.option && props.option.barWidth,
+        data: [1, 2, 4, 5],
+        barWidth: '18',
         itemStyle: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
             {
@@ -182,9 +182,9 @@ const options = {
         }
       },
       {
-        name: props.option && props.option.legendData[1],
+        name: '测试2',
         type: 'bar',
-        barWidth: props.option && props.option.barWidth,
+        barWidth: '18',
         itemStyle: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
             {
@@ -198,7 +198,7 @@ const options = {
           ]),
           borderRadius: [12, 12, 0, 0]
         },
-        data: props.option && props.option.seriesDataTwo
+        data: [4, 6, 7, 9]
       },
       {
         name: '哈哈',
@@ -222,7 +222,7 @@ function initEchartsInstance() {
   //@ts-ignore
   echartInstance = echarts.init(echartsDom);
   echartInstance?.clear(); //清除画布，重新渲染
-  echartInstance?.setOption(options.option as EChartOption);
+  echartInstance?.setOption(options.option as unknown as EChartOption);
 }
 onBeforeMount(() => {
   nextTick(() => {

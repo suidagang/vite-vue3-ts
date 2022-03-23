@@ -117,10 +117,7 @@ let pageConfig = reactive({
       right: '20px',
       bottom: '20px',
       subItem: {
-        e_type: 'ReBar',
-        xdata: ['哈哈', '嘿嘿', '嘻嘻', '呵呵'],
-        seriesData: [22, 33, 55, 88],
-        yName: '(眭)'
+        e_type: 'ReBar_5'
       }
     },
     {
@@ -217,10 +214,7 @@ setTimeout(() => {
       right: '20px',
       bottom: '20px',
       subItem: {
-        e_type: 'ReBar',
-        xdata: ['哈哈', '嘿嘿', '嘻嘻', '呵呵'],
-        seriesData: [22, 33, 55, 88],
-        yName: '(眭)'
+        e_type: 'ReBar_5'
       }
     },
     {
