@@ -4,39 +4,51 @@
       <component :is="template" :option="barOption.option"></component>
     </div>
     <div class="set-box">
+      <el-button class="reset-btn" type="primary" @click="resetFrom">
+        重置
+      </el-button>
       <div class="set-title">公用设置</div>
-      <el-form :model="form" label-width="140px">
+      <el-form :model="form.config" label-width="140px">
         <el-form-item label="柱状图颜色">
-          <el-color-picker v-model="form.barColor" />
+          <el-color-picker v-model="form.config.barColor" />
         </el-form-item>
         <el-form-item label="柱状图宽度">
-          <el-slider v-model="form.barWidth" show-input :min="5" :max="100" />
+          <el-slider
+            v-model="form.config.barWidth"
+            show-input
+            :min="5"
+            :max="100"
+          />
         </el-form-item>
         <el-form-item label="Y轴的名称">
-          <el-input v-model="form.yName" />
+          <el-input v-model="form.config.yName" />
         </el-form-item>
         <el-form-item label="Y轴的名称字体颜色">
-          <el-color-picker v-model="form.yNameColor" />
+          <el-color-picker v-model="form.config.yNameColor" />
         </el-form-item>
         <el-form-item label="Y轴的名称字体大小">
-          <el-input-number v-model="form.yNameFontSize" :min="12" :max="40" />
+          <el-input-number
+            v-model="form.config.yNameFontSize"
+            :min="12"
+            :max="40"
+          />
         </el-form-item>
         <el-form-item label="x轴文字颜色">
-          <el-color-picker v-model="form.axisLabelColor" />
+          <el-color-picker v-model="form.config.axisLabelColor" />
         </el-form-item>
         <el-form-item label="x轴文字大小">
           <el-input-number
-            v-model="form.axisLabelFontSize"
+            v-model="form.config.axisLabelFontSize"
             :min="12"
             :max="40"
           />
         </el-form-item>
         <el-form-item label="y轴文字颜色">
-          <el-color-picker v-model="form.yxisLabelColor" />
+          <el-color-picker v-model="form.config.yxisLabelColor" />
         </el-form-item>
         <el-form-item label="y轴文字大小">
           <el-input-number
-            v-model="form.yxisLabelFontSize"
+            v-model="form.config.yxisLabelFontSize"
             :min="12"
             :max="40"
           />
@@ -44,8 +56,10 @@
       </el-form>
     </div>
   </div>
-  <div class="next-title">配置后的json数据</div>
-  <JsonViewer :value="form" copyable boxed sort theme="jv-dark" />
+  <div class="next-title">
+    <span>配置后的json数据</span>
+  </div>
+  <JsonViewer :value="form.config" copyable boxed sort theme="jv-dark" />
 </template>
 
 <script setup lang="ts">
@@ -56,16 +70,23 @@ import 'vue3-json-viewer/dist/index.css';
 import ReBar from '../bar/ReBar.vue';
 let template = markRaw(ReBar);
 let form = reactive({
-  barColor: 'red',
-  barWidth: 28,
-  yName: '(笔)',
-  axisLabelColor: '#fff',
-  axisLabelFontSize: '16',
-  yNameColor: '#fff',
-  yNameFontSize: '16',
-  yxisLabelColor: '#fff',
-  yxisLabelFontSize: '16'
+  config: {
+    barColor: 'red',
+    barWidth: 28,
+    yName: '(笔)',
+    axisLabelColor: '#fff',
+    axisLabelFontSize: 16,
+    yNameColor: '#fff',
+    yNameFontSize: 16,
+    yxisLabelColor: '#fff',
+    yxisLabelFontSize: 16
+  }
 });
+const oldForm = JSON.parse(JSON.stringify(form.config));
+
+const resetFrom = () => {
+  form.config = JSON.parse(JSON.stringify(oldForm));
+};
 let barOption = reactive({
   option: {
     e_type: 'ReBar',
@@ -87,17 +108,17 @@ watch(
   (newValue) => {
     barOption.option = {
       e_type: 'ReBar',
-      barColor: [newValue.barColor],
-      barWidth: newValue.barWidth + '',
+      barColor: [newValue.config.barColor],
+      barWidth: newValue.config.barWidth + '',
       xdata: ['测试1', '测试2', '测试3', '测试4'],
       seriesData: [3, 204, 1079, 1079],
-      yName: newValue.yName,
-      yNameColor: newValue.yNameColor,
-      yNameFontSize: newValue.yNameFontSize,
-      axisLabelColor: newValue.axisLabelColor,
-      axisLabelFontSize: newValue.axisLabelFontSize,
-      yxisLabelColor: newValue.yxisLabelColor,
-      yxisLabelFontSize: newValue.yxisLabelFontSize
+      yName: newValue.config.yName,
+      yNameColor: newValue.config.yNameColor,
+      yNameFontSize: newValue.config.yNameFontSize + '',
+      axisLabelColor: newValue.config.axisLabelColor,
+      axisLabelFontSize: newValue.config.axisLabelFontSize + '',
+      yxisLabelColor: newValue.config.yxisLabelColor,
+      yxisLabelFontSize: newValue.config.yxisLabelFontSize + ''
     };
   },
   {
@@ -119,11 +140,17 @@ watch(
   background: #01145e;
 }
 .set-box {
+  position: relative;
   flex: 1;
   height: 250px;
   box-shadow: 3px 3px 10px #9edeff;
   margin-left: 20px;
   overflow-y: auto;
+  .reset-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
 }
 .set-title {
   height: 40px;
