@@ -91,7 +91,7 @@ let barOption = reactive({
   option: {
     e_type: 'ReBar',
     xdata: ['测试1', '测试2', '测试3', '测试4'],
-    seriesData: [3, 204, 1079, 1079],
+    seriesData: [322, 204, 1079, 1079],
     yName: '',
     barColor: ['#19f1ff'],
     barWidth: '18',
@@ -111,7 +111,7 @@ watch(
       barColor: [newValue.config.barColor],
       barWidth: newValue.config.barWidth + '',
       xdata: ['测试1', '测试2', '测试3', '测试4'],
-      seriesData: [3, 204, 1079, 1079],
+      seriesData: [322, 204, 1079, 1079],
       yName: newValue.config.yName,
       yNameColor: newValue.config.yNameColor,
       yNameFontSize: newValue.config.yNameFontSize + '',
