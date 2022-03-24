@@ -1,5 +1,7 @@
 # Vue3 + Typescript + Vite + pinia + eslint + prettier + element-plus
 
+[博客地址](https://segmentfault.com/a/1190000041467227)
+
 ## 安装使用
 
 - 安装依赖
@@ -25,4 +27,3 @@ npm run dev
 npm run build
 ```
 
-[eslint官网](https://eslint.bootcss.com/docs/rules/)
