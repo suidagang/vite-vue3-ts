@@ -1,5 +1,5 @@
 <template>
-  <TestOne msg="测试msg" :list="listArr" @parentClick="parentClick" />
+  <TestOne :msg="msg" :list="listArr.list" @parentClick="parentClick" />
   <button @click="getAjax">发送请求</button>
   <button @click="cancelAjax">取消全部请求</button>
   <button @click="cancelOneAjax">取消单个全部请求</button>
@@ -7,13 +7,19 @@
 
 <script setup lang="ts">
 import TestOne from './com/TestOne.vue';
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import {
   comRequest,
   cancelRequest,
   cancelAllRequest
 } from '@/utils/http/index';
-let listArr: number[] = reactive([1, 2, 3, 4, 5]);
+let msg = ref('测试');
+let listArr = reactive({ list: [1, 2, 3, 4, 5] });
+setTimeout(() => {
+  msg.value = '眭刚';
+  listArr.list = [11, 22, 33];
+}, 3000);
+
 let parentClick = (_massage: string): void => {
   console.log(_massage);
 };

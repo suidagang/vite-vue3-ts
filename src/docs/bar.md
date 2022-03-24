@@ -2,9 +2,7 @@
 
 ```vue demo src="../components/echarts/barDemo/bar.vue"
 ```
-
-<!-- ```vue demo src="../views/EchartsBar.vue"
-``` -->
+## 默认数据和数据结构
 
 ```JavaScript
 //!数据定义 （组件ReBar）
