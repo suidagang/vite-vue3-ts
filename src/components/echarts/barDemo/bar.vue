@@ -23,10 +23,10 @@
         <el-form-item label="Y轴的名称">
           <el-input v-model="form.config.yName" />
         </el-form-item>
-        <el-form-item label="Y轴的名称字体颜色">
+        <el-form-item v-show="form.config.yName" label="Y轴的名称字体颜色">
           <el-color-picker v-model="form.config.yNameColor" />
         </el-form-item>
-        <el-form-item label="Y轴的名称字体大小">
+        <el-form-item v-show="form.config.yName" label="Y轴的名称字体大小">
           <el-input-number
             v-model="form.config.yNameFontSize"
             :min="12"
