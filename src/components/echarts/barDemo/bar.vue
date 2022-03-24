@@ -16,10 +16,15 @@
       </el-form>
     </div>
   </div>
+  <div class="next-title">配置后的json数据</div>
+  <JsonViewer :value="form" copyable boxed sort theme="jv-dark" />
 </template>
 
 <script setup lang="ts">
 import { reactive, watch, markRaw } from 'vue';
+//涌入vue3-json-viewer
+import { JsonViewer } from 'vue3-json-viewer';
+import 'vue3-json-viewer/dist/index.css';
 import ReBar from '../bar/ReBar.vue';
 let template = markRaw(ReBar);
 let form = reactive({
@@ -77,5 +82,12 @@ watch(
   font-size: 16px;
   padding-left: 20px;
   box-sizing: border-box;
+}
+.next-title {
+  font-size: 20px;
+  color: #409eff;
+  font-weight: bold;
+  margin: 20px;
+  overflow: hidden;
 }
 </style>
