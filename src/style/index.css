@@ -180,7 +180,7 @@
   width: 3px;
   height: 100%;
   background-color: #4091f7;
-  content: "";
+  content: '';
   clear: both;
   transition: all 0.2s ease-in-out;
   transform: translateY(0);
@@ -193,14 +193,14 @@
   width: 3px;
   height: 100%;
   background-color: #4091f7;
-  content: "";
+  content: '';
   clear: both;
   transition: all 0.2s ease-in-out;
   transform: translateY(0);
 }
 .el-menu--collapse .el-sub-menu > .el-sub-menu__title::before,
 .el-menu--collapse .submenu-title-noDropdown.outer-most::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   height: 0;

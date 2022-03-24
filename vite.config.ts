@@ -54,6 +54,16 @@ export default defineConfig(({ mode }: UserConfig): UserConfig => {
         '~': path.resolve(__dirname, './packages')
       }
     },
+    optimizeDeps: {
+      include: [
+        'pinia',
+        'vue-i18n',
+        'lodash-es',
+        '@vueuse/core',
+        'element-plus/lib/locale/lang/en',
+        'element-plus/lib/locale/lang/zh-cn'
+      ]
+    },
     plugins: [
       // 使用markdown
       vitePluginVuedoc(vitePluginVuedocConfig),

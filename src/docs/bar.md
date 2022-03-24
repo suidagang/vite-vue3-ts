@@ -1,6 +1,7 @@
 # 柱状图参数配置
 
 ```vue demo src="../components/echarts/barDemo/bar.vue"
+
 ```
 
 ## **`默认数据和数据结构`**
