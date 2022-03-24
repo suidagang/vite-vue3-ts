@@ -7,7 +7,7 @@
       <el-button class="reset-btn" type="primary" @click="resetFrom">
         重置
       </el-button>
-      <div class="set-title">公用设置</div>
+      <div class="set-title">可配设置</div>
       <el-form :model="form.config" label-width="140px">
         <el-form-item label="柱状图颜色">
           <el-color-picker v-model="form.config.barColor" />
@@ -71,7 +71,7 @@ import ReBar from '../bar/ReBar.vue';
 let template = markRaw(ReBar);
 let form = reactive({
   config: {
-    barColor: 'red',
+    barColor: '#19f1ff',
     barWidth: 28,
     yName: '(笔)',
     axisLabelColor: '#fff',
