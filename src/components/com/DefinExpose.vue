@@ -12,6 +12,7 @@ const num = ref(123);
 const handle = (): void => {
   alert('暴露子组件');
 };
+
 defineExpose({
   msg,
   num
