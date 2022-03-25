@@ -143,25 +143,24 @@ onUnmounted(() => {
 
 <style lang="less" scoped>
 .echarts-page {
-  min-height: 100%;
-  width: 100%;
-  background: #01145e;
-  padding: 10px;
-  box-sizing: border-box;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+  min-height: 100%;
+  background: #01145e;
+  box-sizing: border-box;
+  flex-wrap: wrap;
 }
 .title-box {
-  color: #fff;
+  color: #ffffff;
 }
 .test-bar {
-  width: 49%;
-  height: 250px;
-  overflow: hidden;
-  border: 1px solid red;
-  box-sizing: border-box;
   overflow: hidden;
   margin-bottom: 30px;
+  width: 49%;
+  height: 250px;
+  border: 1px solid red;
+  box-sizing: border-box;
 }
 </style>

@@ -1,34 +1,32 @@
-@import '../theme/menu-vars.less';
+@import "../theme/menu-vars.less";
 
 // 最外层壳子
 .menu {
-  width: @menuWidth;
-  background-color: #304156;
-  height: 100%;
-  overflow: hidden;
   display: flex;
+  overflow: hidden;
+  width: @menuWidth;
+  height: 100%;
+  background-color: #304156;
   flex-direction: column;
 }
 
 //最上面logo标题
 .sys-name {
   height: 60px;
-  background: #002140;
-  color: #409eff;
-  line-height: 60px;
-  text-align: center;
   font-size: 22px;
+  text-align: center;
+  color: #409eff;
+  background: #002140;
+  line-height: 60px;
   box-sizing: border-box;
 }
-
 .sidebar-menu {
-  width: @menuWidth;
-  overflow: hidden;
-  flex: 1;
   padding-bottom: 30px;
+  width: @menuWidth;
+  flex: 1;
   box-sizing: border-box;
+  overflow: hidden;
 }
-
 .sidebar-menu:hover {
   overflow-y: auto;
 }
@@ -37,26 +35,22 @@
 .menu .sidebar-menu::-webkit-scrollbar {
   width: 6px !important;
 }
-
 .menu .sidebar-menu::-webkit-scrollbar-track-piece {
   background: #d3dce6;
 }
-
 .menu .sidebar-menu::-webkit-scrollbar-thumb {
-  background: #99a9bf;
   border-radius: 20px;
+  background: #99a9bf;
 }
-
 .el-menu {
-  border: none !important;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  border: none !important;
 }
 
 // 菜单下来背景色修改
 .el-menu--inline {
   background: @subMenuBg !important;
-
   .el-sub-menu__title {
     background: @subMenuBg !important;
   }
@@ -66,48 +60,43 @@
 .el-sub-menu__title,
 .el-menu-item {
   padding: 0 20px 0 40px;
-  color: @menuText;
   height: 50px;
+  color: @menuText;
 
   // width: @menuWidth!important;
   &:hover {
     color: @subMenuActiveText !important;
   }
-
   div,
   span {
     height: 50px;
     line-height: 50px;
   }
 }
-
 .is-active > .el-sub-menu__title,
 .is-active.submenu-title-noDropdown {
-  color: @subMenuActiveText !important;
   border-bottom-color: #409eff;
-
+  color: @subMenuActiveText !important;
   i {
     color: @subMenuActiveText !important;
   }
 }
-
 .menu .sidebar-menu .is-active {
-  transition: color 0.3s;
-  color: @subMenuActiveText !important;
   border-bottom-color: #409eff;
+  color: @subMenuActiveText !important;
   background: #409eff !important;
+  transition: color .3s;
 }
 .menu .sidebar-menu .el-menu--collapse .is-active {
-  transition: color 0.3s;
-  color: @subMenuActiveText !important;
   border-bottom-color: #409eff;
+  color: @subMenuActiveText !important;
   background: #304156 !important;
+  transition: color .3s;
 }
-
 .el-menu .el-menu--inline .el-sub-menu__title,
 & .el-sub-menu .el-menu-item {
-  font-size: 12px;
   min-width: @menuWidth !important;
+  font-size: 12px;
   background-color: @subMenuBg !important;
 }
 
@@ -125,33 +114,27 @@
 .el-menu--vertical {
   .el-menu--popup {
     background-color: @subMenuBg !important;
-
     .el-menu-item {
       span {
-        font-size: 12px;
         margin-left: 10px;
+        font-size: 12px;
       }
     }
-
     .el-sub-menu__title {
       color: @menuText;
-
       span {
         margin-left: 10px;
       }
     }
   }
-
   & > .el-menu {
     i {
       margin-right: 20px;
     }
   }
-
   .is-active > .el-sub-menu__title,
   .is-active.submenu-title-noDropdown {
     color: @subMenuActiveText !important;
-
     i {
       color: @subMenuActiveText !important;
     }
@@ -159,40 +142,34 @@
 
   /* 子菜单中还有子菜单 */
   .el-menu .el-sub-menu__title {
-    font-size: 12px;
     min-width: 64px !important;
+    font-size: 12px;
     background-color: @subMenuBg !important;
   }
-
   .el-menu-item,
   .el-sub-menu__title {
     height: 50px;
     line-height: 50px;
     color: @menuText;
     background-color: @subMenuBg;
-
     &:hover {
       color: @menuTitleHover !important;
     }
   }
-
   .is-active {
-    transition: color 0.3s;
     color: @subMenuActiveText !important;
+    transition: color .3s;
   }
-
   .el-menu-item.is-active {
     background: @subMenuActiveBg !important;
   }
-
   .el-menu-item,
   .el-sub-menu {
     i {
       width: 20px;
-      text-align: center;
       font-size: 16px;
+      text-align: center;
     }
-
     i.fa {
       margin-right: 5px;
       font-size: 16px;
@@ -205,12 +182,12 @@
   position: absolute;
   top: 0;
   left: 0;
+  clear: both;
   width: 3px;
   height: 100%;
   background-color: @menuActiveBefore;
-  content: '';
-  clear: both;
-  transition: all 0.2s ease-in-out;
+  transition: all .2s ease-in-out;
+  content: "";
   transform: translateY(0);
 }
 
@@ -219,21 +196,21 @@
   position: absolute;
   top: 0;
   left: 0;
+  clear: both;
   width: 3px;
   height: 100%;
   background-color: @menuActiveBefore;
-  content: '';
-  clear: both;
-  transition: all 0.2s ease-in-out;
+  transition: all .2s ease-in-out;
+  content: "";
   transform: translateY(0);
 }
 .el-menu--collapse .el-sub-menu > .el-sub-menu__title::before,
 .el-menu--collapse .submenu-title-noDropdown.outer-most::before {
-  content: '';
-  display: block;
   position: absolute;
-  height: 0;
-  width: 3px;
-  transform: translateY(-50%);
   top: 50%;
+  display: block;
+  width: 3px;
+  height: 0;
+  content: "";
+  transform: translateY(-50%);
 }

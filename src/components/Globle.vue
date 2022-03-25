@@ -11,10 +11,10 @@
 .globle-box {
   width: 100px;
   height: 100px;
-  background: pink;
-  text-align: center;
-  line-height: 100px;
   border-radius: 50px;
+  text-align: center;
+  background: pink;
+  line-height: 100px;
   &-text {
     font-size: 14px;
     color: purple;

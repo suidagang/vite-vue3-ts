@@ -10,9 +10,9 @@ import CountBotton from '@/components/pinia/CountBotton.vue';
 
 <style lang="less" scoped>
 .content {
-  margin: 20px;
-  border: 1px solid #ccc;
   overflow: hidden;
+  margin: 20px;
+  border: 1px solid #cccccc;
   flex: 1;
 }
 </style>

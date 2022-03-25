@@ -50,8 +50,8 @@ import Pinia from '@/components/Pinia.vue';
 html,
 body,
 #app {
-  height: 100%;
   overflow: hidden;
+  height: 100%;
   box-sizing: border-box;
 }
 #app {

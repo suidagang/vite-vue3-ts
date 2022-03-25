@@ -242,7 +242,7 @@ setTimeout(() => {
   cursor: pointer;
 }
 .echarts-box {
-  width: 100%;
   overflow: hidden;
+  width: 100%;
 }
 </style>

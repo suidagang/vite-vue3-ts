@@ -130,9 +130,9 @@ watch(
 
 <style lang="less" scoped>
 .demo-box {
+  display: flex;
   width: 100%;
   height: 250px;
-  display: flex;
 }
 .echarts-box {
   flex: 1;
@@ -141,31 +141,31 @@ watch(
 }
 .set-box {
   position: relative;
-  flex: 1;
+  overflow-y: auto;
+  margin-left: 20px;
   height: 250px;
   box-shadow: 3px 3px 10px #9edeff;
-  margin-left: 20px;
-  overflow-y: auto;
+  flex: 1;
   .reset-btn {
     position: absolute;
-    right: 20px;
     top: 20px;
+    right: 20px;
   }
 }
 .set-title {
-  height: 40px;
-  line-height: 40px;
-  color: #000;
-  font-weight: bold;
-  font-size: 16px;
   padding-left: 20px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+  line-height: 40px;
   box-sizing: border-box;
 }
 .next-title {
-  font-size: 20px;
-  color: #409eff;
-  font-weight: bold;
-  margin: 20px;
   overflow: hidden;
+  margin: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #409eff;
 }
 </style>

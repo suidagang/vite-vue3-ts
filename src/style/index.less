@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import '../style/sidebar.less';
+@import "../style/sidebar.less";
 html,
 body,
 div,
@@ -86,11 +86,12 @@ audio,
 video {
   margin: 0;
   padding: 0;
-  border: 0;
-  font-size: 100%;
   font: inherit;
+  font-size: 100%;
+  border: 0;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -112,9 +113,5 @@ ul {
 
 //去掉双击选中文字
 div {
-  -moz-user-select: none; /*火狐*/
-  -webkit-user-select: none; /*webkit浏览器*/
-  -ms-user-select: none; /*IE10*/
-  -khtml-user-select: none; /*早期浏览器*/
   user-select: none;
 }

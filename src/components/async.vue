@@ -45,8 +45,8 @@ const choiceList = (item: Tabs) => {
   justify-content: center;
 }
 .list {
-  height: 40px;
   width: 80px;
-  border: 1px solid #ccc;
+  height: 40px;
+  border: 1px solid #cccccc;
 }
 </style>

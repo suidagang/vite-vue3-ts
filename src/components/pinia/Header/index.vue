@@ -15,6 +15,6 @@ const { num, count, phoneHid } = storeToRefs(store);
 <style lang="less" scoped>
 .header {
   height: 60px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #cccccc;
 }
 </style>

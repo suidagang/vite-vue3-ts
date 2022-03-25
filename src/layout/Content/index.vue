@@ -22,32 +22,30 @@
 
 <style lang="less" scoped>
 .content {
-  padding: 20px;
   overflow: hidden;
+  padding: 20px;
+  background: #f0f2f5;
   flex: 1;
   box-sizing: border-box;
-  background: #f0f2f5;
 }
 .content-scroll {
   width: 100%;
   height: 100%;
   .tansition-box {
-    width: 100%;
-    height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+    width: 100%;
+    height: 100%;
   }
 }
 .content-scroll::-webkit-scrollbar {
   width: 6px !important;
 }
-
 .content-scroll::-webkit-scrollbar-track-piece {
   background: #d3dce6;
 }
-
 .content-scroll::-webkit-scrollbar-thumb {
-  background: #99a9bf;
   border-radius: 20px;
+  background: #99a9bf;
 }
 </style>

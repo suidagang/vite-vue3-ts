@@ -33,18 +33,18 @@ const close = () => {
 
 <style lang="less" scoped>
 .dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
   width: 300px;
   height: 300px;
-  border: 1px solid #ccc;
-  position: fixed;
-  left: 50%;
-  top: 50%;
+  border: 1px solid #cccccc;
   transform: translate(-50%, -50%);
   &-header {
-    border-bottom: 1px solid #ccc;
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    border-bottom: 1px solid #cccccc;
   }
   &-content {
     padding: 10px;

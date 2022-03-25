@@ -37,7 +37,6 @@ let isShow1 = ref<Boolean>(true);
 .fade-leave-active {
   transition: opacity 0.5s ease;
 }
-
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;

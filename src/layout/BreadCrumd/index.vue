@@ -32,24 +32,22 @@ watch(
   display: inline-block;
   font-size: 14px;
   line-height: 50px;
-
   .no-redirect {
     color: #97a8be;
     cursor: text;
   }
 }
+
 /* breadcrumb transition */
 .breadcrumb-enter-active,
 .breadcrumb-leave-active {
   transition: all 0.5s;
 }
-
 .breadcrumb-enter-from,
 .breadcrumb-leave-active {
   opacity: 0;
   transform: translateX(20px);
 }
-
 .breadcrumb-leave-active {
   position: absolute;
 }

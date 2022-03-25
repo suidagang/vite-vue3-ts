@@ -6,39 +6,39 @@
 }
 .vuedoc-demo__preview {
   padding: 20px;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 .vuedoc-demo__source {
-  background-color: #fafafa;
-  border-top: 1px solid #eaeefb;
   overflow: hidden;
   height: 0;
-  transition: all 0.2s ease-in-out;
+  border-top: 1px solid #eaeefb;
+  background-color: #fafafa;
+  transition: all .2s ease-in-out;
 }
 .vuedoc-demo__sourceref {
   overflow: hidden;
 }
 .vuedoc-demo__sourceref > pre {
-  padding: 20px 0;
   margin: 0;
+  padding: 20px 0;
   line-height: 1.5;
 }
 .vuedoc-demo__sourceref code {
   background-color: inherit;
 }
 .vuedoc-demo__footer {
-  border-top: 1px solid #eaeefb;
+  position: relative;
+  margin-top: -1px;
   height: 44px;
+  border-top: 1px solid #eaeefb;
+  text-align: center;
+  color: #d3dce6;
+  background-color: #ffffff;
   line-height: 43px;
   box-sizing: border-box;
-  background-color: #fff;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  text-align: center;
-  margin-top: -1px;
-  color: #d3dce6;
   cursor: pointer;
-  position: relative;
 }
 .vuedoc-demo__footer:hover {
   color: #409eff;

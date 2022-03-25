@@ -33,38 +33,38 @@ onMounted(() => {
 
 <style lang="less" scoped>
 @font-face {
-  font-family: 'YouSheBiaoTiHei';
+  font-family: YouSheBiaoTiHei;
   src: url('@/assets/fonts/优设标题黑.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 .com-top-head-box {
   position: relative;
-  height: 88px;
-  width: 100%;
-  background: url('@/assets/imgs/topHead/top.png') center no-repeat;
-  overflow: hidden;
   display: flex;
   align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 88px;
   font-size: 24px;
   color: #ffffff;
+  background: url('@/assets/imgs/topHead/top.png') center no-repeat;
 }
 .logo-img {
+  margin-left: 20px;
   width: 46px;
   height: 34px;
   background: url('@/assets/imgs/topHead/logo.png') center no-repeat;
-  margin-left: 20px;
 }
 .head-title {
   margin-left: 15px;
 }
 .center-title {
-  font-family: 'YouSheBiaoTiHei';
-  color: #00ecfc;
-  font-size: 44px;
   position: absolute;
-  left: 50%;
   top: 50%;
+  left: 50%;
+  font-size: 44px;
+  font-family: YouSheBiaoTiHei;
+  color: #00ecfc;
   transform: translate(-50%, -60%);
 }
 .right-time {

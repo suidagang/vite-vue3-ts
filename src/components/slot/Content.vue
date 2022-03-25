@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div v-for="(item, index) in data" :key="index" style="color: #fff">
+    <div v-for="(item, index) in data" :key="index" style="color: #ffffff">
       <slot :data="item" :index="index">{{ item.name }}</slot>
     </div>
   </div>

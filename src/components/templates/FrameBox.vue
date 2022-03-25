@@ -29,24 +29,24 @@ defineProps({
 <style lang="less" scoped>
 .common-sys-box {
   position: relative;
-  box-shadow: inset 0 0 40px rgba(0, 42, 255, 0.6);
-  border: 1px solid rgba(0, 42, 255, 1);
-  box-sizing: border-box;
+  border: 1px solid rgb(0 42 255 / 100%);
   text-align: left;
-  color: #fff;
-  &:after {
+  color: #ffffff;
+  box-shadow: inset 0 0 40px rgb(0 42 255 / 60%);
+  box-sizing: border-box;
+  &::after {
     content: '';
     display: table;
     clear: both;
   }
 }
 .com-sys-border {
-  z-index: 1;
   position: absolute;
+  z-index: 1;
   width: 10px;
   height: 10px;
-  background: rgba(0, 0, 0, 0);
   border: 1px solid #01ffff;
+  background: rgb(0 0 0 / 0%);
 }
 .sys-one {
   top: -1px;
@@ -57,27 +57,27 @@ defineProps({
 .sys-two {
   top: -1px;
   right: -1px;
-  border-left: none;
   border-bottom: none;
+  border-left: none;
 }
 .sys-three {
-  bottom: -1px;
   right: -1px;
-  border-left: none;
+  bottom: -1px;
   border-top: none;
+  border-left: none;
 }
 .sys-four {
   bottom: -1px;
   left: -1px;
-  border-right: none;
   border-top: none;
+  border-right: none;
 }
 .common-sys-head {
-  margin-top: 20px;
   overflow: hidden;
-  color: #01ffff;
-  font-size: 24px;
+  margin-top: 20px;
   width: 100%;
+  font-size: 24px;
   text-align: center;
+  color: #01ffff;
 }
 </style>

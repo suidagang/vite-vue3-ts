@@ -28,8 +28,8 @@ withDefaults(
 
 <style lang="less" scoped>
 .sub-el-icon {
-  color: currentColor;
   width: 1em;
   height: 1em;
+  color: currentcolor;
 }
 </style>

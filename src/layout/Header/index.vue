@@ -50,16 +50,16 @@ const changeSiderbarState = () => {
 
 <style lang="less" scoped>
 .header {
-  height: 60px;
-  border-bottom: 1px solid #ccc;
-  text-align: left;
-  line-height: 60px;
   display: flex;
   align-items: center;
+  height: 60px;
+  border-bottom: 1px solid #cccccc;
+  text-align: left;
+  line-height: 60px;
 }
 .open-sidebar-icon {
-  font-size: 32px;
   margin-left: 20px;
+  font-size: 32px;
   cursor: pointer;
 }
 .screenfull-box {

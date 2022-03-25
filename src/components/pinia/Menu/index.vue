@@ -53,6 +53,6 @@ let menuList = reactive<TreeList[]>([
 <style lang="less" scoped>
 .menu {
   width: 200px;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #cccccc;
 }
 </style>

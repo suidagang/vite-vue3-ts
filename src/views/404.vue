@@ -24,24 +24,20 @@ import four_cloud from '@/assets/404_cloud.png';
   top: 40%;
   left: 50%;
 }
-
 .wscn-http404 {
   position: relative;
-  width: 1200px;
-  padding: 0 50px;
   overflow: hidden;
-
+  padding: 0 50px;
+  width: 1200px;
   .pic-404 {
     position: relative;
-    // float: left;
-    width: 600px;
     overflow: hidden;
     margin: 0 auto;
-
+    // float: left;
+    width: 600px;
     &__parent {
       width: 100%;
     }
-
     &__child {
       @keyframes cloudLeft {
         0% {
@@ -49,19 +45,16 @@ import four_cloud from '@/assets/404_cloud.png';
           left: 220px;
           opacity: 0;
         }
-
         20% {
           top: 33px;
           left: 188px;
           opacity: 1;
         }
-
         80% {
           top: 81px;
           left: 92px;
           opacity: 1;
         }
-
         100% {
           top: 97px;
           left: 60px;
@@ -74,19 +67,16 @@ import four_cloud from '@/assets/404_cloud.png';
           left: 420px;
           opacity: 0;
         }
-
         20% {
           top: 40px;
           left: 360px;
           opacity: 1;
         }
-
         70% {
           top: 130px;
           left: 180px;
           opacity: 1;
         }
-
         100% {
           top: 160px;
           left: 120px;
@@ -99,19 +89,16 @@ import four_cloud from '@/assets/404_cloud.png';
           left: 500px;
           opacity: 0;
         }
-
         20% {
           top: 120px;
           left: 460px;
           opacity: 1;
         }
-
         80% {
           top: 180px;
           left: 340px;
           opacity: 1;
         }
-
         100% {
           top: 200px;
           left: 300px;
@@ -120,11 +107,10 @@ import four_cloud from '@/assets/404_cloud.png';
       }
 
       position: absolute;
-
       &.left {
-        width: 80px;
         top: 17px;
         left: 220px;
+        width: 80px;
         opacity: 0;
         animation-name: cloudLeft;
         animation-duration: 2s;
@@ -132,11 +118,10 @@ import four_cloud from '@/assets/404_cloud.png';
         animation-fill-mode: forwards;
         animation-delay: 1s;
       }
-
       &.mid {
-        width: 46px;
         top: 10px;
         left: 420px;
+        width: 46px;
         opacity: 0;
         animation-name: cloudMid;
         animation-duration: 2s;
@@ -144,11 +129,10 @@ import four_cloud from '@/assets/404_cloud.png';
         animation-fill-mode: forwards;
         animation-delay: 1.2s;
       }
-
       &.right {
-        width: 62px;
         top: 100px;
         left: 500px;
+        width: 62px;
         opacity: 0;
         animation-name: cloudRight;
         animation-duration: 2s;
@@ -158,14 +142,12 @@ import four_cloud from '@/assets/404_cloud.png';
       }
     }
   }
-
   .bullshit {
     @keyframes slideUp {
       0% {
         transform: translateY(60px);
         opacity: 0;
       }
-
       100% {
         transform: translateY(0);
         opacity: 1;
@@ -174,58 +156,54 @@ import four_cloud from '@/assets/404_cloud.png';
 
     position: relative;
     float: left;
-    width: 300px;
-    padding: 30px 0;
     overflow: hidden;
-
+    padding: 30px 0;
+    width: 300px;
     &__oops {
+      margin-bottom: 20px;
       font-size: 32px;
       font-weight: bold;
-      line-height: 40px;
       color: #1482f0;
       opacity: 0;
-      margin-bottom: 20px;
+      line-height: 40px;
       animation-name: slideUp;
       animation-duration: 0.5s;
       animation-fill-mode: forwards;
     }
-
     &__headline {
-      font-size: 20px;
-      line-height: 24px;
-      color: #222;
-      font-weight: bold;
-      opacity: 0;
       margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #222222;
+      opacity: 0;
+      line-height: 24px;
       animation-name: slideUp;
       animation-duration: 0.5s;
       animation-delay: 0.1s;
       animation-fill-mode: forwards;
     }
-
     &__info {
+      margin-bottom: 30px;
       font-size: 13px;
-      line-height: 21px;
       color: grey;
       opacity: 0;
-      margin-bottom: 30px;
+      line-height: 21px;
       animation-name: slideUp;
       animation-duration: 0.5s;
       animation-delay: 0.2s;
       animation-fill-mode: forwards;
     }
-
     &__return-home {
       display: block;
       float: left;
       width: 110px;
       height: 36px;
-      background: #1482f0;
+      font-size: 14px;
       border-radius: 100px;
       text-align: center;
-      color: #fff;
+      color: #ffffff;
+      background: #1482f0;
       opacity: 0;
-      font-size: 14px;
       line-height: 36px;
       cursor: pointer;
       animation-name: slideUp;

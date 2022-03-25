@@ -16,8 +16,8 @@ import Header from './Header/index.vue';
 
 <style lang="less" scoped>
 .sys {
-  height: 100%;
   display: flex;
+  height: 100%;
   &-right {
     flex: 1;
     display: flex;
