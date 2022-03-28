@@ -1,4 +1,4 @@
-# 柱状图参数配置
+# 柱状图(Rebar)参数配置
 
 ```vue demo src="../components/echarts/barDemo/bar.vue"
 

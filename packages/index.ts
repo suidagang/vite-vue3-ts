@@ -8,7 +8,6 @@
 import { App, Plugin } from 'vue';
 
 import { ButtonPlugin } from './MeButton';
-
 const MYKitPlugin: Plugin = {
   install(app: App) {
     ButtonPlugin.install?.(app);
