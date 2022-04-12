@@ -15,7 +15,6 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
 interface ListType {
   title: string[];
   text: string;
@@ -31,7 +30,7 @@ const props = withDefaults(
   }
 );
 
-let arr = reactive<string[]>(['王婷婷', '女', '汉族', '本科学历', '中共党员']);
+// let arr = reactive<string[]>(['王婷婷', '女', '汉族', '本科学历', '中共党员']);
 </script>
 
 <style lang="less" scoped>
