@@ -36,6 +36,7 @@
     "lodash-unified": "^1.0.2",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.11",
+    "swiper": "^8.0.7",
     "vite-plugin-vuedoc": "^3.1.3",
     "vue": "^3.2.25",
     "vue-i18n": "^9.1.9",

@@ -2,7 +2,7 @@
   <div class="com-top-head-box">
     <div class="logo-img"></div>
     <div class="head-title">XX税务局国家税务总局</div>
-    <div class="center-title">金凤区办税大厅监控</div>
+    <div class="center-title">{{ title }}</div>
     <div class="right-time">{{ rightDate }}</div>
   </div>
 </template>
@@ -11,6 +11,12 @@
 import { onMounted, ref } from 'vue';
 import { useIntervalFn } from '@vueuse/core';
 import dayjs, { Dayjs } from 'dayjs';
+defineProps({
+  title: {
+    type: String,
+    default: '金凤区办税大厅监控'
+  }
+});
 let weeks = [
   '星期日',
   '星期一',

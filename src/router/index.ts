@@ -13,7 +13,7 @@ export const routes: Array<RouteConfigs> = [
     path: '/',
     name: 'Home',
     component: Layout,
-    redirect: '/home',
+    redirect: '/jfmk',
     meta: {
       icon: 'home-filled',
       title: '主页',
@@ -145,6 +145,11 @@ export const routes: Array<RouteConfigs> = [
     path: '/login',
     name: 'Login',
     component: () => import('@/components/Slots.vue')
+  },
+  {
+    path: '/jfmk',
+    name: 'Jfmk',
+    component: () => import('@/views/Jfmk.vue')
   }
 ];
 const router = createRouter({

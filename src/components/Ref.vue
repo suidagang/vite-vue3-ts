@@ -12,7 +12,7 @@ import { ref, Ref, shallowRef, customRef } from 'vue';
 //customRef 自定义ref  参照myRef
 
 //写法一：引入ref泛型
-let message1: Ref<string> = ref('测试');
+let message1: Ref<string> = ref(true);
 message1.value = '123';
 //写法二：直接写
 let message2 = ref<string>('测试');

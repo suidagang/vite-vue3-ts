@@ -4,7 +4,13 @@
     <div class="com-sys-border sys-two"></div>
     <div class="com-sys-border sys-three"></div>
     <div class="com-sys-border sys-four"></div>
-    <div v-if="title" class="common-sys-head">{{ title }}</div>
+    <div
+      v-if="title"
+      class="common-sys-head"
+      :style="{ fontSize: titleFontSize, marginTop: titleMarginTop }"
+    >
+      {{ title }}
+    </div>
     <slot />
   </div>
 </template>
@@ -22,6 +28,14 @@ defineProps({
   title: {
     type: String,
     default: ''
+  },
+  titleFontSize: {
+    type: String,
+    default: '24px'
+  },
+  titleMarginTop: {
+    type: String,
+    default: '20px'
   }
 });
 </script>
@@ -29,6 +43,7 @@ defineProps({
 <style lang="less" scoped>
 .common-sys-box {
   position: relative;
+  overflow: hidden;
   border: 1px solid rgb(0 42 255 / 100%);
   text-align: left;
   color: #ffffff;

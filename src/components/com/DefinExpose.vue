@@ -15,7 +15,8 @@ const handle = (): void => {
 
 defineExpose({
   msg,
-  num
+  num,
+  handle
 });
 </script>
 
